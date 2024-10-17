@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B85AE71C2CC140DF0011BDB1 /* KakaoLoginBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */; };
+		B85AE71F2CC142F90011BDB1 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE71E2CC142F90011BDB1 /* KakaoSDKAuth */; };
+		B85AE7212CC142F90011BDB1 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7202CC142F90011BDB1 /* KakaoSDKCommon */; };
+		B85AE7232CC142F90011BDB1 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7222CC142F90011BDB1 /* KakaoSDKUser */; };
+		B85AE7262CC1435C0011BDB1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE7252CC1435C0011BDB1 /* LoginView.swift */; };
 		B8CB50EC2CC13BAC0045481A /* balllogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB50EB2CC13BAC0045481A /* balllogApp.swift */; };
 		B8CB50EE2CC13BAC0045481A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB50ED2CC13BAC0045481A /* ContentView.swift */; };
 		B8CB50F02CC13BB00045481A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8CB50EF2CC13BB00045481A /* Assets.xcassets */; };
@@ -35,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B85AE71A2CC140360011BDB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginBtnView.swift; sourceTree = "<group>"; };
+		B85AE7252CC1435C0011BDB1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		B8CB50E82CC13BAC0045481A /* balllog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = balllog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8CB50EB2CC13BAC0045481A /* balllogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = balllogApp.swift; sourceTree = "<group>"; };
 		B8CB50ED2CC13BAC0045481A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +61,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B85AE7212CC142F90011BDB1 /* KakaoSDKCommon in Frameworks */,
+				B85AE71F2CC142F90011BDB1 /* KakaoSDKAuth in Frameworks */,
+				B85AE7232CC142F90011BDB1 /* KakaoSDKUser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B85AE7242CC1434E0011BDB1 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B85AE7252CC1435C0011BDB1 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		B8CB50DF2CC13BAC0045481A = {
 			isa = PBXGroup;
 			children = (
@@ -96,7 +115,9 @@
 		B8CB50EA2CC13BAC0045481A /* balllog */ = {
 			isa = PBXGroup;
 			children = (
+				B85AE71A2CC140360011BDB1 /* Info.plist */,
 				B8CB51152CC13C4F0045481A /* Common */,
+				B85AE7242CC1434E0011BDB1 /* Login */,
 				B8CB50EB2CC13BAC0045481A /* balllogApp.swift */,
 				B8CB50ED2CC13BAC0045481A /* ContentView.swift */,
 				B8CB50EF2CC13BB00045481A /* Assets.xcassets */,
@@ -134,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				B8CB51162CC13C5E0045481A /* SplashView.swift */,
+				B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -154,6 +176,11 @@
 			dependencies = (
 			);
 			name = balllog;
+			packageProductDependencies = (
+				B85AE71E2CC142F90011BDB1 /* KakaoSDKAuth */,
+				B85AE7202CC142F90011BDB1 /* KakaoSDKCommon */,
+				B85AE7222CC142F90011BDB1 /* KakaoSDKUser */,
+			);
 			productName = balllog;
 			productReference = B8CB50E82CC13BAC0045481A /* balllog.app */;
 			productType = "com.apple.product-type.application";
@@ -226,6 +253,9 @@
 				Base,
 			);
 			mainGroup = B8CB50DF2CC13BAC0045481A;
+			packageReferences = (
+				B85AE71D2CC142F90011BDB1 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+			);
 			productRefGroup = B8CB50E92CC13BAC0045481A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -269,7 +299,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8CB50EE2CC13BAC0045481A /* ContentView.swift in Sources */,
+				B85AE71C2CC140DF0011BDB1 /* KakaoLoginBtnView.swift in Sources */,
 				B8CB50EC2CC13BAC0045481A /* balllogApp.swift in Sources */,
+				B85AE7262CC1435C0011BDB1 /* LoginView.swift in Sources */,
 				B8CB51172CC13C5E0045481A /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +468,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"balllog/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = balllog/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -464,6 +497,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"balllog/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = balllog/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -594,6 +628,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B85AE71D2CC142F90011BDB1 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.23.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B85AE71E2CC142F90011BDB1 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B85AE71D2CC142F90011BDB1 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		B85AE7202CC142F90011BDB1 /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B85AE71D2CC142F90011BDB1 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
+		B85AE7222CC142F90011BDB1 /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B85AE71D2CC142F90011BDB1 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B8CB50E02CC13BAC0045481A /* Project object */;
 }

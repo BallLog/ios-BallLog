@@ -12,13 +12,7 @@ struct ContentView: View {
     
     var body: some View {
         if showMainView {
-            VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundStyle(.tint)
-                Text("Hello, world!")
-            }
-            
+            LoginView()
         } else {
             SplashView()
                 .onAppear{
