@@ -14,6 +14,7 @@
 		B8CB50FD2CC13BB00045481A /* balllogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB50FC2CC13BB00045481A /* balllogTests.swift */; };
 		B8CB51072CC13BB00045481A /* balllogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB51062CC13BB00045481A /* balllogUITests.swift */; };
 		B8CB51092CC13BB00045481A /* balllogUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB51082CC13BB00045481A /* balllogUITestsLaunchTests.swift */; };
+		B8CB51172CC13C5E0045481A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB51162CC13C5E0045481A /* SplashView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		B8CB51022CC13BB00045481A /* balllogUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = balllogUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8CB51062CC13BB00045481A /* balllogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = balllogUITests.swift; sourceTree = "<group>"; };
 		B8CB51082CC13BB00045481A /* balllogUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = balllogUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B8CB51162CC13C5E0045481A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 		B8CB50EA2CC13BAC0045481A /* balllog */ = {
 			isa = PBXGroup;
 			children = (
+				B8CB51152CC13C4F0045481A /* Common */,
 				B8CB50EB2CC13BAC0045481A /* balllogApp.swift */,
 				B8CB50ED2CC13BAC0045481A /* ContentView.swift */,
 				B8CB50EF2CC13BB00045481A /* Assets.xcassets */,
@@ -125,6 +128,14 @@
 				B8CB51082CC13BB00045481A /* balllogUITestsLaunchTests.swift */,
 			);
 			path = balllogUITests;
+			sourceTree = "<group>";
+		};
+		B8CB51152CC13C4F0045481A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				B8CB51162CC13C5E0045481A /* SplashView.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +270,7 @@
 			files = (
 				B8CB50EE2CC13BAC0045481A /* ContentView.swift in Sources */,
 				B8CB50EC2CC13BAC0045481A /* balllogApp.swift in Sources */,
+				B8CB51172CC13C5E0045481A /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
