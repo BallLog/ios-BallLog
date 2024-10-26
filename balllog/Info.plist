@@ -7,12 +7,26 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>kakao</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>kakao24e62fbdc1d17bceba6990d424c48972</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>google</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.788674141984-e68lpgjfj7960jd7gbghjfalbbni7jhq</string>
+			</array>
+		</dict>
 	</array>
+	<key>GIDClientID</key>
+	<string>788674141984-e68lpgjfj7960jd7gbghjfalbbni7jhq.apps.googleusercontent.com</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>kakaokompassauth</string>
