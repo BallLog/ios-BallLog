@@ -9,7 +9,13 @@ import SwiftUI
 
 struct SplashView: View {
     var body: some View {
-        Text("짜잔 나는 볼로그!")
+        VStack {
+            Text("직관을 기록하는")
+                .font(.body)
+            Text("볼로그")
+                .font(.title)
+                .fontWeight(.bold)
+        }
     }
 }
 

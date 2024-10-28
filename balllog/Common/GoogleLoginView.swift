@@ -38,7 +38,7 @@ struct GoogleLoginView: View {
     }
 
     var body: some View {
-        GoogleSignInButton(style: .icon, action: handleSignInButton)
+        GoogleSignInButton(style: .standard, action: handleSignInButton)
             
     }
 }
