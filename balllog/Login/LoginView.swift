@@ -19,8 +19,8 @@ struct LoginView: View {
                     .fontWeight(.bold)
             }
             Spacer()
-            VStack(spacing: 20) {
-                GoogleLoginView()
+            VStack(spacing: 16) {
+                AppleLoginView()
                 KakaoLoginBtnView()
             }
             Spacer()

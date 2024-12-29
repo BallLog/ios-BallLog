@@ -9,20 +9,30 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var showMainView = false
+    @StateObject private var authViewModel = AuthViewModel()
     
     var body: some View {
-        if showMainView {
-            LoginView()
-        } else {
-            SplashView()
-                .onAppear{
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        withAnimation {
-                            showMainView = true
+        Group {
+            if showMainView {
+                if authViewModel.isLoggedIn {
+                    HomeView()
+                } else {
+                    LoginView()
+                }
+            } else {
+                SplashView()
+                    .onAppear{
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            withAnimation {
+                                showMainView = true
+                            }
                         }
                     }
-                }
+            }
+            
         }
+        .environmentObject(authViewModel)
+        .foregroundColor(Color("gray_90"))
     }
 }
 

@@ -9,12 +9,13 @@ import SwiftUI
 
 struct SplashView: View {
     var body: some View {
-        VStack {
-            Text("직관을 기록하는")
-                .font(.body)
-            Text("볼로그")
-                .font(.title)
-                .fontWeight(.bold)
+        ZStack {
+            Color.white
+                .ignoresSafeArea()
+            Image("SplashImage")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 150)
         }
     }
 }

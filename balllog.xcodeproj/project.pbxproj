@@ -14,7 +14,16 @@
 		B85AE7262CC1435C0011BDB1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE7252CC1435C0011BDB1 /* LoginView.swift */; };
 		B85AE7292CCD1F0B0011BDB1 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7282CCD1F0B0011BDB1 /* GoogleSignIn */; };
 		B85AE72B2CCD1F0B0011BDB1 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE72A2CCD1F0B0011BDB1 /* GoogleSignInSwift */; };
-		B85AE72D2CCD1F270011BDB1 /* GoogleLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE72C2CCD1F270011BDB1 /* GoogleLoginView.swift */; };
+		B8955BAC2D10592B0006350D /* AppleLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8955BAB2D1059200006350D /* AppleLoginView.swift */; };
+		B8955BAE2D105C250006350D /* AppleLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8955BAD2D105C1C0006350D /* AppleLoginViewModel.swift */; };
+		B8955BB02D105C4C0006350D /* AppleLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8955BAF2D105C450006350D /* AppleLoginModel.swift */; };
+		B8955BB32D105F260006350D /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8955BB22D105F230006350D /* TermsView.swift */; };
+		B8955BB52D10601B0006350D /* ButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8955BB42D10600E0006350D /* ButtonViewModel.swift */; };
+		B8955BB72D1060BE0006350D /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8955BB62D1060B80006350D /* CustomButton.swift */; };
+		B8955BB92D1063600006350D /* TermsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8955BB82D1063600006350D /* TermsViewModel.swift */; };
+		B8955BBB2D159CA30006350D /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8955BBA2D159C9D0006350D /* CheckBoxView.swift */; };
+		B8B0FD2D2CCF9FE10093F1A7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0FD2C2CCF9FE10093F1A7 /* HomeView.swift */; };
+		B8B0FD2F2CCFA0F80093F1A7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0FD2E2CCFA0F80093F1A7 /* LoginViewModel.swift */; };
 		B8CB50EC2CC13BAC0045481A /* balllogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB50EB2CC13BAC0045481A /* balllogApp.swift */; };
 		B8CB50EE2CC13BAC0045481A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB50ED2CC13BAC0045481A /* ContentView.swift */; };
 		B8CB50F02CC13BB00045481A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8CB50EF2CC13BB00045481A /* Assets.xcassets */; };
@@ -46,7 +55,17 @@
 		B85AE71A2CC140360011BDB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginBtnView.swift; sourceTree = "<group>"; };
 		B85AE7252CC1435C0011BDB1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		B85AE72C2CCD1F270011BDB1 /* GoogleLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLoginView.swift; sourceTree = "<group>"; };
+		B8955BAA2D1059140006350D /* balllog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = balllog.entitlements; sourceTree = "<group>"; };
+		B8955BAB2D1059200006350D /* AppleLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginView.swift; sourceTree = "<group>"; };
+		B8955BAD2D105C1C0006350D /* AppleLoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginViewModel.swift; sourceTree = "<group>"; };
+		B8955BAF2D105C450006350D /* AppleLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginModel.swift; sourceTree = "<group>"; };
+		B8955BB22D105F230006350D /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
+		B8955BB42D10600E0006350D /* ButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViewModel.swift; sourceTree = "<group>"; };
+		B8955BB62D1060B80006350D /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		B8955BB82D1063600006350D /* TermsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewModel.swift; sourceTree = "<group>"; };
+		B8955BBA2D159C9D0006350D /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
+		B8B0FD2C2CCF9FE10093F1A7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		B8B0FD2E2CCFA0F80093F1A7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		B8CB50E82CC13BAC0045481A /* balllog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = balllog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8CB50EB2CC13BAC0045481A /* balllogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = balllogApp.swift; sourceTree = "<group>"; };
 		B8CB50ED2CC13BAC0045481A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -94,8 +113,26 @@
 			isa = PBXGroup;
 			children = (
 				B85AE7252CC1435C0011BDB1 /* LoginView.swift */,
+				B8B0FD2E2CCFA0F80093F1A7 /* LoginViewModel.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		B8955BB12D105F030006350D /* Terms */ = {
+			isa = PBXGroup;
+			children = (
+				B8955BB82D1063600006350D /* TermsViewModel.swift */,
+				B8955BB22D105F230006350D /* TermsView.swift */,
+			);
+			path = Terms;
+			sourceTree = "<group>";
+		};
+		B8B0FD2B2CCF9FD50093F1A7 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B8B0FD2C2CCF9FE10093F1A7 /* HomeView.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		B8CB50DF2CC13BAC0045481A = {
@@ -121,8 +158,11 @@
 		B8CB50EA2CC13BAC0045481A /* balllog */ = {
 			isa = PBXGroup;
 			children = (
+				B8955BAA2D1059140006350D /* balllog.entitlements */,
 				B85AE71A2CC140360011BDB1 /* Info.plist */,
 				B8CB51152CC13C4F0045481A /* Common */,
+				B8B0FD2B2CCF9FD50093F1A7 /* Home */,
+				B8955BB12D105F030006350D /* Terms */,
 				B85AE7242CC1434E0011BDB1 /* Login */,
 				B8CB50EB2CC13BAC0045481A /* balllogApp.swift */,
 				B8CB50ED2CC13BAC0045481A /* ContentView.swift */,
@@ -160,9 +200,14 @@
 		B8CB51152CC13C4F0045481A /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B8955BBA2D159C9D0006350D /* CheckBoxView.swift */,
+				B8955BB62D1060B80006350D /* CustomButton.swift */,
+				B8955BB42D10600E0006350D /* ButtonViewModel.swift */,
+				B8955BAF2D105C450006350D /* AppleLoginModel.swift */,
+				B8955BAD2D105C1C0006350D /* AppleLoginViewModel.swift */,
+				B8955BAB2D1059200006350D /* AppleLoginView.swift */,
 				B8CB51162CC13C5E0045481A /* SplashView.swift */,
 				B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */,
-				B85AE72C2CCD1F270011BDB1 /* GoogleLoginView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -309,11 +354,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8CB50EE2CC13BAC0045481A /* ContentView.swift in Sources */,
+				B8955BB72D1060BE0006350D /* CustomButton.swift in Sources */,
+				B8B0FD2D2CCF9FE10093F1A7 /* HomeView.swift in Sources */,
+				B8955BAE2D105C250006350D /* AppleLoginViewModel.swift in Sources */,
 				B85AE71C2CC140DF0011BDB1 /* KakaoLoginBtnView.swift in Sources */,
 				B8CB50EC2CC13BAC0045481A /* balllogApp.swift in Sources */,
+				B8955BB92D1063600006350D /* TermsViewModel.swift in Sources */,
+				B8955BAC2D10592B0006350D /* AppleLoginView.swift in Sources */,
+				B8B0FD2F2CCFA0F80093F1A7 /* LoginViewModel.swift in Sources */,
 				B85AE7262CC1435C0011BDB1 /* LoginView.swift in Sources */,
+				B8955BB52D10601B0006350D /* ButtonViewModel.swift in Sources */,
+				B8955BB02D105C4C0006350D /* AppleLoginModel.swift in Sources */,
 				B8CB51172CC13C5E0045481A /* SplashView.swift in Sources */,
-				B85AE72D2CCD1F270011BDB1 /* GoogleLoginView.swift in Sources */,
+				B8955BB32D105F260006350D /* TermsView.swift in Sources */,
+				B8955BBB2D159CA30006350D /* CheckBoxView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,6 +528,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = balllog/balllog.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"balllog/Preview Content\"";
@@ -504,6 +559,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = balllog/balllog.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"balllog/Preview Content\"";
