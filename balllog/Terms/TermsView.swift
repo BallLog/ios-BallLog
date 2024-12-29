@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct TermsView: View {
-    @StateObject private var termsViewModel: TermsViewModel
+    @StateObject private var termsVM: TermsViewModel
     
-    init(termsViewModel: TermsViewModel = TermsViewModel()) {
-        _termsViewModel = StateObject(wrappedValue: termsViewModel)
+    init(termsVM: TermsViewModel = TermsViewModel()) {
+        _termsVM = StateObject(wrappedValue: termsVM)
     }
     
     var body: some View {
@@ -30,14 +30,20 @@ struct TermsView: View {
                 .padding(.horizontal, 30.0)
                 VStack(alignment: .leading, spacing: 5.0) {
                     VStack {
-                        CheckBoxView(isChecked: $termsViewModel.isAllAgreed, title: "전체 동의")
+                        Toggle("전체 동의", isOn: $termsVM.isAllAgreed)
+                            .toggleStyle(CheckboxToggleStyle())
                             .fontWeight(.semibold)
                             .font(.system(size: 18))
                             .lineSpacing(21.6)
+                            .frame(height: 65)
                     }
                     VStack(alignment: .leading) {
-                        CheckBoxView(isChecked: $termsViewModel.isTermsAgreed, title: "서비스 이용약관(필수)")
-                        CheckBoxView(isChecked: $termsViewModel.isPrivacyAgreed, title: "개인정보처리방침(필수)")
+                        Toggle("서비스 이용약관(필수)", isOn: $termsVM.isTermsAgreed)
+                            .toggleStyle(CheckboxToggleStyle())
+                            .frame(height: 45)
+                        Toggle("개인정보처리방침(필수)", isOn: $termsVM.isPrivacyAgreed)
+                            .toggleStyle(CheckboxToggleStyle())
+                            .frame(height: 45)
                     }
                     .font(.system(size: 14))
                     .foregroundColor(Color("gray_50"))
@@ -51,13 +57,22 @@ struct TermsView: View {
             .padding(.top, 56.0)
             Spacer()
             VStack {
-                CustomButton(title: "다음", isEnabled: termsViewModel.isAllAgreed) {
-                    if termsViewModel.isAllAgreed {
-                        termsViewModel.shouldNavigate = true // 화면 전환 상태 변경
+                Button("다음") {
+                    if termsVM.isAllAgreed {
+                        termsVM.shouldNavigate = true // 화면 전환 상태 변경
                     }
                 }
+                .disabled(!termsVM.isAllAgreed)
+                .buttonStyle(CustomButtonStyle())
+//                CustomButton(
+//                    title: "다음", isEnabled: termsVM.isAllAgreed
+//                ) {
+//                    if termsVM.isAllAgreed {
+//                        termsVM.shouldNavigate = true // 화면 전환 상태 변경
+//                    }
+//                }
             }
-            .navigationDestination(isPresented: $termsViewModel.shouldNavigate) {
+            .navigationDestination(isPresented: $termsVM.shouldNavigate) {
                 HomeView()
             }
             .padding(.bottom, 16.0)

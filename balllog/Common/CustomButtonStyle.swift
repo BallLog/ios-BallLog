@@ -1,5 +1,5 @@
 //
-//  CheckboxToggleStyle.swift
+//  CustomButtonStyle.swift
 //  balllog
 //
 //  Created by Nada on 12/29/24.
@@ -8,21 +8,18 @@
 import Foundation
 import SwiftUI
 
-struct CheckboxToggleStyle: ToggleStyle {
+struct CustomButtonStyle: ButtonStyle {
     @Environment(\.isEnabled) var isEnabled
     
     func makeBody(configuration: Configuration) -> some View {
-        Button(action: {
-            configuration.isOn.toggle() // toggle State
-        }) {
-            HStack {
-                Image(systemName: configuration.isOn ? "checkmark.square.fill" : "square")
-                    .foregroundColor(configuration.isOn ? Color("bc_02_60") : Color("gray_40"))
-                    .font(.system(size: 24))
-                configuration.label
-            }
-        }
-        .buttonStyle(PlainButtonStyle()) // 기본 버튼 스타일 제거
-        .disabled(!isEnabled)
+        configuration.label
+            .fontWeight(.bold)
+            .font(.system(size: 16))
+            .foregroundColor(isEnabled ? Color("white") : Color("gray_40"))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .frame(width: 330, height: 50)
+            .background(isEnabled ? Color("bc_02_50") : Color("gray_20"))
+            .cornerRadius(6)
+            .disabled(isEnabled)
     }
 }
