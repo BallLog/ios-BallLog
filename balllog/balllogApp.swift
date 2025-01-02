@@ -8,7 +8,6 @@
 import SwiftUI
 import KakaoSDKCommon
 import KakaoSDKAuth
-import GoogleSignIn
 
 @main
 struct balllogApp: App {
@@ -20,19 +19,10 @@ struct balllogApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .onAppear{
-                    GIDSignIn.sharedInstance.restorePreviousSignIn { user, error in
-                      // Check if `user` exists; otherwise, do something with `error`
-                    }
-                }
                 .onOpenURL { url in
                     // 카카오 로그인 URL 처리
                     if (AuthApi.isKakaoTalkLoginUrl(url)) {
                         _ = AuthController.handleOpenUrl(url: url)
-                    }
-                    // 구글 로그인 URL 처리
-                    else if url.scheme?.contains("com.googleusercontent.apps") == true {
-                        _ = GIDSignIn.sharedInstance.handle(url)
                     }
                 }
         }

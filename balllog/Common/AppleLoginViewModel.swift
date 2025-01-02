@@ -19,7 +19,7 @@ class AppleLoginViewModel: ObservableObject {
     }
     
     func handleAppleSignInCompletion(_ result: Result<ASAuthorization, Error>) {
-        isLoading = true
+        self.isLoading = true
         
         switch result {
         case .success(let authorization):
@@ -28,7 +28,7 @@ class AppleLoginViewModel: ObservableObject {
             handleAuthorizationFailure(error)
         }
         
-        isLoading = false
+        self.isLoading = false
     }
     
     private func handleAuthorizationSuccess(_ authorization: ASAuthorization) {
@@ -43,7 +43,7 @@ class AppleLoginViewModel: ObservableObject {
             )
             
             userData = model
-            loginSuccess = true
+            self.loginSuccess = true
             
             // 로그 출력
             printUserInfo(model)
@@ -61,12 +61,12 @@ class AppleLoginViewModel: ObservableObject {
     
     private func handleAuthorizationFailure(_ error: Error) {
         self.error = error
-        loginSuccess = false
+        self.loginSuccess = false
         print("로그인 실패", error.localizedDescription)
     }
     
     private func printUserInfo(_ model: AppleLoginModel) {
-        print("Apple ID 로그인에 성공하였습니다.")
+        print("Apple ID 로그인에 성공하였습니다. : \(loginSuccess)")
         print("사용자 ID: \(model.userId)")
         print("전체 이름: \(model.fullName?.givenName ?? "") \(model.fullName?.familyName ?? "")")
         print("이메일: \(model.email ?? "")")

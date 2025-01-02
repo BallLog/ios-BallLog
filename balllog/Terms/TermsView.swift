@@ -73,7 +73,7 @@ struct TermsView: View {
 //                }
             }
             .navigationDestination(isPresented: $termsVM.shouldNavigate) {
-                HomeView()
+                TeamSelectView()
             }
             .padding(.bottom, 16.0)
         }

@@ -2,7 +2,7 @@
 //  CheckboxToggleStyle.swift
 //  balllog
 //
-//  Created by Nada on 12/29/24.
+//  Created by 전은혜 on 12/29/24.
 //
 
 import Foundation

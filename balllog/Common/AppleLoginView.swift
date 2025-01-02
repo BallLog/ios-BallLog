@@ -29,12 +29,6 @@ struct AppleLoginView: View {
                       .foregroundColor(.red)
               }
           }
-          .onChange(of: viewModel.loginSuccess) { success in
-              if success {
-                  // 로그인 성공 후 처리
-                  // 예: 다음 화면으로 이동
-              }
-          }
       }
 }
 

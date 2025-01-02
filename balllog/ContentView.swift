@@ -10,12 +10,16 @@ import SwiftUI
 struct ContentView: View {
     @State private var showMainView = false
     @StateObject private var authViewModel = AuthViewModel()
-    
+    @StateObject private var appleLoginViewModel = AppleLoginViewModel()
+
     var body: some View {
         Group {
             if showMainView {
-                if authViewModel.isLoggedIn {
-                    HomeView()
+                if authViewModel.isLoggedIn || appleLoginViewModel.loginSuccess {
+                    // 최초 로그인인 경우
+                    TermsView()
+                    // 최초 로그인 아닌 경우
+//                    HomeView()
                 } else {
                     LoginView()
                 }
