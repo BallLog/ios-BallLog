@@ -9,7 +9,10 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        Text("home!")
+        VStack {
+            Text("home!")
+        }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

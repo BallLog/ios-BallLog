@@ -9,22 +9,26 @@
 import Foundation
 import SwiftUI
 
+enum ButtonState {
+    case selected
+    case nonselected
+}
+
 struct TeamButtonStyle: ButtonStyle {
-    @Environment(\.isEnabled) var isEnabled
+    let state: ButtonState
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .fontWeight(.semibold)
             .font(.system(size: 14))
-            .foregroundColor(isEnabled ? Color("bc_02_60") : Color("gray_40"))
+            .foregroundColor(state == .selected ? Color("bc_02_60") : Color("gray_40"))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .frame(width: 160, height: 80)
-            .background(isEnabled ? Color("bc_02_05") : Color("white"))
+            .background(state == .selected ? Color("bc_02_05") : Color("white"))
             .overlay(
                 RoundedRectangle(cornerRadius: 9)
-                    .stroke(isEnabled ? Color("bc_02_60") : Color("gray_40"), lineWidth: 1)
+                    .stroke(state == .selected ? Color("bc_02_60") : Color("gray_40"), lineWidth: 1)
             )
-            .disabled(isEnabled)
     }
 }
 
@@ -33,12 +37,11 @@ struct TeamButtonStyle: ButtonStyle {
         Button("버튼") {
             print("clilck!")
         }
-        .disabled(true)
-        .buttonStyle(TeamButtonStyle())
+        .buttonStyle(TeamButtonStyle(state: .selected))
         
         Button("버튼") {
             print("clilck!")
         }
-        .buttonStyle(TeamButtonStyle())
+        .buttonStyle(TeamButtonStyle(state: .nonselected))
     }
 }

@@ -77,6 +77,7 @@ struct TermsView: View {
             }
             .padding(.bottom, 16.0)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
