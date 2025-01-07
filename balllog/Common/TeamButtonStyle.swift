@@ -1,8 +1,8 @@
 //
-//  File.swift
+//  TeamButtonStyle.swift
 //  balllog
 //
-//  Created by Nada on 1/2/25.
+//  Created by 전은혜 on 1/2/25.
 //
 
 

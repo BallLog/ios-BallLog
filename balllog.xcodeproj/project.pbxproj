@@ -12,6 +12,7 @@
 		01B46CE72D21353D0007CBFF /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CE62D21353D0007CBFF /* CheckboxToggleStyle.swift */; };
 		01B46CE92D2141EE0007CBFF /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CE82D2141EE0007CBFF /* CustomButtonStyle.swift */; };
 		01B46CEB2D26CA5B0007CBFF /* TeamButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CEA2D26CA5B0007CBFF /* TeamButtonStyle.swift */; };
+		01B46CED2D2BAB950007CBFF /* TeamConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CEC2D2BAB950007CBFF /* TeamConfirmView.swift */; };
 		B85AE71C2CC140DF0011BDB1 /* KakaoLoginBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */; };
 		B85AE71F2CC142F90011BDB1 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE71E2CC142F90011BDB1 /* KakaoSDKAuth */; };
 		B85AE7212CC142F90011BDB1 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7202CC142F90011BDB1 /* KakaoSDKCommon */; };
@@ -59,6 +60,7 @@
 		01B46CE62D21353D0007CBFF /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
 		01B46CE82D2141EE0007CBFF /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		01B46CEA2D26CA5B0007CBFF /* TeamButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamButtonStyle.swift; sourceTree = "<group>"; };
+		01B46CEC2D2BAB950007CBFF /* TeamConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamConfirmView.swift; sourceTree = "<group>"; };
 		B85AE71A2CC140360011BDB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginBtnView.swift; sourceTree = "<group>"; };
 		B85AE7252CC1435C0011BDB1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			children = (
 				01B46CDF2D212C850007CBFF /* TeamSelectViewModel.swift */,
 				01B46CE02D212C850007CBFF /* TeamSelectView.swift */,
+				01B46CEC2D2BAB950007CBFF /* TeamConfirmView.swift */,
 			);
 			path = TeamSelect;
 			sourceTree = "<group>";
@@ -379,6 +382,7 @@
 				B8B0FD2F2CCFA0F80093F1A7 /* LoginViewModel.swift in Sources */,
 				01B46CE92D2141EE0007CBFF /* CustomButtonStyle.swift in Sources */,
 				01B46CEB2D26CA5B0007CBFF /* TeamButtonStyle.swift in Sources */,
+				01B46CED2D2BAB950007CBFF /* TeamConfirmView.swift in Sources */,
 				B85AE7262CC1435C0011BDB1 /* LoginView.swift in Sources */,
 				B8955BB02D105C4C0006350D /* AppleLoginModel.swift in Sources */,
 				B8CB51172CC13C5E0045481A /* SplashView.swift in Sources */,

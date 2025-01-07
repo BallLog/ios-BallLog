@@ -1,5 +1,5 @@
 //
-//  TermsView.swift
+//  TeamSelectView.swift
 //  balllog
 //
 //  Created by 전은혜 on 12/29/24.
@@ -57,16 +57,20 @@ struct TeamSelectView: View {
             VStack {
                 Button("다음") {
                     if teamSelectVM.selectedTeam != "" {
-                        teamSelectVM.shouldNavigate = true // 화면 전환 상태 변경
+                        teamSelectVM.teamConfirm = true // 화면 전환 상태 변경
                     }
                 }
                 .disabled(teamSelectVM.selectedTeam == "")
                 .buttonStyle(CustomButtonStyle())
             }
-            .navigationDestination(isPresented: $teamSelectVM.shouldNavigate) {
-                HomeView()
-            }
             .padding(.bottom, 16.0)
+        }
+        .fullScreenCover(isPresented: $teamSelectVM.teamConfirm) {
+            TeamConfirmView(selectedTeam: $teamSelectVM.selectedTeam, onConfirm: teamSelectVM.confirmTeam)
+                .presentationBackground(.ultraThinMaterial)
+        }
+        .navigationDestination(isPresented: $teamSelectVM.shouldNavigate) {
+            HomeView()
         }
         .navigationBarBackButtonHidden(true)
     }
