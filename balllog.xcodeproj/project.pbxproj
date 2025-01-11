@@ -13,6 +13,10 @@
 		01B46CE92D2141EE0007CBFF /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CE82D2141EE0007CBFF /* CustomButtonStyle.swift */; };
 		01B46CEB2D26CA5B0007CBFF /* TeamButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CEA2D26CA5B0007CBFF /* TeamButtonStyle.swift */; };
 		01B46CED2D2BAB950007CBFF /* TeamConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CEC2D2BAB950007CBFF /* TeamConfirmView.swift */; };
+		01B46CEF2D3230CB0007CBFF /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CEE2D3230CB0007CBFF /* ServiceView.swift */; };
+		01B46CF22D3231840007CBFF /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CF02D3231840007CBFF /* MyPageView.swift */; };
+		01B46CFC2D323B750007CBFF /* LogAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CFA2D323B750007CBFF /* LogAddView.swift */; };
+		01B46CFF2D323BE10007CBFF /* ServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CFE2D323BDF0007CBFF /* ServiceViewModel.swift */; };
 		B85AE71C2CC140DF0011BDB1 /* KakaoLoginBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */; };
 		B85AE71F2CC142F90011BDB1 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE71E2CC142F90011BDB1 /* KakaoSDKAuth */; };
 		B85AE7212CC142F90011BDB1 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7202CC142F90011BDB1 /* KakaoSDKCommon */; };
@@ -61,6 +65,10 @@
 		01B46CE82D2141EE0007CBFF /* CustomButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonStyle.swift; sourceTree = "<group>"; };
 		01B46CEA2D26CA5B0007CBFF /* TeamButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamButtonStyle.swift; sourceTree = "<group>"; };
 		01B46CEC2D2BAB950007CBFF /* TeamConfirmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamConfirmView.swift; sourceTree = "<group>"; };
+		01B46CEE2D3230CB0007CBFF /* ServiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceView.swift; sourceTree = "<group>"; };
+		01B46CF02D3231840007CBFF /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		01B46CFA2D323B750007CBFF /* LogAddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogAddView.swift; sourceTree = "<group>"; };
+		01B46CFE2D323BDF0007CBFF /* ServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewModel.swift; sourceTree = "<group>"; };
 		B85AE71A2CC140360011BDB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginBtnView.swift; sourceTree = "<group>"; };
 		B85AE7252CC1435C0011BDB1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -125,6 +133,31 @@
 			path = TeamSelect;
 			sourceTree = "<group>";
 		};
+		01B46CF12D3231840007CBFF /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				01B46CF02D3231840007CBFF /* MyPageView.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		01B46CFB2D323B750007CBFF /* LogAdd */ = {
+			isa = PBXGroup;
+			children = (
+				01B46CFA2D323B750007CBFF /* LogAddView.swift */,
+			);
+			path = LogAdd;
+			sourceTree = "<group>";
+		};
+		01B46CFD2D323BC80007CBFF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				01B46CFE2D323BDF0007CBFF /* ServiceViewModel.swift */,
+				01B46CEE2D3230CB0007CBFF /* ServiceView.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		B85AE7242CC1434E0011BDB1 /* Login */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,7 +210,10 @@
 				B8955BAA2D1059140006350D /* balllog.entitlements */,
 				B85AE71A2CC140360011BDB1 /* Info.plist */,
 				B8CB51152CC13C4F0045481A /* Common */,
+				01B46CFD2D323BC80007CBFF /* Service */,
 				B8B0FD2B2CCF9FD50093F1A7 /* Home */,
+				01B46CFB2D323B750007CBFF /* LogAdd */,
+				01B46CF12D3231840007CBFF /* MyPage */,
 				B8955BB12D105F030006350D /* Terms */,
 				01B46CE12D212C850007CBFF /* TeamSelect */,
 				B85AE7242CC1434E0011BDB1 /* Login */,
@@ -383,11 +419,15 @@
 				01B46CE92D2141EE0007CBFF /* CustomButtonStyle.swift in Sources */,
 				01B46CEB2D26CA5B0007CBFF /* TeamButtonStyle.swift in Sources */,
 				01B46CED2D2BAB950007CBFF /* TeamConfirmView.swift in Sources */,
+				01B46CF22D3231840007CBFF /* MyPageView.swift in Sources */,
 				B85AE7262CC1435C0011BDB1 /* LoginView.swift in Sources */,
+				01B46CFC2D323B750007CBFF /* LogAddView.swift in Sources */,
 				B8955BB02D105C4C0006350D /* AppleLoginModel.swift in Sources */,
 				B8CB51172CC13C5E0045481A /* SplashView.swift in Sources */,
+				01B46CFF2D323BE10007CBFF /* ServiceViewModel.swift in Sources */,
 				B8955BB32D105F260006350D /* TermsView.swift in Sources */,
 				01B46CE32D212C850007CBFF /* TeamSelectView.swift in Sources */,
+				01B46CEF2D3230CB0007CBFF /* ServiceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
