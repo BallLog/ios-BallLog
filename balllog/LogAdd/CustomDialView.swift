@@ -1,21 +1,20 @@
 //
-//  CustomPicker.swift
+//  CustomDialView.swift
 //  balllog
 //
-//  Created by 전은혜 on 1/14/25.
+//  Created by 전은혜 on 3/2/25.
 //
 
 import SwiftUI
 
-struct CustomPicker: View {
+struct CustomDialView: View {
     let title: String
-    let list: [String]
     let placeholder: String
     @Binding var selectedValue: String
     
     @State private var focusedValue: String = ""
     @State private var isSheetPresented: Bool = false
-
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10.0) {
             Text(title)
@@ -45,37 +44,26 @@ struct CustomPicker: View {
             .sheet(isPresented: $isSheetPresented) {
                 VStack(spacing: 5.0) {
                     VStack(spacing: 0.0) {
-                        ForEach(list.indices, id: \.self) { idx in
-                            Button(action: {
-                                focusedValue = list[idx]
-                            }) {
-                                Text(list[idx])
-                                    .font(.system(size: 16))
-                                    .foregroundColor(focusedValue == list[idx] ? Color("bc_02_60") : Color("gray_80"))
-                                    .frame(maxWidth: .infinity)
-                                    .frame(height: 56)
-                                    .background(focusedValue == list[idx] ?  Color("bc_02_10") : nil)
-                                
+                        Picker("숫자 선택", selection: $focusedValue) {
+                            ForEach(0..<41, id: \.self) { number in
+                                Text("\(number)").tag("\(number)")
                             }
-                            .overlay(
-                                idx < list.count - 1 ?
-                                Divider()
-                                    .foregroundColor(Color("gray_20"))  : nil,
-                                alignment: .bottom
-                            )
                         }
+                        .pickerStyle(WheelPickerStyle()) // 다이얼 스타일 적용
+                        .frame(width: 285, height: 215)
+                        .clipped()
                     }
                     Button("선택") {
                         selectedValue = focusedValue
                         isSheetPresented = false
                     }
-                    .disabled(focusedValue.isEmpty)
                     .buttonStyle(CustomButtonStyle())
                     .modifier(DefaultButtonWidth())
                 }
+                .padding(.vertical, 40.0)
                 // iOS 16 이상에서만 동작
                 // MARK: 풀화면으로 커지는거는 안되게 할 수 있는지 확인해보기
-                .presentationDetents([.fraction(0.8), .large])
+                .presentationDetents([.fraction(0.35)])
                 .presentationDragIndicator(.hidden)
             }
         }
@@ -83,13 +71,12 @@ struct CustomPicker: View {
     }
 }
 
-struct CustomPicker_Previews: PreviewProvider {
+struct CustomDialView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomPicker(title: "응원팀", list: ["기아 타이거즈", "삼성 라이온즈", "LG 트윈스", "두산 베어스", "KT 위즈", "SSG 랜더스", "롯데 자이언츠", "한화 이글스", "NC 다이노스", "키움 히어로즈"], placeholder: "구단선택", selectedValue: .constant("KT 위즈"))
+        CustomDialView(title: "점수", placeholder: "구단선택", selectedValue: .constant(""))
             .padding()
-            .previewLayout(.sizeThatFits)
-        CustomPicker(title: "응원팀", list: ["기아 타이거즈", "삼성 라이온즈", "LG 트윈스", "두산 베어스", "KT 위즈", "SSG 랜더스", "롯데 자이언츠", "한화 이글스", "NC 다이노스", "키움 히어로즈"], placeholder: "구단선택", selectedValue: .constant(""))
-            .padding()
-            .previewLayout(.sizeThatFits)
+            
     }
 }
+
+    

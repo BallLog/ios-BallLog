@@ -64,6 +64,7 @@ struct TermsView: View {
                 }
                 .disabled(!termsVM.isAllAgreed)
                 .buttonStyle(CustomButtonStyle())
+                .modifier(DefaultButtonWidth())
 //                CustomButton(
 //                    title: "다음", isEnabled: termsVM.isAllAgreed
 //                ) {

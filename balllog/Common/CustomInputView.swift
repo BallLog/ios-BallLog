@@ -29,14 +29,20 @@ struct CustomInputView: View {
                         .scrollContentBackground(.hidden)
                         .background(
                             RoundedRectangle(cornerRadius: 6)
-                                .foregroundColor(Color("gray_20"))
+                                .foregroundColor(
+                                    (text.isEmpty ? Color("gray_20") : Color.white)
+                                )
+                        )
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 6)
+                                .stroke(text.isEmpty == false ? Color("gray_20") : Color.clear, lineWidth: 1.3)
                         )
                     // Placeholder Text
                     if text.isEmpty {
                         Text(placeholder)
                             .font(.system(size: 14))
                             .foregroundColor(Color("gray_50"))
-                            .padding(12)
+                            .padding(18)
                     }
                 }
                 
@@ -44,9 +50,13 @@ struct CustomInputView: View {
                 TextField(placeholder, text: $text)
                     .padding(12)
                     .font(.system(size: 14))
-                    .foregroundColor(text.isEmpty ? Color("gray_50") : Color("gray_80"))
-                    .background(Color("gray_20"))
+                    .foregroundColor(Color("gray_80"))
+                    .background(text.isEmpty ? Color("gray_20") : Color.white)
                     .cornerRadius(6)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(text.isEmpty == false ? Color("gray_20") : Color.clear, lineWidth: 1.3)
+                    )
             }
         }
     }
@@ -54,10 +64,10 @@ struct CustomInputView: View {
 
 struct CustomInputView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomInputView(label: "제목", isArea: true, text: .constant("경기 개그치하네"), placeholder: "제목을 입력해주세요")
+        CustomInputView(label: "제목", isArea: true, text: .constant(""), placeholder: "제목을 입력해주세요")
             .padding()
             .previewLayout(.sizeThatFits)
-        CustomInputView(label: "제목", text: .constant("제목"), placeholder: "제목을 입력해주세요")
+        CustomInputView(label: "제목", text: .constant(""), placeholder: "제목을 입력해주세요")
             .padding()
             .previewLayout(.sizeThatFits)
     }

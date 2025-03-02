@@ -19,6 +19,8 @@
 		01B46CFF2D323BE10007CBFF /* ServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CFE2D323BDF0007CBFF /* ServiceViewModel.swift */; };
 		01B46D012D33B9270007CBFF /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46D002D33B9270007CBFF /* CustomInputView.swift */; };
 		01B46D052D368D3E0007CBFF /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46D042D368D3E0007CBFF /* CustomPicker.swift */; };
+		01C8FBBA2D71D10F00C544A3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBB92D71D10D00C544A3 /* Color.swift */; };
+		01C8FBBC2D7466E100C544A3 /* CustomDialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBBB2D7466E100C544A3 /* CustomDialView.swift */; };
 		B85AE71C2CC140DF0011BDB1 /* KakaoLoginBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */; };
 		B85AE71F2CC142F90011BDB1 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE71E2CC142F90011BDB1 /* KakaoSDKAuth */; };
 		B85AE7212CC142F90011BDB1 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7202CC142F90011BDB1 /* KakaoSDKCommon */; };
@@ -73,6 +75,8 @@
 		01B46CFE2D323BDF0007CBFF /* ServiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceViewModel.swift; sourceTree = "<group>"; };
 		01B46D002D33B9270007CBFF /* CustomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputView.swift; sourceTree = "<group>"; };
 		01B46D042D368D3E0007CBFF /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
+		01C8FBB92D71D10D00C544A3 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		01C8FBBB2D7466E100C544A3 /* CustomDialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialView.swift; sourceTree = "<group>"; };
 		B85AE71A2CC140360011BDB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginBtnView.swift; sourceTree = "<group>"; };
 		B85AE7252CC1435C0011BDB1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 			isa = PBXGroup;
 			children = (
 				01B46CFA2D323B750007CBFF /* LogAddView.swift */,
+				01C8FBBB2D7466E100C544A3 /* CustomDialView.swift */,
 				01B46D042D368D3E0007CBFF /* CustomPicker.swift */,
 			);
 			path = LogAdd;
@@ -260,6 +265,7 @@
 		B8CB51152CC13C4F0045481A /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				01C8FBB92D71D10D00C544A3 /* Color.swift */,
 				B8955BAF2D105C450006350D /* AppleLoginModel.swift */,
 				B8955BAD2D105C1C0006350D /* AppleLoginViewModel.swift */,
 				B8955BAB2D1059200006350D /* AppleLoginView.swift */,
@@ -427,9 +433,11 @@
 				01B46CEB2D26CA5B0007CBFF /* TeamButtonStyle.swift in Sources */,
 				01B46CED2D2BAB950007CBFF /* TeamConfirmView.swift in Sources */,
 				01B46D052D368D3E0007CBFF /* CustomPicker.swift in Sources */,
+				01C8FBBC2D7466E100C544A3 /* CustomDialView.swift in Sources */,
 				01B46CF22D3231840007CBFF /* MyPageView.swift in Sources */,
 				B85AE7262CC1435C0011BDB1 /* LoginView.swift in Sources */,
 				01B46CFC2D323B750007CBFF /* LogAddView.swift in Sources */,
+				01C8FBBA2D71D10F00C544A3 /* Color.swift in Sources */,
 				B8955BB02D105C4C0006350D /* AppleLoginModel.swift in Sources */,
 				B8CB51172CC13C5E0045481A /* SplashView.swift in Sources */,
 				01B46CFF2D323BE10007CBFF /* ServiceViewModel.swift in Sources */,

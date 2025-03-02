@@ -62,6 +62,7 @@ struct TeamSelectView: View {
                 }
                 .disabled(teamSelectVM.selectedTeam == "")
                 .buttonStyle(CustomButtonStyle())
+                .modifier(DefaultButtonWidth())
             }
             .padding(.bottom, 16.0)
         }
