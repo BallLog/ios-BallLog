@@ -71,7 +71,7 @@ struct TeamSelectView: View {
                 .presentationBackground(.ultraThinMaterial)
         }
         .navigationDestination(isPresented: $teamSelectVM.shouldNavigate) {
-            HomeView()
+            ServiceView()
         }
         .navigationBarBackButtonHidden(true)
     }

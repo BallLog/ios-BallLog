@@ -65,52 +65,6 @@ struct HomeView: View {
                         }
                     }
                 }
-                VStack {
-                    Spacer()
-                    ZStack(alignment: .top) {
-                        Image("menu_bg")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(maxWidth: .infinity)
-                            .shadow(color: Color(red: 98/255, green: 98/255, blue: 98/255, opacity: 0.25), radius: 4, x: 0, y: -2)
-                        
-                        HStack(alignment: .bottom) {
-                            NavigationLink(destination: HomeView())  {
-                                VStack(spacing: 4){
-                                    Image("home")
-                                    Text("홈")
-                                        .fontWeight(.semibold)
-                                        .font(.system(size: 13))
-                                        .foregroundColor(Color("gray_60"))
-                                }
-                                .frame(width: 76, height: 49)
-                            }
-                            Spacer()
-                            NavigationLink(destination: LogAddView())  {
-                                VStack(spacing: 6){
-                                    Image("log_add")
-                                    Text("볼로그")
-                                        .fontWeight(.semibold)
-                                        .font(.system(size: 13))
-                                        .foregroundColor(Color("gray_60"))
-                                }
-                                .frame(width: 76, height: 68)
-                            }
-                            Spacer()
-                            NavigationLink(destination: MyPageView())  {
-                                VStack(spacing: 4){
-                                    Image("mypage")
-                                    Text("마이페이지")
-                                        .fontWeight(.semibold)
-                                        .font(.system(size: 13))
-                                        .foregroundColor(Color("gray_60"))
-                                }
-                                .frame(width: 76, height: 49)
-                            }
-                        }
-                        .padding(.horizontal, 24.0)
-                    }
-                }
             }
         }
         .navigationBarBackButtonHidden(true)

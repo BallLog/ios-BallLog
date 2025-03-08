@@ -20,10 +20,16 @@ struct LogAddView: View {
     @State private var opposingTeamScore: String = ""
     @State private var stadium: String = ""
     
+    
+    @FocusState private var isFocused: Bool
+    
 
     var body: some View {
         ZStack {
-            VStack {
+            // 터치영역
+            Color.white
+            
+            ScrollView {
                 // 헤더
                 HStack {
                     Button(action: {
@@ -52,6 +58,7 @@ struct LogAddView: View {
                     PhotoPickerView(selectedItems: $photoList)
                     // 제목
                     CustomInputView(label: "제목", text: $title, placeholder: "제목을 입력해주세요")
+                        .focused($isFocused)
                     
                     HStack {
                         // 응원팀
@@ -75,22 +82,35 @@ struct LogAddView: View {
                     CustomPicker(title: "경기구장", list: ["광주 KIA챔피언스", "대구 삼성라이온즈파크", "잠실야구장", "수원 KT 위즈파크", "인천 SSG랜더스필드", "사직야구장", "대전 한화생명볼파크", "창원 NC파크", "고척스카이돔", "기타"], placeholder: "구장선택", selectedValue: $stadium)
                     // 내용
                     CustomInputView(label: "내용", isArea: true, text: $logContent, placeholder: "내용을 입력하세요")
+                        .focused($isFocused)
                     
                 }
                 .padding(.horizontal, 20.0)
+                Spacer().frame(height: 100)
             }
             .navigationBarBackButtonHidden(true)
-        }
-        VStack {
-            Button("저장") {
-                print("제출이에용")
+            
+            // 버튼 뷰
+            
+            VStack {
+                Spacer()
+                VStack {
+                    Button("저장") {
+                        print("제출이에용")
+                    }
+                    .buttonStyle(CustomButtonStyle())
+                    .modifier(DefaultButtonWidth())
+                }
+                .frame(height: 80.0)
+                .frame(maxWidth: .infinity)
+                .background(Color.white)
+                .shadow(color: Color.black.opacity(0.1), radius: 8.6, x: 0, y: -1)
             }
-            .buttonStyle(CustomButtonStyle())
-            .modifier(DefaultButtonWidth())
         }
-        .frame(width: .infinity, height: 80.0)
-        .background(Color.white)
-        .shadow(color: Color.black.opacity(0.1), radius: 8.6, x: 0, y: -1)
+        .ignoresSafeArea(.keyboard, edges: .bottom)
+        .simultaneousGesture( // ✅ UI 요소 터치 시 키보드 숨김
+            TapGesture().onEnded { isFocused = false }
+        )
     }
 }
 

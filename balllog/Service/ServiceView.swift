@@ -26,6 +26,7 @@ struct ServiceView: View {
                 tabBar
             }
         }
+        .interactiveDismissDisabled(true)
         .fullScreenCover(isPresented: $serviceVM.shouldPresentLogView) {
             LogAddView() // 로그 추가 페이지
         }
@@ -36,7 +37,7 @@ struct ServiceView: View {
             Image("TabBar")
                 .resizable()
                 .frame(maxWidth: .infinity)
-                .frame(height: 108)
+                .frame(height: 74)
 
             HStack(alignment: .bottom) {
                 Spacer()
@@ -44,7 +45,7 @@ struct ServiceView: View {
                     serviceVM.selectedTab = .home
                 } label: {
                     VStack(spacing: 4.0) {
-                        Image(systemName: "house.fill")
+                        Image("home")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 24.0, height: 24.0)
@@ -60,7 +61,7 @@ struct ServiceView: View {
                     serviceVM.selectedTab = .add
                 } label : {
                     VStack(spacing: 6.0) {
-                        Image(systemName: "plus.circle.fill")
+                        Image("log_add")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 40.0, height: 40.0)
@@ -77,7 +78,7 @@ struct ServiceView: View {
                     serviceVM.selectedTab = .mypage
                 } label: {
                     VStack(spacing: 4.0) {
-                        Image(systemName: "person.fill")
+                        Image("mypage")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 24.0, height: 24.0)
@@ -93,6 +94,7 @@ struct ServiceView: View {
             .padding(.top, 8.0)
             .frame(maxWidth: .infinity)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

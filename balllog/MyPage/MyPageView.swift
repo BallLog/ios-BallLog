@@ -62,7 +62,7 @@ struct MyPageView: View {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 6)
                                     .fill(Color("gray_20"))
-                                    .frame(width: .infinity, height: 6)
+                                    .frame(width: geometry.size.width, height: 6)
                                 HStack {
                                     RoundedRectangle(cornerRadius: 6)
                                         .fill(Color("Lions_COL_01"))
