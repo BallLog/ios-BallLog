@@ -31,7 +31,7 @@ struct GrayBtnStyle: ButtonStyle {
         configuration.label
             .fontWeight(.bold)
             .font(.system(size: 16))
-            .foregroundColor(isEnabled ? Color("white") : Color("gray_40"))
+            .foregroundColor(isEnabled ? Color.white : Color("gray_40"))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(isEnabled ? Color("gray_40") : Color("gray_20"))
             .cornerRadius(6)

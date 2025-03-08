@@ -25,7 +25,7 @@ struct CustomInputView: View {
                         .padding(12)
                         .font(.system(size: 14))
                         .foregroundColor(Color("gray_80"))
-                        .frame(maxHeight: 125)
+                        .frame(height: 134)
                         .scrollContentBackground(.hidden)
                         .background(
                             RoundedRectangle(cornerRadius: 6)

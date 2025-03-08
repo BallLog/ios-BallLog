@@ -24,7 +24,7 @@ struct TeamButtonStyle: ButtonStyle {
             .foregroundColor(state == .selected ? Color("bc_02_60") : Color("gray_40"))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .frame(width: 160, height: 80)
-            .background(state == .selected ? Color("bc_02_05") : Color("white"))
+            .background(state == .selected ? Color("bc_02_05") : Color.white)
             .overlay(
                 RoundedRectangle(cornerRadius: 9)
                     .stroke(state == .selected ? Color("bc_02_60") : Color("gray_40"), lineWidth: 1)

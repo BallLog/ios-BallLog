@@ -35,7 +35,7 @@ struct CustomDialView: View {
                 .padding(.horizontal, 12.0)
                 .frame(maxWidth: .infinity)
                 .frame(height: 44)
-                .background(selectedValue.isEmpty ? Color("gray_20") : Color("white"))
+                .background(selectedValue.isEmpty ? Color("gray_20") : Color.white)
                 .cornerRadius(4).overlay(
                     RoundedRectangle(cornerRadius: 6)
                         .stroke(selectedValue.isEmpty == false ? Color("gray_20") : Color.clear, lineWidth: 1.3)
