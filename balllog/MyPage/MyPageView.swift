@@ -72,7 +72,7 @@ struct MyPageView: View {
                             }
                         }
                     }
-                    .frame(width: .infinity, height: 62)
+                    .frame(height: 62)
                     .padding(.top, 14.0)
                     .padding(.bottom, 20.0)
                     .padding(.horizontal, 16)

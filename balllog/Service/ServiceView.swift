@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+enum NavigationDestination: String {
+    case home
+    case detail
+    case edit
+}
+
 struct ServiceView: View {
     @StateObject private var serviceVM = ServiceViewModel()
 

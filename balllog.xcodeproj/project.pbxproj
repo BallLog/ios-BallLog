@@ -3,36 +3,41 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		01B46CE22D212C850007CBFF /* TeamSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CDF2D212C850007CBFF /* TeamSelectViewModel.swift */; };
 		01B46CE32D212C850007CBFF /* TeamSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CE02D212C850007CBFF /* TeamSelectView.swift */; };
 		01B46CE72D21353D0007CBFF /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CE62D21353D0007CBFF /* CheckboxToggleStyle.swift */; };
-		01B46CE92D2141EE0007CBFF /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CE82D2141EE0007CBFF /* CustomButtonStyle.swift */; };
 		01B46CEB2D26CA5B0007CBFF /* TeamButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CEA2D26CA5B0007CBFF /* TeamButtonStyle.swift */; };
 		01B46CED2D2BAB950007CBFF /* TeamConfirmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CEC2D2BAB950007CBFF /* TeamConfirmView.swift */; };
 		01B46CEF2D3230CB0007CBFF /* ServiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CEE2D3230CB0007CBFF /* ServiceView.swift */; };
 		01B46CF22D3231840007CBFF /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CF02D3231840007CBFF /* MyPageView.swift */; };
 		01B46CFC2D323B750007CBFF /* LogAddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CFA2D323B750007CBFF /* LogAddView.swift */; };
 		01B46CFF2D323BE10007CBFF /* ServiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CFE2D323BDF0007CBFF /* ServiceViewModel.swift */; };
-		01B46D012D33B9270007CBFF /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46D002D33B9270007CBFF /* CustomInputView.swift */; };
 		01B46D052D368D3E0007CBFF /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46D042D368D3E0007CBFF /* CustomPicker.swift */; };
-		01C8FBBA2D71D10F00C544A3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBB92D71D10D00C544A3 /* Color.swift */; };
 		01C8FBBC2D7466E100C544A3 /* CustomDialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBBB2D7466E100C544A3 /* CustomDialView.swift */; };
 		01C8FBBE2D746DBC00C544A3 /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBBD2D746DBC00C544A3 /* PhotoPickerView.swift */; };
 		01C8FBC02D772AAB00C544A3 /* ChangeTeamSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBBF2D772AA500C544A3 /* ChangeTeamSelectView.swift */; };
-		B85AE71C2CC140DF0011BDB1 /* KakaoLoginBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */; };
+		01C8FBC42D8C32F600C544A3 /* BallLogDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBC22D8C32F000C544A3 /* BallLogDetailView.swift */; };
+		01C8FBCF2D8CFA6900C544A3 /* AppleLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8955BAD2D105C1C0006350D /* AppleLoginViewModel.swift */; };
+		01C8FBD02D8CFA6900C544A3 /* KakaoLoginBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */; };
+		01C8FBD12D8CFA6900C544A3 /* AppleLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8955BAB2D1059200006350D /* AppleLoginView.swift */; };
+		01C8FBD22D8CFA6900C544A3 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CE82D2141EE0007CBFF /* CustomButtonStyle.swift */; };
+		01C8FBD32D8CFA6900C544A3 /* AppleLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8955BAF2D105C450006350D /* AppleLoginModel.swift */; };
+		01C8FBD42D8CFA6900C544A3 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB51162CC13C5E0045481A /* SplashView.swift */; };
+		01C8FBD52D8CFA6900C544A3 /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46D002D33B9270007CBFF /* CustomInputView.swift */; };
+		01C8FBD62D8CFA6900C544A3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBB92D71D10D00C544A3 /* Color.swift */; };
+		01C8FBDB2D8CFB9000C544A3 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBDA2D8CFB9000C544A3 /* RoundedCorner.swift */; };
+		01C8FBDD2D8CFBED00C544A3 /* teamGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBDC2D8CFBED00C544A3 /* teamGradient.swift */; };
+		01C8FBDF2D8D0AF400C544A3 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBDE2D8D0AF400C544A3 /* DetailHeaderView.swift */; };
 		B85AE71F2CC142F90011BDB1 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE71E2CC142F90011BDB1 /* KakaoSDKAuth */; };
 		B85AE7212CC142F90011BDB1 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7202CC142F90011BDB1 /* KakaoSDKCommon */; };
 		B85AE7232CC142F90011BDB1 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7222CC142F90011BDB1 /* KakaoSDKUser */; };
 		B85AE7262CC1435C0011BDB1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85AE7252CC1435C0011BDB1 /* LoginView.swift */; };
 		B85AE7292CCD1F0B0011BDB1 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7282CCD1F0B0011BDB1 /* GoogleSignIn */; };
 		B85AE72B2CCD1F0B0011BDB1 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE72A2CCD1F0B0011BDB1 /* GoogleSignInSwift */; };
-		B8955BAC2D10592B0006350D /* AppleLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8955BAB2D1059200006350D /* AppleLoginView.swift */; };
-		B8955BAE2D105C250006350D /* AppleLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8955BAD2D105C1C0006350D /* AppleLoginViewModel.swift */; };
-		B8955BB02D105C4C0006350D /* AppleLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8955BAF2D105C450006350D /* AppleLoginModel.swift */; };
 		B8955BB32D105F260006350D /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8955BB22D105F230006350D /* TermsView.swift */; };
 		B8955BB92D1063600006350D /* TermsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8955BB82D1063600006350D /* TermsViewModel.swift */; };
 		B8B0FD2D2CCF9FE10093F1A7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0FD2C2CCF9FE10093F1A7 /* HomeView.swift */; };
@@ -44,7 +49,6 @@
 		B8CB50FD2CC13BB00045481A /* balllogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB50FC2CC13BB00045481A /* balllogTests.swift */; };
 		B8CB51072CC13BB00045481A /* balllogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB51062CC13BB00045481A /* balllogUITests.swift */; };
 		B8CB51092CC13BB00045481A /* balllogUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB51082CC13BB00045481A /* balllogUITestsLaunchTests.swift */; };
-		B8CB51172CC13C5E0045481A /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB51162CC13C5E0045481A /* SplashView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +85,10 @@
 		01C8FBBB2D7466E100C544A3 /* CustomDialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDialView.swift; sourceTree = "<group>"; };
 		01C8FBBD2D746DBC00C544A3 /* PhotoPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		01C8FBBF2D772AA500C544A3 /* ChangeTeamSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTeamSelectView.swift; sourceTree = "<group>"; };
+		01C8FBC22D8C32F000C544A3 /* BallLogDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallLogDetailView.swift; sourceTree = "<group>"; };
+		01C8FBDA2D8CFB9000C544A3 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		01C8FBDC2D8CFBED00C544A3 /* teamGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teamGradient.swift; sourceTree = "<group>"; };
+		01C8FBDE2D8D0AF400C544A3 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		B85AE71A2CC140360011BDB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginBtnView.swift; sourceTree = "<group>"; };
 		B85AE7252CC1435C0011BDB1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -104,6 +112,10 @@
 		B8CB51082CC13BB00045481A /* balllogUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = balllogUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B8CB51162CC13C5E0045481A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		01C8FBC52D8C36E300C544A3 /* Font */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Font; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		B8CB50E52CC13BAC0045481A /* Frameworks */ = {
@@ -170,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				01B46CFE2D323BDF0007CBFF /* ServiceViewModel.swift */,
+				01C8FBC22D8C32F000C544A3 /* BallLogDetailView.swift */,
 				01B46CEE2D3230CB0007CBFF /* ServiceView.swift */,
 			);
 			path = Service;
@@ -225,6 +238,7 @@
 		B8CB50EA2CC13BAC0045481A /* balllog */ = {
 			isa = PBXGroup;
 			children = (
+				01C8FBC52D8C36E300C544A3 /* Font */,
 				B8955BAA2D1059140006350D /* balllog.entitlements */,
 				B85AE71A2CC140360011BDB1 /* Info.plist */,
 				B8CB51152CC13C4F0045481A /* Common */,
@@ -279,6 +293,9 @@
 				B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */,
 				01B46CE82D2141EE0007CBFF /* CustomButtonStyle.swift */,
 				01B46D002D33B9270007CBFF /* CustomInputView.swift */,
+				01C8FBDA2D8CFB9000C544A3 /* RoundedCorner.swift */,
+				01C8FBDC2D8CFBED00C544A3 /* teamGradient.swift */,
+				01C8FBDE2D8D0AF400C544A3 /* DetailHeaderView.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -297,6 +314,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				01C8FBC52D8C36E300C544A3 /* Font */,
 			);
 			name = balllog;
 			packageProductDependencies = (
@@ -425,30 +445,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				01B46CE72D21353D0007CBFF /* CheckboxToggleStyle.swift in Sources */,
+				01C8FBCF2D8CFA6900C544A3 /* AppleLoginViewModel.swift in Sources */,
+				01C8FBD02D8CFA6900C544A3 /* KakaoLoginBtnView.swift in Sources */,
+				01C8FBD12D8CFA6900C544A3 /* AppleLoginView.swift in Sources */,
+				01C8FBD22D8CFA6900C544A3 /* CustomButtonStyle.swift in Sources */,
+				01C8FBD32D8CFA6900C544A3 /* AppleLoginModel.swift in Sources */,
+				01C8FBD42D8CFA6900C544A3 /* SplashView.swift in Sources */,
+				01C8FBD52D8CFA6900C544A3 /* CustomInputView.swift in Sources */,
+				01C8FBD62D8CFA6900C544A3 /* Color.swift in Sources */,
+				01C8FBDF2D8D0AF400C544A3 /* DetailHeaderView.swift in Sources */,
 				B8CB50EE2CC13BAC0045481A /* ContentView.swift in Sources */,
 				B8B0FD2D2CCF9FE10093F1A7 /* HomeView.swift in Sources */,
-				01B46D012D33B9270007CBFF /* CustomInputView.swift in Sources */,
-				B8955BAE2D105C250006350D /* AppleLoginViewModel.swift in Sources */,
 				01C8FBC02D772AAB00C544A3 /* ChangeTeamSelectView.swift in Sources */,
-				B85AE71C2CC140DF0011BDB1 /* KakaoLoginBtnView.swift in Sources */,
+				01C8FBDB2D8CFB9000C544A3 /* RoundedCorner.swift in Sources */,
 				B8CB50EC2CC13BAC0045481A /* balllogApp.swift in Sources */,
 				01B46CE22D212C850007CBFF /* TeamSelectViewModel.swift in Sources */,
 				B8955BB92D1063600006350D /* TermsViewModel.swift in Sources */,
-				B8955BAC2D10592B0006350D /* AppleLoginView.swift in Sources */,
 				B8B0FD2F2CCFA0F80093F1A7 /* LoginViewModel.swift in Sources */,
-				01B46CE92D2141EE0007CBFF /* CustomButtonStyle.swift in Sources */,
 				01B46CEB2D26CA5B0007CBFF /* TeamButtonStyle.swift in Sources */,
 				01B46CED2D2BAB950007CBFF /* TeamConfirmView.swift in Sources */,
 				01B46D052D368D3E0007CBFF /* CustomPicker.swift in Sources */,
 				01C8FBBC2D7466E100C544A3 /* CustomDialView.swift in Sources */,
 				01B46CF22D3231840007CBFF /* MyPageView.swift in Sources */,
+				01C8FBDD2D8CFBED00C544A3 /* teamGradient.swift in Sources */,
 				B85AE7262CC1435C0011BDB1 /* LoginView.swift in Sources */,
 				01B46CFC2D323B750007CBFF /* LogAddView.swift in Sources */,
-				01C8FBBA2D71D10F00C544A3 /* Color.swift in Sources */,
-				B8955BB02D105C4C0006350D /* AppleLoginModel.swift in Sources */,
-				B8CB51172CC13C5E0045481A /* SplashView.swift in Sources */,
 				01C8FBBE2D746DBC00C544A3 /* PhotoPickerView.swift in Sources */,
 				01B46CFF2D323BE10007CBFF /* ServiceViewModel.swift in Sources */,
+				01C8FBC42D8C32F600C544A3 /* BallLogDetailView.swift in Sources */,
 				B8955BB32D105F260006350D /* TermsView.swift in Sources */,
 				01B46CE32D212C850007CBFF /* TeamSelectView.swift in Sources */,
 				01B46CEF2D3230CB0007CBFF /* ServiceView.swift in Sources */,
