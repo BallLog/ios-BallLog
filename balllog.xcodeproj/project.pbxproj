@@ -32,6 +32,7 @@
 		01C8FBDB2D8CFB9000C544A3 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBDA2D8CFB9000C544A3 /* RoundedCorner.swift */; };
 		01C8FBDD2D8CFBED00C544A3 /* teamGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBDC2D8CFBED00C544A3 /* teamGradient.swift */; };
 		01C8FBDF2D8D0AF400C544A3 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBDE2D8D0AF400C544A3 /* DetailHeaderView.swift */; };
+		01D14D562DA0FA3600AD1165 /* TermsOfUseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D14D552DA0FA3600AD1165 /* TermsOfUseView.swift */; };
 		B85AE71F2CC142F90011BDB1 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE71E2CC142F90011BDB1 /* KakaoSDKAuth */; };
 		B85AE7212CC142F90011BDB1 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7202CC142F90011BDB1 /* KakaoSDKCommon */; };
 		B85AE7232CC142F90011BDB1 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7222CC142F90011BDB1 /* KakaoSDKUser */; };
@@ -89,6 +90,7 @@
 		01C8FBDA2D8CFB9000C544A3 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		01C8FBDC2D8CFBED00C544A3 /* teamGradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teamGradient.swift; sourceTree = "<group>"; };
 		01C8FBDE2D8D0AF400C544A3 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
+		01D14D552DA0FA3600AD1165 /* TermsOfUseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsOfUseView.swift; sourceTree = "<group>"; };
 		B85AE71A2CC140360011BDB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginBtnView.swift; sourceTree = "<group>"; };
 		B85AE7252CC1435C0011BDB1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				B8955BB82D1063600006350D /* TermsViewModel.swift */,
 				B8955BB22D105F230006350D /* TermsView.swift */,
 				01B46CE62D21353D0007CBFF /* CheckboxToggleStyle.swift */,
+				01D14D552DA0FA3600AD1165 /* TermsOfUseView.swift */,
 			);
 			path = Terms;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				01C8FBD12D8CFA6900C544A3 /* AppleLoginView.swift in Sources */,
 				01C8FBD22D8CFA6900C544A3 /* CustomButtonStyle.swift in Sources */,
 				01C8FBD32D8CFA6900C544A3 /* AppleLoginModel.swift in Sources */,
+				01D14D562DA0FA3600AD1165 /* TermsOfUseView.swift in Sources */,
 				01C8FBD42D8CFA6900C544A3 /* SplashView.swift in Sources */,
 				01C8FBD52D8CFA6900C544A3 /* CustomInputView.swift in Sources */,
 				01C8FBD62D8CFA6900C544A3 /* Color.swift in Sources */,
