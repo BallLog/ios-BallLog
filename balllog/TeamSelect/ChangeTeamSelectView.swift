@@ -21,22 +21,8 @@ struct ChangeTeamSelectView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .leading, spacing: 20) {
-                HStack(alignment: .center) {
-                    Button(action: {
-                        dismiss()
-                    }){
-                        Image("dismiss")
-                    }
-                    Text("응원구단 변경")
-                        .font(.system(size: 18))
-                        .fontWeight(.semibold)
-                        .lineSpacing(27)
-                        .frame(maxWidth: .infinity, alignment: .center)
-                    Spacer()
-                }
-                .frame(width: .infinity, height: 60)
-                VStack(alignment: .center, spacing: 30) {
+            ZStack {
+                VStack(alignment: .center, spacing: 38) {
                     ForEach(teamData, id: \.self) { row in
                         HStack(spacing: 16) {
                             ForEach(row, id: \.self) { item in
@@ -52,32 +38,33 @@ struct ChangeTeamSelectView: View {
                     }
                 }
                 .frame(maxWidth: .infinity)
-                .padding(.horizontal, 20.0)
-            }
-            .frame(
-                maxWidth: .infinity,
-                alignment: .topLeading
-            )
-            .padding(.top, 56.0)
-            Spacer()
-            VStack {
-                Button("다음") {
-                    if teamSelectVM.selectedTeam != "" {
-                        teamSelectVM.teamConfirm = true // 화면 전환 상태 변경
+                .padding(20.0)
+                
+                // 고정 뷰 (헤더, 버튼)
+                VStack {
+                    // 헤더
+                    DetailHeaderView(title:"응원구단 변경")
+                    Spacer()
+                    // 버튼
+                    VStack {
+                        Button("다음") {
+                            if teamSelectVM.selectedTeam != "" {
+                                // 뒤로가기 동작으로 마이페이지 복귀
+                                dismiss()
+                            }
+                        }
+                        .disabled(teamSelectVM.selectedTeam == "")
+                        .buttonStyle(CustomButtonStyle())
+                        .modifier(DefaultButtonWidth())
                     }
+                    .padding(.bottom, 16.0)
+                
                 }
-                .disabled(teamSelectVM.selectedTeam == "")
-                .buttonStyle(CustomButtonStyle())
-                .modifier(DefaultButtonWidth())
             }
-            .padding(.bottom, 16.0)
         }
         .fullScreenCover(isPresented: $teamSelectVM.teamConfirm) {
             TeamConfirmView(selectedTeam: $teamSelectVM.selectedTeam, onConfirm: teamSelectVM.confirmTeam)
                 .presentationBackground(.ultraThinMaterial)
-        }
-        .navigationDestination(isPresented: $teamSelectVM.shouldNavigate) {
-            MyPageView()
         }
         .navigationBarBackButtonHidden(true)
     }
