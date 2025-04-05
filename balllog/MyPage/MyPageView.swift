@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MyPageView: View {
+    @State var shouldPopup: Bool = false // 로그아웃 팝업 상태
+    
     var body: some View {
         NavigationStack {
             VStack(spacing: 15) {
@@ -111,7 +113,7 @@ struct MyPageView: View {
                             }
                             Divider()
                                 .foregroundStyle(Color("gray_40"))
-                            NavigationLink(destination: TermsView()) {
+                            NavigationLink(destination: TermsOfUseView()) {
                                 HStack {
                                     Image("policy")
                                     Spacer()
@@ -138,25 +140,31 @@ struct MyPageView: View {
                             .padding(16.0)
                             Divider()
                                 .foregroundStyle(Color("gray_40"))
-                            HStack {
-                                Image("logout")
-                                Spacer()
-                                    .frame(width: 24)
-                                Text("로그아웃")
-                                Spacer()
+                            Button {
+                                shouldPopup = true
+                            } label: {
+                                HStack {
+                                    Image("logout")
+                                    Spacer()
+                                        .frame(width: 24)
+                                    Text("로그아웃")
+                                    Spacer()
+                                }
+                                .padding(16.0)
                             }
-                            .padding(16.0)
                             Divider()
                                 .foregroundStyle(Color("gray_40"))
-                            HStack {
-                                Image("resign")
-                                Spacer()
-                                    .frame(width: 24)
-                                Text("회원탈퇴")
-                                Spacer()
-                                Image("chevron_gray_r")
+                            NavigationLink(destination: WithdrawelView()) {
+                                HStack {
+                                    Image("resign")
+                                    Spacer()
+                                        .frame(width: 24)
+                                    Text("회원탈퇴")
+                                    Spacer()
+                                    Image("chevron_gray_r")
+                                }
+                                .padding(16.0)
                             }
-                            .padding(16.0)
                         }
                         .foregroundStyle(Color("gray_70"))
                         .overlay(
@@ -167,6 +175,9 @@ struct MyPageView: View {
                     Spacer()
                 }
                 .padding(.horizontal, 26.0)
+            }
+            .fullScreenCover(isPresented: $shouldPopup) {
+                LogoutPopup()
             }
             .navigationBarBackButtonHidden(true)
         }

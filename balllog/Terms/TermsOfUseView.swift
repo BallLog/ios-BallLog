@@ -32,6 +32,7 @@ struct TermsOfUseView: View {
                 Spacer()
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 
