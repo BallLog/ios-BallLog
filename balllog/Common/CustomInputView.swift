@@ -12,6 +12,9 @@ struct CustomInputView: View {
     var isArea: Bool = false
     @Binding var text: String
     var placeholder: String = ""
+    var hasValidation: Bool = false
+    var isError: Bool = false
+    var isCorrect: Bool = false
     
     var body: some View {
         VStack (alignment: .leading, spacing: 10.0) {
@@ -35,7 +38,9 @@ struct CustomInputView: View {
                         )
                         .overlay(
                             RoundedRectangle(cornerRadius: 6)
-                                .stroke(text.isEmpty == false ? Color("gray_20") : Color.clear, lineWidth: 1.3)
+                                .stroke(
+                                    hasValidation ?
+                                    (isError ? Color("error_50") : (isCorrect ? Color("bc_01_60") : Color("gray_20"))) : text.isEmpty == false ? Color("gray_20") : Color.clear, lineWidth: 1.3)
                         )
                     // Placeholder Text
                     if text.isEmpty {
