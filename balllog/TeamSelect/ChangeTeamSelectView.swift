@@ -22,24 +22,7 @@ struct ChangeTeamSelectView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                VStack(alignment: .center, spacing: 38) {
-                    ForEach(teamData, id: \.self) { row in
-                        HStack(spacing: 16) {
-                            ForEach(row, id: \.self) { item in
-                                let buttonActive = teamSelectVM.selectedTeam == item
-                                Button(item) {
-                                    teamSelectVM.changeSelectedTeam(buttonActive ? "" : item)
-                                }
-                                .buttonStyle(
-                                    TeamButtonStyle(state: buttonActive ? .selected : .nonselected)
-                                )
-                            }
-                        }
-                    }
-                }
-                .frame(maxWidth: .infinity)
-                .padding(20.0)
-                
+                TeamGridView(viewModel: teamSelectVM)
                 // 고정 뷰 (헤더, 버튼)
                 VStack {
                     // 헤더
@@ -48,12 +31,12 @@ struct ChangeTeamSelectView: View {
                     // 버튼
                     VStack {
                         Button("다음") {
-                            if teamSelectVM.selectedTeam != "" {
+                            if teamSelectVM.selectedTeam != nil {
                                 // 뒤로가기 동작으로 마이페이지 복귀
                                 dismiss()
                             }
                         }
-                        .disabled(teamSelectVM.selectedTeam == "")
+                        .disabled(teamSelectVM.selectedTeam == nil)
                         .buttonStyle(CustomButtonStyle())
                         .modifier(DefaultButtonWidth())
                     }

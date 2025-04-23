@@ -14,8 +14,6 @@ struct TeamSelectView: View {
         _teamSelectVM = StateObject(wrappedValue: teamSelectVM)
     }
     
-    let teamData: [[String]] = [["삼성 라이온즈", "롯데 자이언츠"], ["SSG 랜더스", "KIA 타이거즈"], ["LG 트윈스", "두산 베어스"], ["한화 이글스", "키움 히어로즈"], ["KT 위즈", "NC 다이노스"]]
-    
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading, spacing: 24.0) {
@@ -30,23 +28,7 @@ struct TeamSelectView: View {
                         .lineSpacing(21)
                 }
                 .padding(.horizontal, 30.0)
-                VStack(alignment: .center, spacing: 30) {
-                    ForEach(teamData, id: \.self) { row in
-                        HStack(spacing: 16) {
-                            ForEach(row, id: \.self) { item in
-                                let buttonActive = teamSelectVM.selectedTeam == item
-                                Button(item) {
-                                    teamSelectVM.changeSelectedTeam(buttonActive ? "" : item)
-                                }
-                                .buttonStyle(
-                                    TeamButtonStyle(state: buttonActive ? .selected : .nonselected)
-                                )
-                            }
-                        }
-                    }
-                }
-                .frame(maxWidth: .infinity)
-                .padding(.horizontal, 20.0)
+                TeamGridView(viewModel: teamSelectVM)
             }
             .frame(
                 maxWidth: .infinity,
@@ -56,11 +38,11 @@ struct TeamSelectView: View {
             Spacer()
             VStack {
                 Button("다음") {
-                    if teamSelectVM.selectedTeam != "" {
+                    if teamSelectVM.selectedTeam != nil {
                         teamSelectVM.teamConfirm = true // 화면 전환 상태 변경
                     }
                 }
-                .disabled(teamSelectVM.selectedTeam == "")
+                .disabled(teamSelectVM.selectedTeam == nil)
                 .buttonStyle(CustomButtonStyle())
                 .modifier(DefaultButtonWidth())
             }

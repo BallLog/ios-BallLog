@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TeamConfirmView: View {
-    @Binding var selectedTeam: String? // 홈 화면에서 전달받은 선택된 항목
+    @Binding var selectedTeam: Team? // 홈 화면에서 전달받은 선택된 항목
     let onConfirm: () -> Void
     
     @Environment(\.dismiss) var dismiss // 모달을 닫기 위한 환경 객체
@@ -19,7 +19,7 @@ struct TeamConfirmView: View {
             VStack {
                 Spacer()
                 VStack(spacing: 8.0) {
-                    Text(selectedTeam ?? "선택된 팀 없음")
+                    Text(selectedTeam?.name ?? "선택된 팀 없음")
                         .font(.system(size: 24))
                         .bold()
                     Text("당신은 구단별 특정문구")
@@ -56,14 +56,14 @@ struct TeamConfirmView: View {
 }
 
 struct TeamConfirmView_Previews: PreviewProvider {
-    @State static var selectedTeam: String? = "테스트 팀"  // 미리보기용 데이터
+    @State static var previewSelectedTeam: Team? = Team(id: 1, name: "삼성 라이온즈")
 
     static func onConfirm () {
         print("confirm")
     }
     
     static var previews: some View {
-        TeamConfirmView(selectedTeam: $selectedTeam, onConfirm: {onConfirm()})
+        TeamConfirmView(selectedTeam: $previewSelectedTeam, onConfirm: {onConfirm()})
     }
 }
 
