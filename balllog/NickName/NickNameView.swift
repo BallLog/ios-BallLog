@@ -18,8 +18,8 @@ struct NickNameView: View {
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                VStack(alignment: .leading, spacing: 24.0) {
+            VStack {
+                VStack(alignment: .leading, spacing: 12.0) {
                     VStack(alignment: .leading, spacing: 4.0) {
                         Text("닉네임")
                             .bold()
@@ -36,19 +36,29 @@ struct NickNameView: View {
                     }
                     .padding(.horizontal, 30.0)
                     VStack(alignment: .leading, spacing: 10.0) {
-                        ZStack {
-                            CustomInputView(label: "", text: $nicknameVM.nickname, placeholder: "닉네임을 입력해주세요", hasValidation: true, isError: !nicknameVM.nicknameValid && !nicknameVM.nickname.isEmpty, isCorrect: !nicknameVM.nickname.isEmpty && nicknameVM.nicknameValid)
+                        ZStack(alignment: .trailing) {
+                            CustomInputView(label: "", text: $nicknameVM.nickname, placeholder: "닉네임을 입력해주세요", hasValidation: true, isError: !nicknameVM.nicknameValid && nicknameVM.nicknameChecked, isCorrect: nicknameVM.nicknameValid, maxLength : 10)
                                 .focused($isFocused)
                             Button("중복확인") {
-                                // 중복확인 함수
+                                nicknameVM.checkNickname()
+                            }
+                            .disabled(nicknameVM.nickname.isEmpty)
+                            .padding([.top, .trailing], 22.0)
+                        }
+                        if nicknameVM.nicknameChecked {
+                            if nicknameVM.nicknameValid{
+                                Text("사용가능한 닉네임입니다.")
+                                    .padding(.top, 10.0)
+                                    .foregroundStyle(Color("bc_01_60"))
+                            } else {
+                                Text("이미 사용중인 닉네임입니다.")
+                                    .padding(.top, 10.0)
+                                    .foregroundStyle(Color("error_50"))
                             }
                         }
-                        .padding(.horizontal, 20.0)
-                        Text("이미 사용중인 닉네임입니다.")
-                            .foregroundStyle(Color("error_50"))
-                        Text("사용가능한 닉네임입니다.")
-                            .foregroundStyle(Color("bc_01_60"))
                     }
+                    .font(.system(size: 14))
+                    .padding(.horizontal, 30.0)
                 }
                 .frame(
                     maxWidth: .infinity,

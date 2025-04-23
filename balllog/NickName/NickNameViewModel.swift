@@ -13,8 +13,14 @@ class NickNameViewModel: ObservableObject {
     
     @Published var nickname: String = "" // 닉네임
     
+    @Published var nicknameChecked: Bool = false // 닉네임 체크 여부
     @Published var nicknameValid: Bool = false // 닉네임 통과 여부
     
+    func checkNickname() {
+        // TODO: nickname check
+        nicknameChecked = true
+    }
+
     func confirmNickname() {
         nicknameValid = true
     }
