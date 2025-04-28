@@ -9,77 +9,62 @@ import SwiftUI
 import PhotosUI
 
 struct PhotoPickerView: View {
-    @Binding var selectedItems: [PhotosPickerItem] // 사용자가 선택한 사진
-    @State private var selectedImages: [UIImage] = [] // 변환된 이미지 데이터
+    @Binding var selectedItems: [PhotosPickerItem]  // 부모 뷰에서 전달된 선택된 이미지 아이템들
+    @State private var selectedImagesData: [Data] = []  // 선택된 이미지 데이터를 저장
    
     var body: some View {
         HStack(spacing: 11) {
             // 사진 선택 버튼 (갤러리 접근)
-            PhotosPicker(selection: $selectedItems, maxSelectionCount: 4, matching: .images, photoLibrary: .shared()) {
+            PhotosPicker(
+                selection: $selectedItems,
+                maxSelectionCount: 4,
+                matching: .images,
+                photoLibrary: .shared()
+            ) {
                 VStack(alignment: .center, spacing: 2.0) {
-                    Image(systemName: "camera")
+                    Image("add")
                         .frame(width: 24, height: 24)
-                    HStack(alignment: .center, spacing: 0.0) {
-                        Text("\(selectedItems.count)")
-                            .fontWeight(.bold)
-                        Text("/4")
-                    }
+                    Text("이미지 업로드")
+                        .font(.system(size: 16))
                 }
-                .frame(width: 86, height: 86)
-                .cornerRadius(4)
+                .frame(height: 219)
+                .frame(maxWidth: .infinity)
                 .foregroundColor(Color("gray_50"))
-                .background(Color("gray_20"))
+                .background(Color("gray_30"))
             }
-            .disabled(selectedImages.count >= 4)
-            
-            ScrollView(.horizontal, showsIndicators: false){
-                // 미리보기
-                HStack(spacing: 6) {
-                    ForEach(Array(selectedImages.enumerated()), id: \.element) { index, image in
-                        ZStack(alignment: .topTrailing) {
-                            Image(uiImage: image)
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: 86, height: 86)
-                                .cornerRadius(4)
-                            
-                            // X 버튼 (사진 삭제)
-                            Button(action: {
-                                removeImage(at: index)
-                            }) {
-                                Image("close")
-                            }
-                            .offset(x: 5, y: -5)
+            .onChange(of: selectedItems) { _, newItems in
+                Task {
+                    // 선택된 이미지들의 데이터를 가져와서 selectedImagesData에 저장
+                    selectedImagesData = []
+                    for item in newItems {
+                        if let data = try? await item.loadTransferable(type: Data.self) {
+                            selectedImagesData.append(data)
                         }
-                        .frame(width: 95, height: 100)
                     }
                 }
             }
-        }
-        .frame(height: 100.0)
-        .task(id: selectedItems) { // 선택된 사진 변경될 때 실행
-            await loadSelectedImages()
+            
+            // 이미지 캐러셀
+            if !selectedImagesData.isEmpty {
+                TabView {
+                    ForEach(selectedImagesData, id: \.self) { imageData in
+                        if let uiImage = UIImage(data: imageData) {
+                            Image(uiImage: uiImage)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(height: 219)  // 캐러셀 이미지의 높이
+                                .padding()
+                        }
+                    }
+                }
+                .tabViewStyle(PageTabViewStyle())
+                .frame(height: 219)  // 캐러셀 높이 조정
+                .padding()
+            
+            }
         }
     }
     
-    // 선택한 사진을 이미지로 변환하는 함수
-    func loadSelectedImages() async {
-       var newImages: [UIImage] = []
-       for item in selectedItems {
-           if let data = try? await item.loadTransferable(type: Data.self),
-              let image = UIImage(data: data) {
-               newImages.append(image)
-           }
-       }
-       selectedImages = newImages
-    }
-
-    // 특정 이미지 삭제 함수
-    func removeImage(at index: Int) {
-       selectedImages.remove(at: index)
-       selectedItems.remove(at: index)
-    }
-
 }
 
 struct PhotoPickerView_Previews: PreviewProvider {

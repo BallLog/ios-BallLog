@@ -19,6 +19,7 @@ class NickNameViewModel: ObservableObject {
     func checkNickname() {
         // TODO: nickname check
         nicknameChecked = true
+        nicknameValid = true
     }
 
     func confirmNickname() {

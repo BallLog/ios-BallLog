@@ -42,6 +42,8 @@
 		01D14D622DB0D9F500AD1165 /* NickNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D14D5B2DB0D9F500AD1165 /* NickNameViewModel.swift */; };
 		01D14D632DB0D9F500AD1165 /* NickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D14D5C2DB0D9F500AD1165 /* NickNameView.swift */; };
 		01F67B8A2DB907800064E71B /* TeamGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F67B892DB907800064E71B /* TeamGridView.swift */; };
+		01F67B8C2DBF9C550064E71B /* TextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F67B8B2DBF9C550064E71B /* TextInputView.swift */; };
+		01F67B902DBFAD1B0064E71B /* TextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F67B8F2DBFAD1B0064E71B /* TextAreaView.swift */; };
 		B85AE71F2CC142F90011BDB1 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE71E2CC142F90011BDB1 /* KakaoSDKAuth */; };
 		B85AE7212CC142F90011BDB1 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7202CC142F90011BDB1 /* KakaoSDKCommon */; };
 		B85AE7232CC142F90011BDB1 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7222CC142F90011BDB1 /* KakaoSDKUser */; };
@@ -109,6 +111,8 @@
 		01D14D5B2DB0D9F500AD1165 /* NickNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewModel.swift; sourceTree = "<group>"; };
 		01D14D5C2DB0D9F500AD1165 /* NickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameView.swift; sourceTree = "<group>"; };
 		01F67B892DB907800064E71B /* TeamGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamGridView.swift; sourceTree = "<group>"; };
+		01F67B8B2DBF9C550064E71B /* TextInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputView.swift; sourceTree = "<group>"; };
+		01F67B8F2DBFAD1B0064E71B /* TextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaView.swift; sourceTree = "<group>"; };
 		B85AE71A2CC140360011BDB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginBtnView.swift; sourceTree = "<group>"; };
 		B85AE7252CC1435C0011BDB1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -331,6 +335,8 @@
 				B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */,
 				01B46CE82D2141EE0007CBFF /* CustomButtonStyle.swift */,
 				01B46D002D33B9270007CBFF /* CustomInputView.swift */,
+				01F67B8B2DBF9C550064E71B /* TextInputView.swift */,
+				01F67B8F2DBFAD1B0064E71B /* TextAreaView.swift */,
 				01C8FBDA2D8CFB9000C544A3 /* RoundedCorner.swift */,
 				01C8FBDC2D8CFBED00C544A3 /* teamGradient.swift */,
 				01C8FBDE2D8D0AF400C544A3 /* DetailHeaderView.swift */,
@@ -494,6 +500,7 @@
 				01D14D562DA0FA3600AD1165 /* TermsOfUseView.swift in Sources */,
 				01C8FBD42D8CFA6900C544A3 /* SplashView.swift in Sources */,
 				01C8FBD52D8CFA6900C544A3 /* CustomInputView.swift in Sources */,
+				01F67B8C2DBF9C550064E71B /* TextInputView.swift in Sources */,
 				01C8FBD62D8CFA6900C544A3 /* Color.swift in Sources */,
 				01C8FBDF2D8D0AF400C544A3 /* DetailHeaderView.swift in Sources */,
 				B8CB50EE2CC13BAC0045481A /* ContentView.swift in Sources */,
@@ -503,6 +510,7 @@
 				B8CB50EC2CC13BAC0045481A /* balllogApp.swift in Sources */,
 				01B46CE22D212C850007CBFF /* TeamSelectViewModel.swift in Sources */,
 				B8955BB92D1063600006350D /* TermsViewModel.swift in Sources */,
+				01F67B902DBFAD1B0064E71B /* TextAreaView.swift in Sources */,
 				B8B0FD2F2CCFA0F80093F1A7 /* LoginViewModel.swift in Sources */,
 				01B46CEB2D26CA5B0007CBFF /* TeamButtonStyle.swift in Sources */,
 				01D14D632DB0D9F500AD1165 /* NickNameView.swift in Sources */,

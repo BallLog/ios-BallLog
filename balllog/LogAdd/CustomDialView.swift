@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CustomDialView: View {
-    let title: String
     let placeholder: String
     @Binding var selectedValue: String
     
@@ -17,29 +16,13 @@ struct CustomDialView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10.0) {
-            Text(title)
-                .font(.system(size: 14))
-                .foregroundColor(Color("gray_70"))
-                .padding(.leading, 2.0)
-                        
             Button(action: {
                 isSheetPresented = true
             }) {
-                HStack {
-                    Text(selectedValue.isEmpty ? placeholder : selectedValue)
-                        .foregroundColor(selectedValue.isEmpty ? Color("gray_50") : Color("gray_80"))
-                    Spacer()
-                    Image(systemName: "chevron.down")
-                        .foregroundColor(Color("gray_40"))
-                }
-                .padding(.horizontal, 12.0)
-                .frame(maxWidth: .infinity)
-                .frame(height: 44)
-                .background(selectedValue.isEmpty ? Color("gray_20") : Color.white)
-                .cornerRadius(4).overlay(
-                    RoundedRectangle(cornerRadius: 6)
-                        .stroke(selectedValue.isEmpty == false ? Color("gray_20") : Color.clear, lineWidth: 1.3)
-                )
+                Text(selectedValue.isEmpty ? placeholder : selectedValue)
+                    .foregroundColor(Color("gray_60"))
+                    .font(.system(size: 14))
+                    .bold()
             }
             .sheet(isPresented: $isSheetPresented) {
                 VStack(spacing: 5.0) {
@@ -73,7 +56,7 @@ struct CustomDialView: View {
 
 struct CustomDialView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomDialView(title: "점수", placeholder: "구단선택", selectedValue: .constant(""))
+        CustomDialView(placeholder: "구단선택", selectedValue: .constant(""))
             .padding()
             
     }

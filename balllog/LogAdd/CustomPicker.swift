@@ -8,39 +8,23 @@
 import SwiftUI
 
 struct CustomPicker: View {
-    let title: String
     let list: [String]
     let placeholder: String
     @Binding var selectedValue: String
+    var bigSize: Bool = false
     
     @State private var focusedValue: String = ""
     @State private var isSheetPresented: Bool = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10.0) {
-            Text(title)
-                .font(.system(size: 14))
-                .foregroundColor(Color("gray_70"))
-                .padding(.leading, 2.0)
-                        
             Button(action: {
                 isSheetPresented = true
             }) {
-                HStack {
-                    Text(selectedValue.isEmpty ? placeholder : selectedValue)
-                        .foregroundColor(selectedValue.isEmpty ? Color("gray_50") : Color("gray_80"))
-                    Spacer()
-                    Image(systemName: "chevron.down")
-                        .foregroundColor(Color("gray_40"))
-                }
-                .padding(.horizontal, 12.0)
-                .frame(maxWidth: .infinity)
-                .frame(height: 44)
-                .background(selectedValue.isEmpty ? Color("gray_20") : Color.white)
-                .cornerRadius(4).overlay(
-                    RoundedRectangle(cornerRadius: 6)
-                        .stroke(selectedValue.isEmpty == false ? Color("gray_20") : Color.clear, lineWidth: 1.3)
-                )
+                Text(selectedValue.isEmpty ? placeholder : selectedValue)
+                    .foregroundColor(Color("gray_60"))
+                    .font(.system(size: bigSize ? 14 : 10))
+                    .fontWeight(bigSize ? .bold : .regular)
             }
             .sheet(isPresented: $isSheetPresented) {
                 VStack(spacing: 5.0) {
@@ -85,10 +69,10 @@ struct CustomPicker: View {
 
 struct CustomPicker_Previews: PreviewProvider {
     static var previews: some View {
-        CustomPicker(title: "응원팀", list: ["기아 타이거즈", "삼성 라이온즈", "LG 트윈스", "두산 베어스", "KT 위즈", "SSG 랜더스", "롯데 자이언츠", "한화 이글스", "NC 다이노스", "키움 히어로즈"], placeholder: "구단선택", selectedValue: .constant("KT 위즈"))
+        CustomPicker(list: ["기아 타이거즈", "삼성 라이온즈", "LG 트윈스", "두산 베어스", "KT 위즈", "SSG 랜더스", "롯데 자이언츠", "한화 이글스", "NC 다이노스", "키움 히어로즈"], placeholder: "구단선택", selectedValue: .constant("KT 위즈"))
             .padding()
             .previewLayout(.sizeThatFits)
-        CustomPicker(title: "응원팀", list: ["기아 타이거즈", "삼성 라이온즈", "LG 트윈스", "두산 베어스", "KT 위즈", "SSG 랜더스", "롯데 자이언츠", "한화 이글스", "NC 다이노스", "키움 히어로즈"], placeholder: "구단선택", selectedValue: .constant(""))
+        CustomPicker(list: ["기아 타이거즈", "삼성 라이온즈", "LG 트윈스", "두산 베어스", "KT 위즈", "SSG 랜더스", "롯데 자이언츠", "한화 이글스", "NC 다이노스", "키움 히어로즈"], placeholder: "구단선택", selectedValue: .constant(""))
             .padding()
             .previewLayout(.sizeThatFits)
     }
