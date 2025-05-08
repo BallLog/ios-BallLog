@@ -32,6 +32,7 @@ struct LogAddView: View {
                 ScrollView {
                     ZStack {
                         Image("linecard")
+                            .foregroundStyle(Color("gray_60"))
                         LogFormContentView(
                             title: $title,
                             stadium: $stadium,
@@ -49,7 +50,7 @@ struct LogAddView: View {
                 .navigationBarBackButtonHidden(true)
 
                 VStack {
-                    DetailHeaderView(title: "볼로그 작성")
+                    DetailHeaderView(title: "볼로그")
 
                     Spacer()
 
@@ -134,10 +135,11 @@ struct LogFormContentView: View {
                                 Text("직관 승률 70%")
                                     .font(.custom("Pretendard Variable", size: 12))
                                     .fontWeight(.medium)
+                                    .padding(.bottom, 1.0)
                                 Spacer()
-                                HStack(spacing: 6.0) {
+                                HStack(alignment: .bottom, spacing: 6.0) {
                                     Text("020승").font(.custom("Pretendard Variable", size: 18)).fontWeight(.bold)
-                                    Text("/ 030경기").font(.custom("Pretendard Variable", size: 10))
+                                    Text("/ 030경기").font(.custom("Pretendard Variable", size: 10)).padding(.bottom, 3.0)
                                 }
                             }
 
@@ -145,26 +147,26 @@ struct LogFormContentView: View {
                                 ZStack(alignment: .leading) {
                                     RoundedRectangle(cornerRadius: 4)
                                         .strokeBorder(Color("gray_60"), lineWidth: 1)
-                                        .frame(height: 6)
+                                        .frame(height: 8.85)
                                     Rectangle()
-                                        .frame(width: geometry.size.width * 0.5, height: 6)
+                                        .frame(width: geometry.size.width * 0.5, height: 8.85)
                                         .clipShape(RoundedCorner(radius: 4, corners: [.topLeft, .bottomLeft]))
                                 }
                             }
                         }
                         .foregroundStyle(Color("gray_60"))
-                        .padding(.horizontal, 16.0)
+                        .padding(.horizontal, 13.0)
                     }
-                    .padding(.vertical, 16)
+                    .padding(.vertical, 16.0)
                 }
-                .cornerRadius(3)
                 .overlay(
                    RoundedRectangle(cornerRadius: 3)
                        .stroke(Color("gray_60"), lineWidth: 1.0)
                )
             }
             .padding(.horizontal, 20.0)
-
+            Spacer()
+                .frame(height: 16)
             HStack {
                 Spacer()
                 Text("BALL-LOG")
