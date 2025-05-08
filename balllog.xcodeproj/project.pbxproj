@@ -11,6 +11,7 @@
 		019382702DB4D49800AA4BD1 /* TeamData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0193826F2DB4D49800AA4BD1 /* TeamData.swift */; };
 		019382722DB4D75100AA4BD1 /* TeamSelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019382712DB4D74C00AA4BD1 /* TeamSelectModel.swift */; };
 		019382742DB4D84800AA4BD1 /* APIUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019382732DB4D84300AA4BD1 /* APIUtils.swift */; };
+		01A952C92DC0E79A002A1B5E /* teamMainColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A952C82DC0E79A002A1B5E /* teamMainColor.swift */; };
 		01B46CE22D212C850007CBFF /* TeamSelectViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CDF2D212C850007CBFF /* TeamSelectViewModel.swift */; };
 		01B46CE32D212C850007CBFF /* TeamSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CE02D212C850007CBFF /* TeamSelectView.swift */; };
 		01B46CE72D21353D0007CBFF /* CheckboxToggleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CE62D21353D0007CBFF /* CheckboxToggleStyle.swift */; };
@@ -85,6 +86,7 @@
 		0193826F2DB4D49800AA4BD1 /* TeamData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamData.swift; sourceTree = "<group>"; };
 		019382712DB4D74C00AA4BD1 /* TeamSelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSelectModel.swift; sourceTree = "<group>"; };
 		019382732DB4D84300AA4BD1 /* APIUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUtils.swift; sourceTree = "<group>"; };
+		01A952C82DC0E79A002A1B5E /* teamMainColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teamMainColor.swift; sourceTree = "<group>"; };
 		01B46CDF2D212C850007CBFF /* TeamSelectViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSelectViewModel.swift; sourceTree = "<group>"; };
 		01B46CE02D212C850007CBFF /* TeamSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamSelectView.swift; sourceTree = "<group>"; };
 		01B46CE62D21353D0007CBFF /* CheckboxToggleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxToggleStyle.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		01A952CC2DC0FE33002A1B5E /* ServiceCommon */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ServiceCommon; sourceTree = "<group>"; };
 		01C8FBC52D8C36E300C544A3 /* Font */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Font; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
@@ -280,6 +283,7 @@
 				B8955BAA2D1059140006350D /* balllog.entitlements */,
 				B85AE71A2CC140360011BDB1 /* Info.plist */,
 				B8CB51152CC13C4F0045481A /* Common */,
+				01A952CC2DC0FE33002A1B5E /* ServiceCommon */,
 				01B46CFD2D323BC80007CBFF /* Service */,
 				B8B0FD2B2CCF9FD50093F1A7 /* Home */,
 				01B46CFB2D323B750007CBFF /* LogAdd */,
@@ -339,6 +343,7 @@
 				01F67B8F2DBFAD1B0064E71B /* TextAreaView.swift */,
 				01C8FBDA2D8CFB9000C544A3 /* RoundedCorner.swift */,
 				01C8FBDC2D8CFBED00C544A3 /* teamGradient.swift */,
+				01A952C82DC0E79A002A1B5E /* teamMainColor.swift */,
 				01C8FBDE2D8D0AF400C544A3 /* DetailHeaderView.swift */,
 			);
 			path = Common;
@@ -360,6 +365,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				01A952CC2DC0FE33002A1B5E /* ServiceCommon */,
 				01C8FBC52D8C36E300C544A3 /* Font */,
 			);
 			name = balllog;
@@ -521,6 +527,7 @@
 				01C8FBBC2D7466E100C544A3 /* CustomDialView.swift in Sources */,
 				01B46CF22D3231840007CBFF /* MyPageView.swift in Sources */,
 				01C8FBDD2D8CFBED00C544A3 /* teamGradient.swift in Sources */,
+				01A952C92DC0E79A002A1B5E /* teamMainColor.swift in Sources */,
 				B85AE7262CC1435C0011BDB1 /* LoginView.swift in Sources */,
 				01B46CFC2D323B750007CBFF /* LogAddView.swift in Sources */,
 				019382722DB4D75100AA4BD1 /* TeamSelectModel.swift in Sources */,

@@ -22,3 +22,17 @@ struct DotLineView: View {
             .foregroundColor(theme < 2 ? teamMainColor(for: myTeam) : Color.white)
     }
 }
+
+
+struct DotLineInputView: View {
+    var body: some View {
+        Rectangle()
+            .stroke(style: StrokeStyle(
+                lineWidth: 1,
+                lineCap: .square,
+                dash: [5, 5]
+            ))
+            .frame(height: 1)
+            .foregroundColor(Color("gray_60"))
+    }
+}

@@ -1,43 +1,39 @@
 //
-//  TeamCardBackground.swift
+//  teamMainColor.swift
 //  balllog
 //
-//  Created by 전은혜 on 3/21/25.
+//  Created by 전은혜 on 4/29/25.
 //
 
 import SwiftUI
 
-func teamGradient(for team: String) -> LinearGradient {
+func teamMainColor(for team: String) -> Color {
     switch team {
     case "LIONS":
-        return LinearGradient(
-            gradient: Gradient(colors: [Color("Lions_COL_01"), Color("Lions_COL_01")]),
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
-        )
+        return Color("Lions_COL_01")
     case "TIGERS":
-        return LinearGradient(
-            gradient: Gradient(colors: [Color("Tigers_COL_01"), Color("Tigers_COL_02")]),
-            startPoint: .top,
-            endPoint: .bottom
-        )
+        return Color("Lions_COL_01")
     case "GIANTS":
-        return LinearGradient(
-            gradient: Gradient(colors: [Color("Giants_COL_02"), Color("Giants_COL_01")]),
-            startPoint: .top,
-            endPoint: .bottom
-        )
+        return Color("Giants_COL_02")
     case "TWINS":
-        return LinearGradient(
-            gradient: Gradient(colors: [Color("Twins_COL_02"), Color("Twins_COL_01")]),
-            startPoint: .top,
-            endPoint: .bottom
-        )
+        return Color("Lions_COL_01")
     default:
-        return LinearGradient(
-            gradient: Gradient(colors: [Color.gray, Color.gray]), // 기본 단색 처리
-            startPoint: .top,
-            endPoint: .bottom
-        )
+        return Color.gray
+    }
+}
+
+
+func teamSubColor(for team: String) -> Color {
+    switch team {
+    case "LIONS":
+        return Color("Lions_COL_01")
+    case "TIGERS":
+        return Color("Lions_COL_01")
+    case "GIANTS":
+        return Color("Giants_COL_01")
+    case "TWINS":
+        return Color("Lions_COL_01")
+    default:
+        return Color.gray
     }
 }
