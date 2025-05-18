@@ -69,7 +69,7 @@ struct BallLogCard: View {
 
                     VStack(alignment: .leading) {
                         Text("직관 재밌었다~~!")
-                            .font(.custom("Ownglyph EuiyeonChae", size: 16))
+                            .font(.custom("OwnglyphEuiyeonChae", size: 16))
                         Spacer()
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)

@@ -19,6 +19,7 @@ struct LogAddView: View {
     @State private var myTeamScore: String = ""
     @State private var opposingTeam: String = ""
     @State private var opposingTeamScore: String = ""
+    @State private var gameDate: Date?
     @State private var stadium: String = ""
     @State private var shouldNavigate: Bool = false
     
@@ -35,6 +36,7 @@ struct LogAddView: View {
                             .foregroundStyle(Color("gray_60"))
                         LogFormContentView(
                             title: $title,
+                            gameDate: $gameDate,
                             stadium: $stadium,
                             myTeam: $myTeam,
                             myTeamScore: $myTeamScore,
@@ -86,6 +88,7 @@ struct LogAddView: View {
 
 struct LogFormContentView: View {
     @Binding var title: String
+    @Binding var gameDate: Date?
     @Binding var stadium: String
     @Binding var myTeam: String
     @Binding var myTeamScore: String
@@ -94,6 +97,8 @@ struct LogFormContentView: View {
     @Binding var photoList: [PhotosPickerItem]
     @Binding var logContent: String
     @FocusState var isFocused: Bool
+    
+
 
     var body: some View {
         VStack {
@@ -105,6 +110,7 @@ struct LogFormContentView: View {
 
                 VStack (alignment: .leading, spacing: 0){
                     LogFormGameInfoView(
+                        gameDate: $gameDate,
                         stadium: $stadium,
                         myTeam: $myTeam,
                         myTeamScore: $myTeamScore,
@@ -183,6 +189,7 @@ struct LogFormContentView: View {
 // MARK: - LogFormGameInfoView
 
 struct LogFormGameInfoView: View {
+    @Binding var gameDate: Date?
     @Binding var stadium: String
     @Binding var myTeam: String
     @Binding var myTeamScore: String
@@ -192,6 +199,8 @@ struct LogFormGameInfoView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 4.0) {
             HStack {
+                DatePickerView(selectedDate: $gameDate)
+                Spacer()
                 CustomPicker(
                     list: ["광주 KIA챔피언스", "대구 삼성라이온즈파크", "잠실야구장", "수원 KT 위즈파크", "인천 SSG랜더스필드", "사직야구장", "대전 한화생명볼파크", "창원 NC파크", "고척스카이돔", "기타"],
                     placeholder: "경기 구장 선택",

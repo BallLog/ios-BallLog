@@ -23,11 +23,12 @@ struct PhotoPickerView: View {
                     matching: .images,
                     photoLibrary: .shared()
                 ) {
-                    VStack(alignment: .center, spacing: 2.0) {
+                    VStack(alignment: .center, spacing: 7.0) {
                         Image("add")
                             .frame(width: 24, height: 24)
                         Text("이미지 업로드")
-                            .font(.system(size: 16))
+                            .font(.system(size: 10))
+                            .fontWeight(.semibold)
                     }
                     .frame(height: 219)
                     .frame(maxWidth: .infinity)
