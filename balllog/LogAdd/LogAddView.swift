@@ -52,7 +52,7 @@ struct LogAddView: View {
                 .navigationBarBackButtonHidden(true)
 
                 VStack {
-                    DetailHeaderView(title: "볼로그")
+                    DetailHeaderView(title: "볼로그", shouldAllowDismiss: false)
 
                     Spacer()
 

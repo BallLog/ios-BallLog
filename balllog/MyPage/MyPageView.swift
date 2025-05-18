@@ -112,6 +112,18 @@ struct MyPageView: View {
                                 .padding(16.0)
                             }
                             Divider()
+                            NavigationLink(destination: ChangeNickNameView()) {
+                                HStack {
+                                    Image("edit_nickname")
+                                    Spacer()
+                                        .frame(width: 24)
+                                    Text("닉네임 변경")
+                                    Spacer()
+                                    Image("chevron_gray_r")
+                                }
+                                .padding(16.0)
+                            }
+                            Divider()
                                 .foregroundStyle(Color("gray_40"))
                             NavigationLink(destination: TermsOfUseView()) {
                                 HStack {

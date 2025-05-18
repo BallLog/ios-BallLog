@@ -52,6 +52,7 @@
 		B832ACC52DD9BEB6006D2E68 /* CustomDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B832ACC42DD9BEB1006D2E68 /* CustomDatePickerView.swift */; };
 		B832ACC72DD9BEDC006D2E68 /* CalendarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B832ACC62DD9BED9006D2E68 /* CalendarGridView.swift */; };
 		B832ACC92DD9C626006D2E68 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B832ACC82DD9C624006D2E68 /* DatePickerView.swift */; };
+		B832ACCB2DD9D4D9006D2E68 /* ChangeNickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B832ACCA2DD9D4D9006D2E68 /* ChangeNickNameView.swift */; };
 		B85AE71F2CC142F90011BDB1 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE71E2CC142F90011BDB1 /* KakaoSDKAuth */; };
 		B85AE7212CC142F90011BDB1 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7202CC142F90011BDB1 /* KakaoSDKCommon */; };
 		B85AE7232CC142F90011BDB1 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7222CC142F90011BDB1 /* KakaoSDKUser */; };
@@ -129,6 +130,7 @@
 		B832ACC42DD9BEB1006D2E68 /* CustomDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerView.swift; sourceTree = "<group>"; };
 		B832ACC62DD9BED9006D2E68 /* CalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridView.swift; sourceTree = "<group>"; };
 		B832ACC82DD9C624006D2E68 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		B832ACCA2DD9D4D9006D2E68 /* ChangeNickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNickNameView.swift; sourceTree = "<group>"; };
 		B85AE71A2CC140360011BDB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginBtnView.swift; sourceTree = "<group>"; };
 		B85AE7252CC1435C0011BDB1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 			children = (
 				01D14D5B2DB0D9F500AD1165 /* NickNameViewModel.swift */,
 				01D14D5C2DB0D9F500AD1165 /* NickNameView.swift */,
+				B832ACCA2DD9D4D9006D2E68 /* ChangeNickNameView.swift */,
 			);
 			path = NickName;
 			sourceTree = "<group>";
@@ -559,6 +562,7 @@
 				01D14D5A2DA100D500AD1165 /* WithdrawelView.swift in Sources */,
 				01B46D052D368D3E0007CBFF /* CustomPicker.swift in Sources */,
 				01C8FBBC2D7466E100C544A3 /* CustomDialView.swift in Sources */,
+				B832ACCB2DD9D4D9006D2E68 /* ChangeNickNameView.swift in Sources */,
 				01B46CF22D3231840007CBFF /* MyPageView.swift in Sources */,
 				01C8FBDD2D8CFBED00C544A3 /* teamGradient.swift in Sources */,
 				01A952C92DC0E79A002A1B5E /* teamMainColor.swift in Sources */,
