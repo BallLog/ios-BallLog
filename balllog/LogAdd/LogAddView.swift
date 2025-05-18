@@ -203,7 +203,10 @@ struct LogFormGameInfoView: View {
             HStack {
                 HStack(spacing: 6) {
                     CustomPicker(list: teamList, placeholder: "응원팀 선택", selectedValue: $myTeam, bigSize: true)
-                    Text("VS").bold().font(.system(size: 14))
+                    Text("vs")
+                        .bold()
+                        .foregroundStyle(Color("gray_60"))
+                        .font(.system(size: 14))
                     CustomPicker(list: teamList, placeholder: "상대팀 선택", selectedValue: $opposingTeam, bigSize: true)
                 }
                 Spacer()

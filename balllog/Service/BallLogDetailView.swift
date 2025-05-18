@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct BallLogDetailView: View {
+    @EnvironmentObject var globalData: GlobalData
     @State private var theme: Int = 0
-    @State private var myTeam: String = "GIANTS"
 
     var body: some View {
         NavigationStack {
@@ -17,7 +17,7 @@ struct BallLogDetailView: View {
                 ScrollView {
                     VStack {
                         Spacer().frame(minHeight: 8)
-                        BallLogCard(theme: theme, myTeam: myTeam)
+                        BallLogCard(theme: theme, myTeam: globalData.myTeam)
                         Spacer().frame(minHeight: 22)
                         ThemePicker(theme: $theme)
                     }
@@ -69,7 +69,7 @@ struct BallLogCard: View {
 
                     VStack(alignment: .leading) {
                         Text("직관 재밌었다~~!")
-                            .font(.custom("Ownglyph brilliant", size: 16))
+                            .font(.custom("Ownglyph EuiyeonChae", size: 16))
                         Spacer()
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -171,4 +171,5 @@ struct ThemePicker: View {
 
 #Preview {
     BallLogDetailView()
+        .environmentObject(GlobalData())
 }

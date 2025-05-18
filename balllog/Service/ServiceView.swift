@@ -27,6 +27,7 @@ struct ServiceView: View {
                 }
                 .toolbar(.hidden, for: .tabBar)
             }
+            .padding(.bottom, 76.0)
             VStack{
                 Spacer()
                 tabBar

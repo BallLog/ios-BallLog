@@ -45,6 +45,10 @@
 		01F67B8A2DB907800064E71B /* TeamGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F67B892DB907800064E71B /* TeamGridView.swift */; };
 		01F67B8C2DBF9C550064E71B /* TextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F67B8B2DBF9C550064E71B /* TextInputView.swift */; };
 		01F67B902DBFAD1B0064E71B /* TextAreaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F67B8F2DBFAD1B0064E71B /* TextAreaView.swift */; };
+		B832ACB82DCCDB6A006D2E68 /* AddBallLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B832ACB72DCCDB65006D2E68 /* AddBallLogView.swift */; };
+		B832ACBA2DCCDC37006D2E68 /* PrimaryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B832ACB92DCCDC37006D2E68 /* PrimaryCardView.swift */; };
+		B832ACBC2DCCE45C006D2E68 /* SubCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B832ACBB2DCCE45C006D2E68 /* SubCardView.swift */; };
+		B832ACBE2DD61045006D2E68 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B832ACBD2DD61042006D2E68 /* GlobalData.swift */; };
 		B85AE71F2CC142F90011BDB1 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE71E2CC142F90011BDB1 /* KakaoSDKAuth */; };
 		B85AE7212CC142F90011BDB1 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7202CC142F90011BDB1 /* KakaoSDKCommon */; };
 		B85AE7232CC142F90011BDB1 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7222CC142F90011BDB1 /* KakaoSDKUser */; };
@@ -115,6 +119,10 @@
 		01F67B892DB907800064E71B /* TeamGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamGridView.swift; sourceTree = "<group>"; };
 		01F67B8B2DBF9C550064E71B /* TextInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputView.swift; sourceTree = "<group>"; };
 		01F67B8F2DBFAD1B0064E71B /* TextAreaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAreaView.swift; sourceTree = "<group>"; };
+		B832ACB72DCCDB65006D2E68 /* AddBallLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBallLogView.swift; sourceTree = "<group>"; };
+		B832ACB92DCCDC37006D2E68 /* PrimaryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryCardView.swift; sourceTree = "<group>"; };
+		B832ACBB2DCCE45C006D2E68 /* SubCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubCardView.swift; sourceTree = "<group>"; };
+		B832ACBD2DD61042006D2E68 /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		B85AE71A2CC140360011BDB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLoginBtnView.swift; sourceTree = "<group>"; };
 		B85AE7252CC1435C0011BDB1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -251,7 +259,10 @@
 		B8B0FD2B2CCF9FD50093F1A7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B832ACB72DCCDB65006D2E68 /* AddBallLogView.swift */,
 				B8B0FD2C2CCF9FE10093F1A7 /* HomeView.swift */,
+				B832ACB92DCCDC37006D2E68 /* PrimaryCardView.swift */,
+				B832ACBB2DCCE45C006D2E68 /* SubCardView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -328,6 +339,7 @@
 		B8CB51152CC13C4F0045481A /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B832ACBD2DD61042006D2E68 /* GlobalData.swift */,
 				019382732DB4D84300AA4BD1 /* APIUtils.swift */,
 				01C8FBB92D71D10D00C544A3 /* Color.swift */,
 				B8955BAF2D105C450006350D /* AppleLoginModel.swift */,
@@ -509,13 +521,16 @@
 				01F67B8C2DBF9C550064E71B /* TextInputView.swift in Sources */,
 				01C8FBD62D8CFA6900C544A3 /* Color.swift in Sources */,
 				01C8FBDF2D8D0AF400C544A3 /* DetailHeaderView.swift in Sources */,
+				B832ACB82DCCDB6A006D2E68 /* AddBallLogView.swift in Sources */,
 				B8CB50EE2CC13BAC0045481A /* ContentView.swift in Sources */,
 				B8B0FD2D2CCF9FE10093F1A7 /* HomeView.swift in Sources */,
 				01C8FBC02D772AAB00C544A3 /* ChangeTeamSelectView.swift in Sources */,
 				01C8FBDB2D8CFB9000C544A3 /* RoundedCorner.swift in Sources */,
 				B8CB50EC2CC13BAC0045481A /* balllogApp.swift in Sources */,
 				01B46CE22D212C850007CBFF /* TeamSelectViewModel.swift in Sources */,
+				B832ACBE2DD61045006D2E68 /* GlobalData.swift in Sources */,
 				B8955BB92D1063600006350D /* TermsViewModel.swift in Sources */,
+				B832ACBC2DCCE45C006D2E68 /* SubCardView.swift in Sources */,
 				01F67B902DBFAD1B0064E71B /* TextAreaView.swift in Sources */,
 				B8B0FD2F2CCFA0F80093F1A7 /* LoginViewModel.swift in Sources */,
 				01B46CEB2D26CA5B0007CBFF /* TeamButtonStyle.swift in Sources */,
@@ -535,6 +550,7 @@
 				01F67B8A2DB907800064E71B /* TeamGridView.swift in Sources */,
 				0193826E2DB4D3EB00AA4BD1 /* TeamModel.swift in Sources */,
 				01B46CFF2D323BE10007CBFF /* ServiceViewModel.swift in Sources */,
+				B832ACBA2DCCDC37006D2E68 /* PrimaryCardView.swift in Sources */,
 				01C8FBC42D8C32F600C544A3 /* BallLogDetailView.swift in Sources */,
 				B8955BB32D105F260006350D /* TermsView.swift in Sources */,
 				01B46CE32D212C850007CBFF /* TeamSelectView.swift in Sources */,
@@ -717,7 +733,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ddoddo.balllog;
+				PRODUCT_BUNDLE_IDENTIFIER = balllog.balllog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -748,7 +764,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ddoddo.balllog;
+				PRODUCT_BUNDLE_IDENTIFIER = balllog.balllog;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

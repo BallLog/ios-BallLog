@@ -14,6 +14,28 @@ struct HomeView: View {
     var body: some View {
         NavigationStack {
             ZStack {
+                VStack(alignment: .center) {
+                    if !data {
+                        ScrollView {
+                            VStack(spacing: 20.0){
+                                PrimaryCardView()
+                                SubCardView()
+                                SubCardView()
+                                SubCardView()
+                                SubCardView()
+                            }
+                        }
+                        .padding(.horizontal, 20)
+                    } else {
+                        VStack {
+                            Spacer()
+                            AddBallLogView()
+                            Spacer()
+                            Spacer()
+                        }
+                    }
+                }
+                .padding(.top, 60)
                 VStack {
                     HStack {
                         Text("나의 볼로그")
@@ -31,39 +53,7 @@ struct HomeView: View {
                     }
                     .padding(.vertical, 20)
                     .padding(.horizontal, 28)
-                    if data {
-                        ScrollView {
-                            VStack {
-                                Text("LIST DATA!")
-                            }
-                            .frame(height: .infinity)
-                            .navigationBarBackButtonHidden(true)
-                        }
-                    } else {
-                        VStack {
-                            Spacer()
-                            NavigationLink(destination: LogAddView())  {
-                                VStack(spacing: 6) {
-                                    VStack(spacing: 2) {
-                                        Image("log_add_gray")
-                                        Text("볼로그 추가")
-                                            .fontWeight(.bold)
-                                            .foregroundColor(Color("gray_60"))
-                                    }
-                                    Text("나의 직관일기를 추가해주세요!")
-                                        .fontWeight(.light)
-                                        .font(.system(size: 12))
-                                        .foregroundColor(Color("gray_60"))
-                                }
-                                .frame(width: 227, height: 280)
-                                .background(Color.white)
-                                .cornerRadius(8)
-                                .shadow(color: Color.black.opacity(0.1), radius: 10.3, x: 0, y: 0)
-                            }
-                            Spacer()
-                            Spacer()
-                        }
-                    }
+                    Spacer()
                 }
             }
         }

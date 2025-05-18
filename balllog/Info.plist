@@ -4,12 +4,6 @@
 <dict>
 	<key>API_URL</key>
 	<string>https://api.mockapi.com/api</string>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Ownglyph brilliant.ttf</string>
-		<string>PretendardVariable.ttf</string>
-		<string>PlaypenSans-VariableFont_wght.ttf</string>
-	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -39,6 +33,12 @@
 	<array>
 		<string>kakaokompassauth</string>
 		<string>kakaolink</string>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Ownglyph EuiyeonChae.ttf</string>
+		<string>PretendardVariable.ttf</string>
+		<string>PlaypenSans-VariableFont_wght.ttf</string>
 	</array>
 </dict>
 </plist>

@@ -1,0 +1,58 @@
+//
+//  SubCardView.swift
+//  balllog
+//
+//  Created by 전은혜 on 5/8/25.
+//
+
+import SwiftUI
+
+struct SubCardView: View {
+    var body: some View {
+        GeometryReader { geometry in
+            VStack(spacing: 0.0) {
+                HStack {
+                    Text("오늘 롯데가 승리한다 롯데!")
+                    Spacer()
+                    Text("2024.09.05")
+                }
+                .font(.system(size: 10, weight: .bold))
+                .padding(.vertical, 6.5)
+                .padding(.horizontal, 20.0)
+                .foregroundStyle(Color.white)
+                .background(
+                    Rectangle()
+                        .foregroundStyle(teamMainColor(for: "LIONS"))
+                        .clipShape(RoundedCorner(radius: 6, corners: [.topLeft, .topRight]))
+                        .frame(width: geometry.size.width, height: 28)
+                )
+                .frame(width: geometry.size.width, height: 28)
+                HStack(alignment: .center, spacing: 20.0) {
+                    Text("KIA 타이거즈")
+                    HStack() {
+                        Text("2")
+                        Text(":")
+                        Text("0")
+                    }
+                    .font(.system(size: 30, weight: .bold))
+                    Text("삼성 라이온즈")
+                }
+                .font(.system(size: 18, weight: .bold))
+                .background(
+                    Rectangle()
+                        .foregroundStyle(Color.white)
+                        .clipShape(RoundedCorner(radius: 6, corners: [.bottomLeft, .bottomRight]))
+                        .frame(width: geometry.size.width, height: 65)
+                        .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4)
+                )
+                .frame(width: geometry.size.width, height: 65)
+            }
+            .frame(width: geometry.size.width, height: 93)
+        }
+        .frame(height: 93)
+    }
+}
+
+#Preview {
+    SubCardView()
+}

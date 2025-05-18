@@ -14,13 +14,13 @@ struct TextAreaView: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             TextEditor(text: $text)
-                .font(.custom("Ownglyph brilliant", size: 16))
+                .font(.custom("Ownglyph EuiyeonChae", size: 16))
                 .scrollContentBackground(.hidden)
                 .padding(4)
             // Placeholder Text
             if text.isEmpty {
                 Text(placeholder)
-                    .font(.custom("Ownglyph brilliant", size: 16))
+                    .font(.custom("Ownglyph EuiyeonChae", size: 16))
                     .foregroundColor(Color("gray_50"))
                     .padding(10)
             }
