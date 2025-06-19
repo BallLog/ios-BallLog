@@ -30,7 +30,7 @@ struct TextInputView: View {
                 }
             if text.isEmpty {
                Text(placeholder)
-                   .foregroundColor(Color("gray_80"))
+                   .foregroundColor(Color("gray_60"))
                    .fontWeight(fontWeight)
                    .font(.system(size: fontSize))
            }

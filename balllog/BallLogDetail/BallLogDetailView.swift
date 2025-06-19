@@ -28,6 +28,16 @@ struct BallLogDetailView: View {
                 VStack {
                     DetailHeaderView(title: "볼로그")
                     Spacer()
+                    BallLogDetailCtrlView(
+                        onShareTapped: {
+                            // 공유 API 호출
+                            print("공유 버튼 클릭")
+                        },
+                        onDeleteTapped: {
+                            // 삭제 API 호출
+                            print("삭제 버튼 클릭")
+                        }
+                    )
                 }
             }
         }
@@ -37,4 +47,5 @@ struct BallLogDetailView: View {
 
 #Preview {
     BallLogDetailView()
+        .environmentObject(GlobalData.shared)
 }

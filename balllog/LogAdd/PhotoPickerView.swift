@@ -23,17 +23,17 @@ struct PhotoPickerView: View {
                     matching: .images,
                     photoLibrary: .shared()
                 ) {
-                    VStack(alignment: .center, spacing: 7.0) {
+                    VStack(alignment: .center, spacing: 6.0) {
                         Image("add")
-                            .frame(width: 24, height: 24)
+                            .frame(width: 26, height: 26)
                         Text("이미지 업로드")
-                            .font(.system(size: 10))
+                            .font(.system(size: 12))
                             .fontWeight(.semibold)
                     }
                     .frame(height: 219)
                     .frame(maxWidth: .infinity)
                     .foregroundColor(Color("gray_50"))
-                    .background(Color("gray_30"))
+                    .background(Color("gray_20"))
                 }
                 .onChange(of: selectedItems) { _, newItems in
                     Task {

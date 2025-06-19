@@ -33,7 +33,7 @@ struct RoundedButtonStyle: ButtonStyle {
             .foregroundColor(isEnabled ? Color.white : Color("gray_40"))
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(isEnabled ? Color("bc_02_50") : Color("gray_20"))
-            .cornerRadius(42)
+            .cornerRadius(50)
             .disabled(isEnabled)
     }
 }

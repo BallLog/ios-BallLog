@@ -21,7 +21,7 @@ struct CustomDialView: View {
             }) {
                 Text(selectedValue.isEmpty ? placeholder : selectedValue)
                     .foregroundColor(Color("gray_60"))
-                    .font(.system(size: 14))
+                    .font(.system(size: 16))
                     .bold()
             }
             .sheet(isPresented: $isSheetPresented) {

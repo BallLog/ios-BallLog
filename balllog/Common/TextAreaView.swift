@@ -14,27 +14,20 @@ struct TextAreaView: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             TextEditor(text: $text)
-                .font(.custom("OwnglyphEuiyeonChae", size: 16))
+                .font(.custom("OwnglyphEuiyeonChae", size: 20))
                 .scrollContentBackground(.hidden)
-                .padding(4)
             // Placeholder Text
             if text.isEmpty {
-                Text(placeholder)
-                    .font(.custom("OwnglyphEuiyeonChae", size: 16))
-                    .foregroundColor(Color("gray_50"))
-                    .padding(10)
-            }
-        }
-        .frame(height: 124)
-        .onAppear{
-            for family in UIFont.familyNames {
-                print("Font family: \(family)")
-                for name in UIFont.fontNames(forFamilyName: family) {
-                    print("    Font name: \(name)")
+                HStack(alignment: .center, spacing: 6) {
+                    Image("write")
+                    Text(placeholder)
+                        .font(.custom("OwnglyphEuiyeonChae", size: 20))
+                        .foregroundColor(Color("gray_60"))
                 }
+                .padding(8)
             }
-
         }
+        .frame(height: 173)
     }
 }
 

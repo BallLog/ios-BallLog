@@ -16,9 +16,14 @@ struct DatePickerView: View {
                 Button(action: {
                     isSheetPresented.toggle()
                 }) {
-                    Text(selectedDate != nil ? formattedDate(selectedDate!) : "날짜 입력")
-                        .foregroundColor(Color("gray_60"))
-                        .font(.system(size: 10))
+                    HStack (spacing: 4) {
+                        Text(selectedDate != nil ? formattedDate(selectedDate!) : "경기 날짜")
+                            .foregroundColor(Color("gray_60"))
+                            .font(.system(size: 14))
+                            .bold()
+                        Image("under_triangle")
+                            .foregroundColor(Color("gray_60"))
+                    }
                 }
             }
             .sheet(isPresented: $isSheetPresented) {

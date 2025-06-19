@@ -11,8 +11,8 @@ import KakaoSDKAuth
 
 @main
 struct balllogApp: App {
-    @StateObject private var globalData = GlobalData()
-    
+    @StateObject private var globalData = GlobalData.shared
+
     init() {
         // SDK 초기화
         KakaoSDK.initSDK(appKey:"24e62fbdc1d17bceba6990d424c48972")

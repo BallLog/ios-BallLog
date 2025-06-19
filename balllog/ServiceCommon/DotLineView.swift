@@ -16,7 +16,7 @@ struct DotLineView: View {
             .stroke(style: StrokeStyle(
                 lineWidth: 1,
                 lineCap: .square,
-                dash: [5, 5]
+                dash: [5, 10]
             ))
             .frame(height: 1)
             .foregroundColor(theme < 2 ? teamMainColor(for: myTeam) : Color.white)
@@ -33,6 +33,6 @@ struct DotLineInputView: View {
                 dash: [5, 5]
             ))
             .frame(height: 1)
-            .foregroundColor(Color("gray_60"))
+            .foregroundColor(Color("gray_40"))
     }
 }

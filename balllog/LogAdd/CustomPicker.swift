@@ -21,10 +21,14 @@ struct CustomPicker: View {
             Button(action: {
                 isSheetPresented = true
             }) {
-                Text(selectedValue.isEmpty ? placeholder : selectedValue)
-                    .foregroundColor(Color("gray_60"))
-                    .font(.system(size: bigSize ? 14 : 10))
-                    .fontWeight(bigSize ? .bold : .regular)
+                HStack (spacing: 4){
+                    Text(selectedValue.isEmpty ? placeholder : selectedValue)
+                        .foregroundColor(Color("gray_60"))
+                        .font(.system(size: bigSize ? 14 : 12))
+                        .fontWeight(bigSize ? .bold : .regular)
+                    Image("under_triangle")
+                        .foregroundColor(Color("gray_60"))
+                }
             }
             .sheet(isPresented: $isSheetPresented) {
                 VStack(spacing: 5.0) {
