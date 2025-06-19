@@ -1,11 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "fluent_delete-12-regular.png",
+      "filename" : "delete 1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "delete.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
