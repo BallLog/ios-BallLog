@@ -49,7 +49,6 @@ struct ExitConfirmModal: View {
                     
                     Button("머무르기") {
                         onStay()
-                        dismiss()
                     }
                     .frame(width: 158, height: 50)
                     .foregroundStyle(Color("bc_02_10"))

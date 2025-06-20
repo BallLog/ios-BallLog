@@ -32,11 +32,16 @@ class TeamSelectViewModel: ObservableObject {
     
     // ✅ 팀 확인 후 API 호출 및 화면 전환 처리
     func confirmTeam() {
-        guard let team = selectedTeam else {
+        guard selectedTeam != nil else {
             errorMessage = "팀을 선택해주세요"
             return
         }
-        postTeamSelection(teamId: team.id)
+//        postTeamSelection(teamId: team.id)
+        
+        print("팀 선택 완료!")
+            teamConfirm = true
+            shouldNavigate = true
+        print(shouldNavigate)
     }
 
     // ✅ Combine으로 API 호출
