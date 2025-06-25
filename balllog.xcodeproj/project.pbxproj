@@ -71,7 +71,7 @@
 		B8955BB32D105F260006350D /* TermsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8955BB22D105F230006350D /* TermsView.swift */; };
 		B8955BB92D1063600006350D /* TermsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8955BB82D1063600006350D /* TermsViewModel.swift */; };
 		B8B0FD2D2CCF9FE10093F1A7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0FD2C2CCF9FE10093F1A7 /* HomeView.swift */; };
-		B8B0FD2F2CCFA0F80093F1A7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0FD2E2CCFA0F80093F1A7 /* LoginViewModel.swift */; };
+		B8B0FD2F2CCFA0F80093F1A7 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B0FD2E2CCFA0F80093F1A7 /* AuthViewModel.swift */; };
 		B8CB50EC2CC13BAC0045481A /* balllogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB50EB2CC13BAC0045481A /* balllogApp.swift */; };
 		B8CB50EE2CC13BAC0045481A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB50ED2CC13BAC0045481A /* ContentView.swift */; };
 		B8CB50F02CC13BB00045481A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8CB50EF2CC13BB00045481A /* Assets.xcassets */; };
@@ -79,6 +79,10 @@
 		B8CB50FD2CC13BB00045481A /* balllogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB50FC2CC13BB00045481A /* balllogTests.swift */; };
 		B8CB51072CC13BB00045481A /* balllogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB51062CC13BB00045481A /* balllogUITests.swift */; };
 		B8CB51092CC13BB00045481A /* balllogUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB51082CC13BB00045481A /* balllogUITestsLaunchTests.swift */; };
+		B8DEF3BB2E0ACF9600933452 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DEF3BA2E0ACF9600933452 /* TokenManager.swift */; };
+		B8DEF3BD2E0AD02E00933452 /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DEF3BC2E0AD02E00933452 /* APIModels.swift */; };
+		B8DEF3BF2E0AD21A00933452 /* UserPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DEF3BE2E0AD21900933452 /* UserPreferences.swift */; };
+		B8DEF3C12E0AD42000933452 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DEF3C02E0AD41F00933452 /* KeychainHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,7 +163,7 @@
 		B8955BB22D105F230006350D /* TermsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsView.swift; sourceTree = "<group>"; };
 		B8955BB82D1063600006350D /* TermsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewModel.swift; sourceTree = "<group>"; };
 		B8B0FD2C2CCF9FE10093F1A7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		B8B0FD2E2CCFA0F80093F1A7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		B8B0FD2E2CCFA0F80093F1A7 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		B8CB50E82CC13BAC0045481A /* balllog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = balllog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8CB50EB2CC13BAC0045481A /* balllogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = balllogApp.swift; sourceTree = "<group>"; };
 		B8CB50ED2CC13BAC0045481A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -171,6 +175,10 @@
 		B8CB51062CC13BB00045481A /* balllogUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = balllogUITests.swift; sourceTree = "<group>"; };
 		B8CB51082CC13BB00045481A /* balllogUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = balllogUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		B8CB51162CC13C5E0045481A /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		B8DEF3BA2E0ACF9600933452 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		B8DEF3BC2E0AD02E00933452 /* APIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModels.swift; sourceTree = "<group>"; };
+		B8DEF3BE2E0AD21900933452 /* UserPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPreferences.swift; sourceTree = "<group>"; };
+		B8DEF3C02E0AD41F00933452 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -284,7 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				B85AE7252CC1435C0011BDB1 /* LoginView.swift */,
-				B8B0FD2E2CCFA0F80093F1A7 /* LoginViewModel.swift */,
+				B8B0FD2E2CCFA0F80093F1A7 /* AuthViewModel.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -299,6 +307,17 @@
 				B87038D12E042B5E00FDE531 /* BallLogCardView.swift */,
 			);
 			path = BallLogDetail;
+			sourceTree = "<group>";
+		};
+		B87038E12E05A10300FDE531 /* SocialLogin */ = {
+			isa = PBXGroup;
+			children = (
+				B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */,
+				B8955BAF2D105C450006350D /* AppleLoginModel.swift */,
+				B8955BAD2D105C1C0006350D /* AppleLoginViewModel.swift */,
+				B8955BAB2D1059200006350D /* AppleLoginView.swift */,
+			);
+			path = SocialLogin;
 			sourceTree = "<group>";
 		};
 		B8955BB12D105F030006350D /* Terms */ = {
@@ -361,6 +380,7 @@
 				01D14D5F2DB0D9F500AD1165 /* NickName */,
 				01B46CE12D212C850007CBFF /* TeamSelect */,
 				B85AE7242CC1434E0011BDB1 /* Login */,
+				B87038E12E05A10300FDE531 /* SocialLogin */,
 				B8CB50EB2CC13BAC0045481A /* balllogApp.swift */,
 				B8CB50ED2CC13BAC0045481A /* ContentView.swift */,
 				B8CB50EF2CC13BB00045481A /* Assets.xcassets */,
@@ -397,14 +417,14 @@
 		B8CB51152CC13C4F0045481A /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				B8DEF3C02E0AD41F00933452 /* KeychainHelper.swift */,
+				B8DEF3BE2E0AD21900933452 /* UserPreferences.swift */,
+				B8DEF3BC2E0AD02E00933452 /* APIModels.swift */,
+				B8DEF3BA2E0ACF9600933452 /* TokenManager.swift */,
 				B832ACBD2DD61042006D2E68 /* GlobalData.swift */,
 				019382732DB4D84300AA4BD1 /* APIUtils.swift */,
 				01C8FBB92D71D10D00C544A3 /* Color.swift */,
-				B8955BAF2D105C450006350D /* AppleLoginModel.swift */,
-				B8955BAD2D105C1C0006350D /* AppleLoginViewModel.swift */,
-				B8955BAB2D1059200006350D /* AppleLoginView.swift */,
 				B8CB51162CC13C5E0045481A /* SplashView.swift */,
-				B85AE71B2CC140DF0011BDB1 /* KakaoLoginBtnView.swift */,
 				01B46CE82D2141EE0007CBFF /* CustomButtonStyle.swift */,
 				01B46D002D33B9270007CBFF /* CustomInputView.swift */,
 				01F67B8B2DBF9C550064E71B /* TextInputView.swift */,
@@ -575,10 +595,12 @@
 				01C8FBD32D8CFA6900C544A3 /* AppleLoginModel.swift in Sources */,
 				01D14D562DA0FA3600AD1165 /* TermsOfUseView.swift in Sources */,
 				01C8FBD42D8CFA6900C544A3 /* SplashView.swift in Sources */,
+				B8DEF3BB2E0ACF9600933452 /* TokenManager.swift in Sources */,
 				B832ACC72DD9BEDC006D2E68 /* CalendarGridView.swift in Sources */,
 				B87038CA2E04276F00FDE531 /* LogHeaderView.swift in Sources */,
 				01C8FBD52D8CFA6900C544A3 /* CustomInputView.swift in Sources */,
 				01F67B8C2DBF9C550064E71B /* TextInputView.swift in Sources */,
+				B8DEF3C12E0AD42000933452 /* KeychainHelper.swift in Sources */,
 				01C8FBD62D8CFA6900C544A3 /* Color.swift in Sources */,
 				B87038DC2E04415800FDE531 /* BallLogDetailCtrlView.swift in Sources */,
 				01C8FBDF2D8D0AF400C544A3 /* DetailHeaderView.swift in Sources */,
@@ -596,9 +618,10 @@
 				B8955BB92D1063600006350D /* TermsViewModel.swift in Sources */,
 				B832ACBC2DCCE45C006D2E68 /* SubCardView.swift in Sources */,
 				01F67B902DBFAD1B0064E71B /* TextAreaView.swift in Sources */,
-				B8B0FD2F2CCFA0F80093F1A7 /* LoginViewModel.swift in Sources */,
+				B8B0FD2F2CCFA0F80093F1A7 /* AuthViewModel.swift in Sources */,
 				01B46CEB2D26CA5B0007CBFF /* TeamButtonStyle.swift in Sources */,
 				01D14D632DB0D9F500AD1165 /* NickNameView.swift in Sources */,
+				B8DEF3BF2E0AD21A00933452 /* UserPreferences.swift in Sources */,
 				01D14D622DB0D9F500AD1165 /* NickNameViewModel.swift in Sources */,
 				B87038CE2E0427CA00FDE531 /* LogFormGameInfoView.swift in Sources */,
 				01B46CED2D2BAB950007CBFF /* TeamConfirmView.swift in Sources */,
@@ -621,6 +644,7 @@
 				B87038D62E042CEE00FDE531 /* BallLogCardContentView.swift in Sources */,
 				B832ACC92DD9C626006D2E68 /* DatePickerView.swift in Sources */,
 				B832ACBA2DCCDC37006D2E68 /* PrimaryCardView.swift in Sources */,
+				B8DEF3BD2E0AD02E00933452 /* APIModels.swift in Sources */,
 				01C8FBC42D8C32F600C544A3 /* BallLogDetailView.swift in Sources */,
 				B8955BB32D105F260006350D /* TermsView.swift in Sources */,
 				01B46CE32D212C850007CBFF /* TeamSelectView.swift in Sources */,

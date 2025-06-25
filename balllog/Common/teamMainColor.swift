@@ -8,14 +8,16 @@
 import SwiftUI
 
 func teamMainColor(for team: String?) -> Color {
+//    TODO: id기반으로 변경
+    
     switch team {
-    case "LIONS":
+    case "삼성 라이온즈":
         return Color("Lions_COL_01")
-    case "TIGERS":
+    case "KIA 타이거즈":
         return Color("Tigers_COL_01")
-    case "GIANTS":
+    case "롯데 자이언츠":
         return Color("Giants_COL_02")
-    case "TWINS":
+    case "LG 트윈스":
         return Color("Twins_COL_01")
     default:
         return Color.gray

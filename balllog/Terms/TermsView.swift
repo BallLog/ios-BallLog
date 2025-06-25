@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TermsView: View {
     @StateObject private var termsVM: TermsViewModel
+    @EnvironmentObject var authViewModel: AuthViewModel
     
     init(termsVM: TermsViewModel = TermsViewModel()) {
         _termsVM = StateObject(wrappedValue: termsVM)
@@ -75,6 +76,7 @@ struct TermsView: View {
             }
             .navigationDestination(isPresented: $termsVM.shouldNavigate) {
                 TeamSelectView()
+                    .environmentObject(authViewModel)
             }
             .padding(.bottom, 16.0)
         }

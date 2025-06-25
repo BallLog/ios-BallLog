@@ -18,10 +18,12 @@ struct ContentView: View {
                 if authViewModel.isLoggedIn || appleLoginViewModel.loginSuccess {
                     // 최초 로그인인 경우
                     TermsView()
+                        .environmentObject(authViewModel)
                     // 최초 로그인 아닌 경우
-//                    HomeView()
+//                    ServiceView()
                 } else {
                     LoginView()
+                        .environmentObject(authViewModel)
                 }
             } else {
                 SplashView()
@@ -36,6 +38,15 @@ struct ContentView: View {
             
         }
         .environmentObject(authViewModel)
+        .onAppear {
+            authViewModel.checkAutoLogin()
+        }
+        // Apple 로그인 성공 감지
+        .onChange(of: appleLoginViewModel.loginSuccess) {
+            if appleLoginViewModel.loginSuccess, let userData = appleLoginViewModel.userData {
+                authViewModel.handleAppleLoginSuccess(userData: userData)
+            }
+        }
         .foregroundColor(Color("gray_90"))
     }
 }

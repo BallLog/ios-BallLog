@@ -8,11 +8,8 @@
 import SwiftUI
 
 struct TeamSelectView: View {
-    @StateObject private var teamSelectVM: TeamSelectViewModel
-    
-    init(teamSelectVM: TeamSelectViewModel = TeamSelectViewModel()) {
-        _teamSelectVM = StateObject(wrappedValue: teamSelectVM)
-    }
+    @EnvironmentObject var authViewModel: AuthViewModel
+    @StateObject private var teamSelectVM = TeamSelectViewModel()
     
     var body: some View {
         NavigationStack {
@@ -57,8 +54,4 @@ struct TeamSelectView: View {
         }
         .navigationBarBackButtonHidden(true)
     }
-}
-
-#Preview {
-    TeamSelectView()
 }

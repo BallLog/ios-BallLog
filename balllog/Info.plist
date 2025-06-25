@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>API_URL</key>
-	<string>https://api.mockapi.com/api</string>
+	<string>http://43.200.90.194:8080/api/v1</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -40,5 +40,16 @@
 		<string>PretendardVariable.ttf</string>
 		<string>PlaypenSans-VariableFont_wght.ttf</string>
 	</array>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSExceptionDomains</key>
+        <dict>
+            <key>43.200.90.194</key>
+            <dict>
+                <key>NSExceptionAllowsInsecureHTTPLoads</key>
+                <true/>
+            </dict>
+        </dict>
+    </dict>
 </dict>
 </plist>

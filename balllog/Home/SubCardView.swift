@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct SubCardView: View {
+    let teamName = UserPreferences.shared.getTeamName()
+    
     var body: some View {
         NavigationLink(destination: BallLogDetailView()) {
             GeometryReader { geometry in
@@ -23,7 +25,7 @@ struct SubCardView: View {
                     .foregroundStyle(Color.white)
                     .background(
                         Rectangle()
-                            .foregroundStyle(teamMainColor(for: "LIONS"))
+                            .foregroundStyle(teamMainColor(for: teamName))
                             .clipShape(RoundedCorner(radius: 6, corners: [.topLeft, .topRight]))
                             .frame(width: geometry.size.width, height: 28)
                     )

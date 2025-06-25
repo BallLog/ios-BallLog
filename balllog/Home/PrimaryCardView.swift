@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct PrimaryCardView: View {
+    let teamName = UserPreferences.shared.getTeamName()
+    
     var body: some View {
         GeometryReader { geometry in
             VStack {
@@ -23,13 +25,13 @@ struct PrimaryCardView: View {
                     .foregroundStyle(Color.white)
                     .background(
                         Rectangle()
-                            .foregroundStyle(teamMainColor(for: "LIONS"))
+                            .foregroundStyle(teamMainColor(for: teamName))
                             .clipShape(RoundedCorner(radius: 4, corners: [.topLeft, .topRight]))
                             .frame(width: geometry.size.width, height: 40)
                     )
                     ZStack {
                         Rectangle()
-                            .foregroundStyle(teamMainColor(for: "LIONS"))
+                            .foregroundStyle(teamMainColor(for: teamName))
                         Image("logo_title")
                             .foregroundStyle(Color.white)
                         VStack {
@@ -64,7 +66,7 @@ struct PrimaryCardView: View {
                     .padding(10.0)
                     .background(
                         Rectangle()
-                            .foregroundStyle(teamMainColor(for: "LIONS"))
+                            .foregroundStyle(teamMainColor(for: teamName))
                             .clipShape(RoundedCorner(radius: 4, corners: [.bottomLeft, .bottomRight]))
                             .frame(width: geometry.size.width, height: 90)
                     )
