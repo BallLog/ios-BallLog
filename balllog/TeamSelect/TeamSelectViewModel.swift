@@ -61,6 +61,7 @@ class TeamSelectViewModel: ObservableObject {
                     
                     // 팀 이름 저장
                     UserPreferences.shared.saveTeamName(response.data.kboTeamName)
+                    GlobalData.shared.setMyTeam(TeamData.shared.findNameTeam(by: response.data.kboTeamName)!)
                 } else {
                     self.errorMessage = response.message
                     self.teamConfirm = false
