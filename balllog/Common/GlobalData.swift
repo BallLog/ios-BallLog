@@ -25,9 +25,6 @@ class GlobalData: ObservableObject {
     var myTeamName: String {
         selectedTeam?.name ?? ""
     }
-    var myTeamKey: String {
-        selectedTeam?.key ?? ""
-    }
     
     func setMyTeam(_ team: Team) {
         selectedTeam = team

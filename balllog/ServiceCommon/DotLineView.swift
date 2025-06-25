@@ -24,7 +24,7 @@ struct DotLineView: View {
             ))
         }
         .frame(height: 1)
-        .foregroundColor(theme < 2 ? teamMainColor(for: myTeam) : Color.white)
+        .foregroundColor(Color.white)
     }
 }
 

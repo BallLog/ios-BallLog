@@ -29,7 +29,6 @@ struct LogFormContentView: View {
                 TextInputView(text: $title, placeholder: "제목을 입력해 주세요", fontWeight: .bold)
                     .focused($isFocused)
             }
-            .padding(.top, 14)
 
             VStack (alignment: .leading, spacing: 0){
                 LogFormGameInfoView(
@@ -108,8 +107,11 @@ struct LogFormContentView: View {
                Rectangle()
                    .stroke(Color("gray_40"), lineWidth: 1.0)
             )
-            Spacer()
         }
         .padding(14)
     }
+}
+
+#Preview {
+    LogAddView()
 }

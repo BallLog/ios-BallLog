@@ -44,7 +44,7 @@ struct ServiceView: View {
             Image("TabBar")
                 .resizable()
                 .frame(maxWidth: .infinity)
-                .frame(height: 74)
+                .aspectRatio(contentMode: .fit) // 비율 유지
 
             HStack(alignment: .bottom) {
                 Spacer()
@@ -101,6 +101,8 @@ struct ServiceView: View {
             .padding(.top, 8.0)
             .frame(maxWidth: .infinity)
         }
+        .background(.clear)
+        .compositingGroup()
         .navigationBarBackButtonHidden(true)
     }
 }

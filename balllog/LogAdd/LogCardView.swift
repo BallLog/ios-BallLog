@@ -12,26 +12,25 @@ struct LogCardView: View {
     @FocusState var isFocused: Bool
     
     var body: some View {
-        ZStack {
-            Image("linecard")
-                .resizable()
-                .scaledToFit()
-                .frame(maxWidth: UIScreen.main.bounds.width - 40, maxHeight: .infinity)
-                .foregroundStyle(Color("gray_40"))
-                .overlay(
-                    LogFormContentView(
-                        title: $viewModel.title,
-                        gameDate: $viewModel.gameDate,
-                        stadium: $viewModel.stadium,
-                        myTeam: $viewModel.myTeam,
-                        myTeamScore: $viewModel.myTeamScore,
-                        opposingTeam: $viewModel.opposingTeam,
-                        opposingTeamScore: $viewModel.opposingTeamScore,
-                        photoList: $viewModel.photoList,
-                        logContent: $viewModel.logContent,
-                        isFocused: _isFocused
-                    )
+            GeometryReader { geometry in
+                LogFormContentView(
+                    title: $viewModel.title,
+                    gameDate: $viewModel.gameDate,
+                    stadium: $viewModel.stadium,
+                    myTeam: $viewModel.myTeam,
+                    myTeamScore: $viewModel.myTeamScore,
+                    opposingTeam: $viewModel.opposingTeam,
+                    opposingTeamScore: $viewModel.opposingTeamScore,
+                    photoList: $viewModel.photoList,
+                    logContent: $viewModel.logContent,
+                    isFocused: _isFocused
                 )
-        }
+                .overlay(
+                    Rectangle()
+                        .stroke(Color("gray_40"), lineWidth: 1.0)
+                )
+                .padding(.leading, 18)
+                .frame(width: geometry.size.width - 18)
+            }
     }
 }

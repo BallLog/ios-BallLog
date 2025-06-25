@@ -16,7 +16,7 @@ struct BallLogDetailView: View {
             ZStack {
                 ScrollView {
                     VStack {
-                        Spacer().frame(minHeight: 8)
+                        Spacer().frame(minHeight: 10)
                         BallLogCardView(viewModel: viewModel)
                         Spacer().frame(minHeight: 22)
                     }

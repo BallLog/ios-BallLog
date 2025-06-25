@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SubCardView: View {
-    let teamName = UserPreferences.shared.getTeamName()
+    let teamName = UserPreferences.shared.getTeamName() 
     
     var body: some View {
         NavigationLink(destination: BallLogDetailView()) {
@@ -41,9 +41,10 @@ struct SubCardView: View {
                         Text("삼성 라이온즈")
                     }
                     .font(.system(size: 18, weight: .bold))
+                    .foregroundStyle(teamFontColor(for:teamName))
                     .background(
                         Rectangle()
-                            .foregroundStyle(Color.white)
+                            .foregroundStyle(teamBgColor(for:teamName))
                             .clipShape(RoundedCorner(radius: 6, corners: [.bottomLeft, .bottomRight]))
                             .frame(width: geometry.size.width, height: 65)
                             .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4)

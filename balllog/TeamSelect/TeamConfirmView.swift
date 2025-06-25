@@ -56,7 +56,7 @@ struct TeamConfirmView: View {
 }
 
 struct TeamConfirmView_Previews: PreviewProvider {
-    @State static var previewSelectedTeam: Team? = Team(id: 1, name: "삼성 라이온즈", key:"LIONS")
+    @State static var previewSelectedTeam: Team? = Team(id: 1, name: "삼성 라이온즈")
 
     static func onConfirm () {
         print("confirm")

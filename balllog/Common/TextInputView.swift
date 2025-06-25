@@ -11,7 +11,7 @@ struct TextInputView: View {
     @Binding var text: String
     var placeholder: String = ""
     var maxLength: Int?
-    var fontSize: CGFloat = 12
+    var fontSize: CGFloat = 14
     var fontWeight: Font.Weight = .regular
     
     var body: some View {

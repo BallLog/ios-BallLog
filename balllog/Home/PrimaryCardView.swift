@@ -14,26 +14,37 @@ struct PrimaryCardView: View {
         GeometryReader { geometry in
             VStack {
                 VStack(spacing: 0.0) {
-                    HStack {
-                        Text("KIA 타이거즈 VS 삼성 라이온즈")
-                        Spacer()
-                        Text("14:16")
-                    }
-                    .font(.system(size: 14, weight: .bold))
-                    .padding(.vertical, 10.0)
-                    .padding(.horizontal, 15.0)
-                    .foregroundStyle(Color.white)
-                    .background(
+                    VStack(spacing: 0) {
+                        HStack {
+                            Text("KIA 타이거즈 VS 삼성 라이온즈")
+                            Spacer()
+                            Text("14:16")
+                        }
+                        .font(.system(size: 14, weight: .bold))
+                        .padding(.vertical, 10.0)
+                        .padding(.horizontal, 15.0)
+                        .foregroundStyle(Color.white)
+                        .background(
+                            Rectangle()
+                                .foregroundStyle(teamMainColor(for: teamName))
+                                .clipShape(RoundedCorner(radius: 4, corners: [.topLeft, .topRight]))
+                                .frame(width: geometry.size.width, height: 40)
+                        )
                         Rectangle()
-                            .foregroundStyle(teamMainColor(for: teamName))
-                            .clipShape(RoundedCorner(radius: 4, corners: [.topLeft, .topRight]))
-                            .frame(width: geometry.size.width, height: 40)
-                    )
+                            .stroke(style: StrokeStyle(
+                                lineWidth: 1,
+                                lineCap: .square,
+                                dash: [5, 5]
+                            ))
+                            .frame(height: 1)
+                            .foregroundStyle(Color.white)
+                    }
                     ZStack {
                         Rectangle()
-                            .foregroundStyle(teamMainColor(for: teamName))
+                            .foregroundStyle(teamSubColor(for: teamName))
                         Image("logo_title")
                             .foregroundStyle(Color.white)
+                            .opacity(0.5)
                         VStack {
                             Spacer()
                             Rectangle()
@@ -66,7 +77,7 @@ struct PrimaryCardView: View {
                     .padding(10.0)
                     .background(
                         Rectangle()
-                            .foregroundStyle(teamMainColor(for: teamName))
+                            .foregroundStyle(teamSubColor(for: teamName))
                             .clipShape(RoundedCorner(radius: 4, corners: [.bottomLeft, .bottomRight]))
                             .frame(width: geometry.size.width, height: 90)
                     )

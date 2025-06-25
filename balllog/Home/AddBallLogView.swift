@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct AddBallLogView: View {
+    @Binding var showLogAdd: Bool
+    
     var body: some View {
-        NavigationLink(destination: LogAddView())  {
+        Button {
+            showLogAdd = true  // 버튼으로 변경
+        } label: {
             VStack(spacing: 6) {
                 VStack(spacing: 2) {
                     Image("log_add_gray")
