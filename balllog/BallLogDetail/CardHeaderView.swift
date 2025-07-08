@@ -7,8 +7,6 @@
 import SwiftUI
 
 struct CardHeaderView: View {
-    @EnvironmentObject var globalData: GlobalData
-
     var body: some View {
         VStack(spacing: 0) {
             VStack(alignment: .leading, spacing: 4) {

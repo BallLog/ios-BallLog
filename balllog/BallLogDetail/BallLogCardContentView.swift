@@ -8,8 +8,6 @@
 import SwiftUI
 
 struct BallLogCardContentView: View {
-    @EnvironmentObject var globalData: GlobalData
-    
     // API로 받아올 데이터들
     let title_api: String
     let matchDate: String  // "2025-03-04THH:MM:SS"
@@ -39,7 +37,7 @@ struct BallLogCardContentView: View {
                 }
                 .background(
                     Rectangle()
-                        .foregroundStyle(teamThemeBgColor(for: globalData.selectedTeam?.name).shapeStyle)
+                        .foregroundStyle(teamThemeBgColor(for: UserPreferences.shared.getTeamName()).shapeStyle)
                 )
             }
             .padding(14)
@@ -68,7 +66,7 @@ struct BallLogCardContentView: View {
             .padding(.vertical, 14.0)
             .background(Color.white)
             
-            DotLineView(myTeam: globalData.myTeamName, theme: 0)
+            DotLineView(myTeam: UserPreferences.shared.getTeamName(), theme: 0)
             
             HStack {
                 teamsView
@@ -120,13 +118,13 @@ struct BallLogCardContentView: View {
     private var teamsView: some View {
         HStack(spacing: 6) {
             HStack(spacing: 4) {
-                Text(TeamData.shared.findIdTeam(by: cheeringTeamId)?.name ?? "팀 없음")
+                Text(TeamSelectViewModel.findTeamById(cheeringTeamId)?.name ?? "팀 없음")
                     .bold()
                 Image("under_triangle")
             }
             Text("vs")
             HStack(spacing: 4) {
-                Text(TeamData.shared.findIdTeam(by: opposingTeamId)?.name ?? "팀 없음")
+                Text(TeamSelectViewModel.findTeamById(opposingTeamId)?.name ?? "팀 없음")
                     .bold()
                 Image("under_triangle")
             }
@@ -137,13 +135,13 @@ struct BallLogCardContentView: View {
     
     private var photoSection: some View {
         VStack(spacing: 0) {
-            DotLineView(myTeam: globalData.myTeamName, theme: 0)
+            DotLineView(myTeam: UserPreferences.shared.getTeamName(), theme: 0)
             
             if photos_api.count == 0 {
                 // 기본 로고 이미지
                 VStack {
                     Image("logo_title")
-                        .foregroundStyle(teamThemeBgColor(for: globalData.selectedTeam?.name).shapeStyle)
+                        .foregroundStyle(teamThemeBgColor(for: UserPreferences.shared.getTeamName()).shapeStyle)
                 }
                 .frame(height: 175)
                 .frame(maxWidth: .infinity)
@@ -174,7 +172,7 @@ struct BallLogCardContentView: View {
                 .background(Color.white)
             }
             
-            DotLineView(myTeam: globalData.myTeamName, theme: 0)
+            DotLineView(myTeam: UserPreferences.shared.getTeamName(), theme: 0)
         }
     }
     
@@ -240,7 +238,7 @@ struct BallLogCardContentView: View {
     
     private var stadiumSection: some View {
         HStack(spacing: 4) {
-            Text(StadiumData.shared.findNameOfStadium(by: stadiumId) ?? "--")
+            Text(TeamSelectViewModel.getStadiumName(by: stadiumId))
                 .font(.system(size: 12))
                 .bold()
             Image("under_triangle")
@@ -254,23 +252,10 @@ struct BallLogCardContentView: View {
     // MARK: - 계산된 속성
     
     private var teamColor: Color {
-        teamMainColor(for: globalData.selectedTeam?.name)
+        teamMainColor(for: UserPreferences.shared.getTeamName())
     }
     private var teamFontColor: Color {
-        teamThemeFontColor(for: globalData.selectedTeam?.name)
+        teamThemeFontColor(for: UserPreferences.shared.getTeamName())
     }
 }
 
-
-#Preview {
-    BallLogDetailView()
-        .environmentObject({
-            let data = GlobalData.shared
-            let team = TeamData.shared.findNameTeam(by: "KIA 타이거즈")!
-            print(team)
-            data.setMyTeam(team)
-            data.winCount = 7
-            data.totalGames = 10
-            return data
-        }())
-}

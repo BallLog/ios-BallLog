@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct BallLogDetailView: View {
-    @StateObject private var viewModel = LogAddViewModel()
-    @EnvironmentObject var globalData: GlobalData
+    @StateObject private var viewModel = BallLogCreateViewModel()
 
     var body: some View {
         NavigationStack {
@@ -47,5 +46,4 @@ struct BallLogDetailView: View {
 
 #Preview {
     BallLogDetailView()
-        .environmentObject(GlobalData.shared)
 }

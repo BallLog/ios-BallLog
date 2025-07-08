@@ -7,11 +7,8 @@
 import SwiftUI
 
 struct BallLogCardView: View {
-    @ObservedObject var viewModel: LogAddViewModel
+    @ObservedObject var viewModel: BallLogCreateViewModel
     @FocusState var isFocused: Bool
-    @EnvironmentObject var globalData: GlobalData
-    // api 호출
-    // /api/v1/ball-log/{ballLogId}
 
     var body: some View {
         GeometryReader { geometry in
@@ -29,7 +26,7 @@ struct BallLogCardView: View {
             )
             .background(
                 Rectangle()
-                    .foregroundStyle(teamThemeBgColor(for: globalData.selectedTeam?.name).shapeStyle)
+                    .foregroundStyle(teamThemeBgColor(for: UserPreferences.shared.getTeamName()).shapeStyle)
             )
             .padding(.leading, 18)
             .frame(width: geometry.size.width - 18)
@@ -37,20 +34,6 @@ struct BallLogCardView: View {
     }
     // 복잡한 expression을 분리
     private var currentTeamColor: Color {
-        return teamMainColor(for: globalData.selectedTeam?.name)
+        return teamMainColor(for: UserPreferences.shared.getTeamName())
     }
-}
-
-
-#Preview {
-    BallLogDetailView()
-        .environmentObject({
-            let data = GlobalData.shared
-            let team = TeamData.shared.findNameTeam(by: "롯데 자이언츠")!
-            print(team)
-            data.setMyTeam(team)
-            data.winCount = 7
-            data.totalGames = 10
-            return data
-        }())
 }

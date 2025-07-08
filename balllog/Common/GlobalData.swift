@@ -9,6 +9,7 @@ import SwiftUI
 
 class GlobalData: ObservableObject {
     static let shared = GlobalData()
+    @StateObject private var teamSelectVM = TeamSelectViewModel()
     
     @Published var selectedTeam: Team?
     @Published var winCount: Int = 0
@@ -35,7 +36,7 @@ class GlobalData: ObservableObject {
         // 저장된 팀 ID로 팀 찾기
         let savedTeamId = UserDefaults.standard.integer(forKey: "selectedTeamId")
         if savedTeamId > 0 {
-            selectedTeam = TeamData.shared.findIdTeam(by: savedTeamId)
+            selectedTeam = UserPreferences.shared.getTeamName()
         }
         
         winCount = UserDefaults.standard.integer(forKey: "winCount")
