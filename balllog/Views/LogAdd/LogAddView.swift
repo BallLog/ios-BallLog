@@ -26,8 +26,7 @@ struct LogAddView: View {
                     Color.white
                         .ignoresSafeArea()
                         .onTapGesture {
-                            // 빈 공간만 터치했을 때만 키보드 숨기기
-                            isFocused = false
+                            hideKeyboard()
                         }
                     
                     // 메인 콘텐츠
@@ -45,6 +44,9 @@ struct LogAddView: View {
                                 LogCardView(viewModel: viewModel, isFocused: _isFocused)
                                     .id("logCard")
                                     .allowsHitTesting(true)
+                                    .onTapGesture {
+                                        hideKeyboard()
+                                    }
                                 
                                 // 키보드 높이만큼 여백 추가
                                 Rectangle()
@@ -93,6 +95,9 @@ struct LogAddView: View {
                             showExitConfirmation: $viewModel.showExitConfirmation,
                             dismiss: dismiss
                         )
+                        .onTapGesture {
+                            hideKeyboard()
+                        }
                         .allowsHitTesting(true)
                         Spacer()
                     }
@@ -154,5 +159,9 @@ struct LogAddView: View {
                 Text(viewModel.errorMessage ?? "")
             }
         }
+    }
+    
+    func hideKeyboard() {
+        isFocused = false
     }
 }

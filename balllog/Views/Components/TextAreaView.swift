@@ -51,12 +51,9 @@ struct TextAreaView: View {
             .frame(height: 173)
             .background(
                 // 포커스 상태를 시각적으로 표시 (선택사항)
-                RoundedRectangle(cornerRadius: 8)
+                RoundedRectangle(cornerRadius: 0)
                     .stroke(isFocused ? Color.blue.opacity(0.3) : Color.clear, lineWidth: 2)
             )
-            .onTapGesture {
-                isFocused = true
-            }
         }
     }
 }

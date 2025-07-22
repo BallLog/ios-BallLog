@@ -42,7 +42,7 @@ struct PhotoPickerView: View {
                     .foregroundColor(Color("gray_50"))
                     .background(Color("gray_20"))
                 }
-                .onChange(of: selectedItems) { oldItems, newItems in
+                .onChange(of: selectedItems) { _, newItems in
                     print("📸 선택된 아이템 변경: \(newItems.count)개")
                     loadImages(from: newItems)
                 }
@@ -98,7 +98,7 @@ struct PhotoPickerView: View {
                                     .foregroundStyle(Color.white)
                             }
                         }
-                        .onChange(of: selectedItems) { oldItems, newItems in
+                        .onChange(of: selectedItems) { _, newItems in
                             print("📸 추가 아이템 변경: \(newItems.count)개")
                             loadImages(from: newItems)
                         }
@@ -106,6 +106,7 @@ struct PhotoPickerView: View {
                     .padding(.vertical, 6.0)
                     .padding(.horizontal, 9.0)
                 }
+                .zIndex(500)
             }
             // 로딩 오버레이
             if isLoading {
@@ -168,23 +169,29 @@ struct PhotoPickerView: View {
     }
     
     private func deleteCurrentImage() {
-        guard selectedIndex < selectedImagesData.count && selectedIndex < selectedItems.count else {
-            return
+//        guard selectedIndex < selectedImagesData.count && selectedIndex < selectedItems.count else {
+//            return
+//        }
+//        
+//        print("🗑 이미지 \(selectedIndex) 삭제")
+//        
+//        selectedImagesData.remove(at: selectedIndex)
+//        selectedItems.remove(at: selectedIndex)
+//        
+//        // 인덱스 조정
+//        if selectedIndex >= selectedImagesData.count && selectedImagesData.count > 0 {
+//            selectedIndex = selectedImagesData.count - 1
+//        } else if selectedImagesData.isEmpty {
+//            selectedIndex = 0
+//        }
+//        
+//        print("📸 삭제 후 이미지: \(selectedImagesData.count)개, 현재 인덱스: \(selectedIndex)")
+        
+        if selectedImagesData.indices.contains(selectedIndex) {
+            selectedImagesData.remove(at: selectedIndex)
+            selectedItems.remove(at: selectedIndex)
+            selectedIndex = max(0, selectedIndex - 1)
         }
-        
-        print("🗑 이미지 \(selectedIndex) 삭제")
-        
-        selectedImagesData.remove(at: selectedIndex)
-        selectedItems.remove(at: selectedIndex)
-        
-        // 인덱스 조정
-        if selectedIndex >= selectedImagesData.count && selectedImagesData.count > 0 {
-            selectedIndex = selectedImagesData.count - 1
-        } else if selectedImagesData.isEmpty {
-            selectedIndex = 0
-        }
-        
-        print("📸 삭제 후 이미지: \(selectedImagesData.count)개, 현재 인덱스: \(selectedIndex)")
     }
     
 }
