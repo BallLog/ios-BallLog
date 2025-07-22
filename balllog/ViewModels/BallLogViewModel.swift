@@ -27,7 +27,7 @@ class BallLogViewModel: ObservableObject {
     }
     
     // MARK: - Public Methods
-    func fetchBallLogs(reset: Bool = false) async {
+    func fetchBallLogs(reset: Bool = false, winning: Bool = false) async {
         if reset {
             currentPage = 0
             ballLogs.removeAll()
@@ -41,7 +41,7 @@ class BallLogViewModel: ObservableObject {
             let response = try await ballLogService.fetchBallLogs(
                 page: currentPage,
                 size: pageSize,
-                onlyWin: nil
+                onlyWin: winning ? true : nil
             )
             
             if reset {

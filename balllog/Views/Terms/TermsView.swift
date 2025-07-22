@@ -114,7 +114,7 @@ struct TermsView: View {
             }
         }
         .navigationDestination(isPresented: $viewModel.shouldNavigate) {
-            TeamSelectView()
+            NicknameView()
                 .environmentObject(authViewModel)
         }
         .padding(.bottom, 16.0)

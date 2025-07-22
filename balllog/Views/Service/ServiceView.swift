@@ -29,11 +29,13 @@ struct ServiceView: View {
                 .toolbar(.hidden, for: .tabBar)
             }
             .padding(.bottom, 76.0)
+            
             VStack{
                 Spacer()
                 tabBar
             }
         }
+        .ignoresSafeArea(.container, edges: .bottom) // 하단 안전 영역 무시
         .interactiveDismissDisabled(true)
         .fullScreenCover(isPresented: $serviceVM.shouldPresentLogView) {
             LogAddView() // 로그 추가 페이지
@@ -108,6 +110,18 @@ struct ServiceView: View {
     }
 }
 
+struct ServiceViewPreview: View {
+    @StateObject private var authViewModel = AuthViewModel()
+    
+    var body: some View {
+        ServiceView()
+            .environmentObject(authViewModel)
+            .onAppear {
+                UserPreferences.shared.setTeamName("삼성 라이온즈")
+            }
+    }
+}
+
 #Preview {
-    ServiceView()
+    ServiceViewPreview()
 }

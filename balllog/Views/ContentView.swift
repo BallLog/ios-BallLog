@@ -16,7 +16,7 @@ struct ContentView: View {
         Group {
             if showMainView {
                 if authViewModel.isLoggedIn || appleLoginViewModel.loginSuccess {
-                    TermsView()
+                    ServiceView()
                         .environmentObject(authViewModel)
                 } else {
                     LoginView()

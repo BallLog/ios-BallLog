@@ -8,7 +8,6 @@
 import Foundation
 import Combine
 
-@MainActor
 class TeamSelectViewModel: ObservableObject {
     // MARK: - Published Properties
     @Published var teamData: [[Team]] = []

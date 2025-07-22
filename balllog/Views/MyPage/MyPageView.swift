@@ -57,7 +57,7 @@ struct MyPageView: View {
                                 .font(.system(size: 24))
                                 .fontWeight(.bold)
                             Text(preferences.getTeamName())
-                                .font(.system(size: 14))
+                                .font(.system(size: 16))
                         }
                         .foregroundColor(Color.white)
                         .padding(.top, 80.0)
@@ -76,41 +76,42 @@ struct MyPageView: View {
                         .foregroundStyle(Color("gray_70"))
                     Spacer()
                     Text("승률 \(String(format: "%.0f", preferences.localWinRate))%")
-                        .font(.system(size: 12))
+                        .font(.system(size: 14))
+                        .bold()
                         .foregroundStyle(teamMainColor(for: UserPreferences.shared.getTeamName()))
                 }
                 Spacer()
-                    .frame(height: 8)
+                    .frame(height: 12)
                 HStack(alignment: .bottom, spacing: 4.0) {
                     Text("\(preferences.winGames)승")
-                        .font(.system(size: 20))
+                        .font(.system(size: 22))
                         .fontWeight(.bold)
                         .foregroundStyle(teamMainColor(for: UserPreferences.shared.getTeamName()))
                     Text("/\(preferences.totalGames)경기")
-                        .font(.system(size: 10))
+                        .font(.system(size: 12))
                         .padding(.bottom, 4.0)
                         .foregroundStyle(Color("gray_50"))
                     Spacer()
                 }
                 Spacer()
-                    .frame(height: 10)
+                    .frame(height: 8)
                 GeometryReader { geometry in
                     ZStack {
                         RoundedRectangle(cornerRadius: 6)
                             .fill(Color("gray_20"))
-                            .frame(width: geometry.size.width, height: 6)
+                            .frame(width: geometry.size.width, height: 8)
                         HStack {
                             RoundedRectangle(cornerRadius: 6)
                                 .fill(teamMainColor(for: UserPreferences.shared.getTeamName()))
-                                .frame(width: geometry.size.width * (preferences.localWinRate / 100.0), height: 6)
+                                .frame(width: geometry.size.width * (preferences.localWinRate / 100.0), height: 8)
                             Spacer()
                         }
                     }
                 }
             }
             .frame(height: 62)
-            .padding(.top, 14.0)
-            .padding(.bottom, 20.0)
+            .padding(.top, 16.0)
+            .padding(.bottom, 22.0)
             .padding(.horizontal, 16)
             .background(Color.white)
             .cornerRadius(12)
@@ -129,7 +130,7 @@ struct MyPageView: View {
                     Text("설정")
                         .fontWeight(.medium)
                         .padding(.leading, 2.0)
-                        .foregroundStyle(Color("gray_70"))
+                        .foregroundStyle(Color("gray_60"))
                     Spacer()
                 }
                 VStack(spacing: 0.0) {
@@ -137,30 +138,34 @@ struct MyPageView: View {
                         menuItem(icon: "edit_team", title: "응원구단 변경", showChevron: true)
                     }
                     Divider()
-                    NavigationLink(destination: ChangeNickNameView()) {
+                        .overlay(Color("bc_01_05"))
+                    NavigationLink(destination: ChangeNicknameView()) {
                         menuItem(icon: "edit_nickname", title: "닉네임 변경", showChevron: true)
                     }
                     Divider()
-                    NavigationLink(destination: TermsOfUseView()) {
+                        .overlay(Color("bc_01_05"))
+                    NavigationLink(destination: TermsDetailView(contentType: .terms)) {
                         menuItem(icon: "policy", title: "이용약관", showChevron: true)
                     }
                     Divider()
+                        .overlay(Color("bc_01_05"))
                     menuItem(icon: "version", title: "버전정보", rightText: "현재버전 0.1.1")
                     Divider()
+                        .overlay(Color("bc_01_05"))
                     Button {
                         viewModel.showLogoutConfirmation()
                     } label: {
                         menuItem(icon: "logout", title: "로그아웃", showChevron: false)
                     }
                     Divider()
+                        .overlay(Color("bc_01_05"))
                     NavigationLink(destination: WithdrawalView(authViewModel: authViewModel)) {
                         menuItem(icon: "resign", title: "회원탈퇴", showChevron: true)
                     }
                 }
-                .foregroundStyle(Color("gray_70"))
                 .overlay(
                     RoundedRectangle(cornerRadius: 6)
-                        .stroke(Color("gray_40"), lineWidth: 1)
+                        .stroke(Color("bc_01_05"), lineWidth: 1)
                 )
             }
             Spacer()
@@ -175,12 +180,13 @@ struct MyPageView: View {
             Spacer()
                 .frame(width: 24)
             Text(title)
+                .foregroundStyle(Color("gray_70"))
             Spacer()
             if let rightText = rightText {
                 Text(rightText)
                     .font(.system(size: 12))
                     .fontWeight(.medium)
-                    .foregroundStyle(Color("gray_70"))
+                    .foregroundStyle(Color("gray_50"))
             }
             if showChevron {
                 Image("chevron_gray_r")
@@ -188,4 +194,19 @@ struct MyPageView: View {
         }
         .padding(16.0)
     }
+}
+
+#Preview("기본 상태") {
+    // Mock AuthViewModel for preview
+    let mockAuthViewModel = AuthViewModel()
+    
+    return MyPageView(authViewModel: mockAuthViewModel)
+        .environmentObject(mockAuthViewModel)
+        .onAppear {
+            // 프리뷰용 테스트 데이터 설정
+            UserPreferences.shared.setTeamName("삼성 라이온즈")
+            UserPreferences.shared.updateLocalWinRate(isWin: true)
+            UserPreferences.shared.updateLocalWinRate(isWin: true)
+            UserPreferences.shared.updateLocalWinRate(isWin: false)
+        }
 }

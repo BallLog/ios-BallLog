@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		01C8FBC02D772AAB00C544A3 /* ChangeTeamSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBBF2D772AA500C544A3 /* ChangeTeamSelectView.swift */; };
-		01C8FBC42D8C32F600C544A3 /* BallLogDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBC22D8C32F000C544A3 /* BallLogDetailView.swift */; };
 		01C8FBD22D8CFA6900C544A3 /* CustomButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46CE82D2141EE0007CBFF /* CustomButtonStyle.swift */; };
 		01C8FBD42D8CFA6900C544A3 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB51162CC13C5E0045481A /* SplashView.swift */; };
 		01C8FBD52D8CFA6900C544A3 /* CustomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B46D002D33B9270007CBFF /* CustomInputView.swift */; };
@@ -23,10 +22,6 @@
 		B85AE7232CC142F90011BDB1 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7222CC142F90011BDB1 /* KakaoSDKUser */; };
 		B85AE7292CCD1F0B0011BDB1 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7282CCD1F0B0011BDB1 /* GoogleSignIn */; };
 		B85AE72B2CCD1F0B0011BDB1 /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE72A2CCD1F0B0011BDB1 /* GoogleSignInSwift */; };
-		B87038D22E042B6200FDE531 /* BallLogCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87038D12E042B5E00FDE531 /* BallLogCardView.swift */; };
-		B87038D42E042B7B00FDE531 /* CardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87038D32E042B7700FDE531 /* CardHeaderView.swift */; };
-		B87038D62E042CEE00FDE531 /* BallLogCardContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87038D52E042CE900FDE531 /* BallLogCardContentView.swift */; };
-		B87038DC2E04415800FDE531 /* BallLogDetailCtrlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87038DB2E04415800FDE531 /* BallLogDetailCtrlView.swift */; };
 		B8CB50EC2CC13BAC0045481A /* balllogApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CB50EB2CC13BAC0045481A /* balllogApp.swift */; };
 		B8CB50F02CC13BB00045481A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8CB50EF2CC13BB00045481A /* Assets.xcassets */; };
 		B8CB50F32CC13BB00045481A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8CB50F22CC13BB00045481A /* Preview Assets.xcassets */; };
@@ -57,17 +52,12 @@
 		01B46D002D33B9270007CBFF /* CustomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputView.swift; sourceTree = "<group>"; };
 		01C8FBB92D71D10D00C544A3 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		01C8FBBF2D772AA500C544A3 /* ChangeTeamSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTeamSelectView.swift; sourceTree = "<group>"; };
-		01C8FBC22D8C32F000C544A3 /* BallLogDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallLogDetailView.swift; sourceTree = "<group>"; };
 		01C8FBDA2D8CFB9000C544A3 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		01C8FBDE2D8D0AF400C544A3 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		B832ACC42DD9BEB1006D2E68 /* CustomDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerView.swift; sourceTree = "<group>"; };
 		B832ACC62DD9BED9006D2E68 /* CalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridView.swift; sourceTree = "<group>"; };
 		B832ACC82DD9C624006D2E68 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		B85AE71A2CC140360011BDB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B87038D12E042B5E00FDE531 /* BallLogCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallLogCardView.swift; sourceTree = "<group>"; };
-		B87038D32E042B7700FDE531 /* CardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardHeaderView.swift; sourceTree = "<group>"; };
-		B87038D52E042CE900FDE531 /* BallLogCardContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallLogCardContentView.swift; sourceTree = "<group>"; };
-		B87038DB2E04415800FDE531 /* BallLogDetailCtrlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallLogDetailCtrlView.swift; sourceTree = "<group>"; };
 		B8955BAA2D1059140006350D /* balllog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = balllog.entitlements; sourceTree = "<group>"; };
 		B8CB50E82CC13BAC0045481A /* balllog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = balllog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8CB50EB2CC13BAC0045481A /* balllogApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = balllogApp.swift; sourceTree = "<group>"; };
@@ -149,18 +139,6 @@
 			path = DatePicker;
 			sourceTree = "<group>";
 		};
-		B87038DA2E0440F200FDE531 /* BallLogDetail */ = {
-			isa = PBXGroup;
-			children = (
-				B87038DB2E04415800FDE531 /* BallLogDetailCtrlView.swift */,
-				B87038D52E042CE900FDE531 /* BallLogCardContentView.swift */,
-				01C8FBC22D8C32F000C544A3 /* BallLogDetailView.swift */,
-				B87038D32E042B7700FDE531 /* CardHeaderView.swift */,
-				B87038D12E042B5E00FDE531 /* BallLogCardView.swift */,
-			);
-			path = BallLogDetail;
-			sourceTree = "<group>";
-		};
 		B8CB50DF2CC13BAC0045481A = {
 			isa = PBXGroup;
 			children = (
@@ -194,7 +172,6 @@
 				B85AE71A2CC140360011BDB1 /* Info.plist */,
 				B8CB51152CC13C4F0045481A /* Common */,
 				01A952CC2DC0FE33002A1B5E /* ServiceCommon */,
-				B87038DA2E0440F200FDE531 /* BallLogDetail */,
 				01B46CE12D212C850007CBFF /* TeamSelect */,
 				B8CB50EB2CC13BAC0045481A /* balllogApp.swift */,
 				B8CB50EF2CC13BB00045481A /* Assets.xcassets */,
@@ -397,17 +374,12 @@
 				B832ACC72DD9BEDC006D2E68 /* CalendarGridView.swift in Sources */,
 				01C8FBD52D8CFA6900C544A3 /* CustomInputView.swift in Sources */,
 				01C8FBD62D8CFA6900C544A3 /* Color.swift in Sources */,
-				B87038DC2E04415800FDE531 /* BallLogDetailCtrlView.swift in Sources */,
 				01C8FBDF2D8D0AF400C544A3 /* DetailHeaderView.swift in Sources */,
-				B87038D22E042B6200FDE531 /* BallLogCardView.swift in Sources */,
-				B87038D42E042B7B00FDE531 /* CardHeaderView.swift in Sources */,
 				01C8FBC02D772AAB00C544A3 /* ChangeTeamSelectView.swift in Sources */,
 				01C8FBDB2D8CFB9000C544A3 /* RoundedCorner.swift in Sources */,
 				B832ACC52DD9BEB6006D2E68 /* CustomDatePickerView.swift in Sources */,
 				B8CB50EC2CC13BAC0045481A /* balllogApp.swift in Sources */,
-				B87038D62E042CEE00FDE531 /* BallLogCardContentView.swift in Sources */,
 				B832ACC92DD9C626006D2E68 /* DatePickerView.swift in Sources */,
-				01C8FBC42D8C32F600C544A3 /* BallLogDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,6 +8,7 @@
 import Foundation
 import Combine
 
+@MainActor
 class TermsDetailViewModel: ObservableObject {
     // MARK: - Published Properties
     @Published var termsContent: String = ""

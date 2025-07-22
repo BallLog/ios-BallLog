@@ -33,9 +33,9 @@ class BallLogCreateViewModel: ObservableObject {
         gameDate != nil ||
         !stadium.isEmpty ||
         !myTeam.isEmpty ||
-        !myTeamScore.isEmpty ||
+        (myTeamScore != "0" && !myTeamScore.isEmpty) ||
         !opposingTeam.isEmpty ||
-        !opposingTeamScore.isEmpty ||
+        (opposingTeamScore != "0" && !opposingTeamScore.isEmpty) ||
         !photoList.isEmpty ||
         !logContent.isEmpty
     }

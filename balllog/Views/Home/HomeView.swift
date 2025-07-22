@@ -11,6 +11,7 @@ struct HomeView: View {
     @State private var selectedCard: CardItem?
     @State private var showLogAdd = false
     @StateObject private var viewModel = BallLogViewModel()
+    @State private var currentFilter: FilterOption = .all
     
     var body: some View {
         NavigationStack {
@@ -20,21 +21,38 @@ struct HomeView: View {
                     showLogAdd: $showLogAdd,
                     viewModel: viewModel
                 )
-                HeaderView()
+                HeaderView { newFilter in
+                    handleFilterChange(newFilter)
+                }
             }
         }
         .navigationBarBackButtonHidden(true)
         .navigationDestination(item: $selectedCard) { card in
             BallLogDetailView()
         }
-        .sheet(isPresented: $showLogAdd) {
-            // 볼로그 추가 뷰
-            Text("볼로그 추가 화면")
+        .fullScreenCover(isPresented: $showLogAdd) {
+            LogAddView()
         }
         .onAppear {
             Task {
-                await viewModel.fetchBallLogs(reset: true)
+                await loadData(filter: currentFilter)
             }
+        }
+    }
+    
+    private func handleFilterChange(_ newFilter: FilterOption) {
+        currentFilter = newFilter
+        Task {
+            await loadData(filter: newFilter)
+        }
+    }
+    
+    private func loadData(filter: FilterOption) async {
+        switch filter {
+        case .all:
+            await viewModel.fetchBallLogs(reset: true)
+        case .winOnly:
+            await viewModel.fetchBallLogs(reset: true, winning: true)
         }
     }
 }
