@@ -12,7 +12,8 @@ struct PhotoPickerView: View {
     @Binding var selectedItems: [PhotosPickerItem]  // 부모 뷰에서 전달된 선택된 이미지 아이템들
     @State private var selectedImagesData: [Data] = []  // 선택된 이미지 데이터를 저장
     @State private var selectedIndex: Int = 0
-   
+    @State private var isLoading: Bool = false // 로딩 상태 추가
+
     var body: some View {
         ZStack() {
             if selectedImagesData.isEmpty {
@@ -29,26 +30,21 @@ struct PhotoPickerView: View {
                         Text("이미지 업로드")
                             .font(.system(size: 12))
                             .fontWeight(.semibold)
+                        
+                        // 로딩 표시 추가
+                        if isLoading {
+                            ProgressView()
+                                .scaleEffect(0.8)
+                        }
                     }
                     .frame(height: 219)
                     .frame(maxWidth: .infinity)
                     .foregroundColor(Color("gray_50"))
                     .background(Color("gray_20"))
                 }
-                .onChange(of: selectedItems) { _, newItems in
-                    Task {
-                        // 선택된 이미지들의 데이터를 가져와서 selectedImagesData에 저장
-                        var newData: [Data] = []
-                        for item in newItems {
-                            if let data = try? await item.loadTransferable(type: Data.self) {
-                                newData.append(data)
-                            }
-                        }
-                        selectedImagesData = newData
-                        selectedIndex = 0
-                        print("Updated selectedImagesData: \(selectedImagesData.count) items")
-                        print("Is empty? \(selectedImagesData.isEmpty)")
-                    }
+                .onChange(of: selectedItems) { oldItems, newItems in
+                    print("📸 선택된 아이템 변경: \(newItems.count)개")
+                    loadImages(from: newItems)
                 }
             } else {
                 TabView(selection: $selectedIndex) {
@@ -73,11 +69,7 @@ struct PhotoPickerView: View {
                     Spacer()
                     HStack {
                         Button(action: {
-                            if selectedImagesData.indices.contains(selectedIndex) {
-                                selectedImagesData.remove(at: selectedIndex)
-                                selectedItems.remove(at: selectedIndex)
-                                selectedIndex = max(0, selectedIndex - 1)
-                            }
+                            deleteCurrentImage()
                         }) {
                             ZStack {
                                 Circle()
@@ -93,7 +85,8 @@ struct PhotoPickerView: View {
                         PhotosPicker(
                             selection: $selectedItems,
                             maxSelectionCount: 4,
-                            matching: .images
+                            matching: .images,
+                            photoLibrary: .shared()
                         ) {
                             ZStack {
                                 Circle()
@@ -105,29 +98,93 @@ struct PhotoPickerView: View {
                                     .foregroundStyle(Color.white)
                             }
                         }
-                        .onChange(of: selectedItems) { _, newItems in
-                            Task {
-                                // 선택된 이미지들의 데이터를 가져와서 selectedImagesData에 저장
-                                var newData: [Data] = []
-                                for item in newItems {
-                                    if let data = try? await item.loadTransferable(type: Data.self) {
-                                        newData.append(data)
-                                    }
-                                }
-                                selectedImagesData = newData
-                                selectedIndex = 0
-                                print("Updated selectedImagesData: \(selectedImagesData.count) items")
-                                print("Is empty? \(selectedImagesData.isEmpty)")
-                            }
+                        .onChange(of: selectedItems) { oldItems, newItems in
+                            print("📸 추가 아이템 변경: \(newItems.count)개")
+                            loadImages(from: newItems)
                         }
                     }
                     .padding(.vertical, 6.0)
                     .padding(.horizontal, 9.0)
                 }
             }
+            // 로딩 오버레이
+            if isLoading {
+                Color.black.opacity(0.3)
+                    .frame(height: 219)
+                    .frame(maxWidth: .infinity)
+                VStack {
+                    ProgressView()
+                    Text("이미지 로딩 중...")
+                        .font(.caption)
+                        .foregroundColor(.white)
+                }
+            }
         }
         .frame(height: 219)
         .frame(maxWidth: .infinity)
+    }
+    
+    // MARK: - Private Methods
+        
+    private func loadImages(from items: [PhotosPickerItem]) {
+        guard !items.isEmpty else {
+            print("📸 아이템이 없음")
+            selectedImagesData.removeAll()
+            selectedIndex = 0
+            return
+        }
+        
+        isLoading = true
+        
+        Task {
+            var newData: [Data] = []
+            
+            for (index, item) in items.enumerated() {
+                print("📸 이미지 \(index + 1) 로딩 시작...")
+                
+                do {
+                    // Data 타입으로 로드
+                    if let data = try await item.loadTransferable(type: Data.self) {
+                        print("✅ 이미지 \(index + 1) 로딩 성공: \(data.count) bytes")
+                        newData.append(data)
+                    } else {
+                        print("❌ 이미지 \(index + 1) 로딩 실패: 데이터가 nil")
+                    }
+                } catch {
+                    print("❌ 이미지 \(index + 1) 로딩 에러: \(error)")
+                }
+            }
+            
+            // 메인 스레드에서 UI 업데이트
+            await MainActor.run {
+                self.selectedImagesData = newData
+                self.selectedIndex = 0
+                self.isLoading = false
+                
+                print("📸 최종 로딩된 이미지: \(newData.count)개")
+                print("📸 UI 상태 - isEmpty: \(selectedImagesData.isEmpty)")
+            }
+        }
+    }
+    
+    private func deleteCurrentImage() {
+        guard selectedIndex < selectedImagesData.count && selectedIndex < selectedItems.count else {
+            return
+        }
+        
+        print("🗑 이미지 \(selectedIndex) 삭제")
+        
+        selectedImagesData.remove(at: selectedIndex)
+        selectedItems.remove(at: selectedIndex)
+        
+        // 인덱스 조정
+        if selectedIndex >= selectedImagesData.count && selectedImagesData.count > 0 {
+            selectedIndex = selectedImagesData.count - 1
+        } else if selectedImagesData.isEmpty {
+            selectedIndex = 0
+        }
+        
+        print("📸 삭제 후 이미지: \(selectedImagesData.count)개, 현재 인덱스: \(selectedIndex)")
     }
     
 }

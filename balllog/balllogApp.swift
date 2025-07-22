@@ -25,7 +25,7 @@ struct balllogApp: App {
                         _ = AuthController.handleOpenUrl(url: url)
                     }
                 }
-                .environment(\.font, .custom("Pretendard", size: 17)) // 전체 적용
+                .environment(\.font, .custom("Pretendard Variable", size: 17)) // 전체 적용
         }
     }
 }

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CustomDialView: View {
     let placeholder: String
+    let suffix: String
     @Binding var selectedValue: String
     
     @State private var focusedValue: String = ""
@@ -26,14 +27,20 @@ struct CustomDialView: View {
             }
             .sheet(isPresented: $isSheetPresented) {
                 VStack(spacing: 5.0) {
-                    VStack(spacing: 0.0) {
+                    HStack(spacing: 12.0) {
+                        Text(suffix)
+                        .font(.system(size: 16))
+                        .bold()
+                        .frame(width: 142.5, height: 215)
+                        .clipped()
+                        
                         Picker("숫자 선택", selection: $focusedValue) {
                             ForEach(0..<41, id: \.self) { number in
                                 Text("\(number)").tag("\(number)")
                             }
                         }
                         .pickerStyle(WheelPickerStyle()) // 다이얼 스타일 적용
-                        .frame(width: 285, height: 215)
+                        .frame(width: 142.5, height: 215)
                         .clipped()
                     }
                     Button("선택") {
@@ -45,7 +52,6 @@ struct CustomDialView: View {
                 }
                 .padding(.vertical, 40.0)
                 // iOS 16 이상에서만 동작
-                // MARK: 풀화면으로 커지는거는 안되게 할 수 있는지 확인해보기
                 .presentationDetents([.fraction(0.35)])
                 .presentationDragIndicator(.hidden)
             }
@@ -56,7 +62,7 @@ struct CustomDialView: View {
 
 struct CustomDialView_Previews: PreviewProvider {
     static var previews: some View {
-        CustomDialView(placeholder: "구단선택", selectedValue: .constant(""))
+        CustomDialView(placeholder: "0", suffix: "우리팀 점수", selectedValue: .constant(""))
             .padding()
             
     }

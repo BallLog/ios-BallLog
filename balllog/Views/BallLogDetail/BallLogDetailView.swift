@@ -53,7 +53,7 @@ struct BallLogDetailView: View {
                 await viewModel.loadBallLogDetail()
             }
         }
-        .onChange(of: viewModel.isDeleted) { isDeleted in
+        .onChange(of: viewModel.isDeleted) { _, isDeleted in
             if isDeleted {
                 dismiss()
             }

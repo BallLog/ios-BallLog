@@ -12,6 +12,8 @@ struct CustomDatePickerView: View {
     @Binding var isPresented: Bool
 
     @State private var currentMonth: Date = Date()
+    @State private var showYearMonthPicker = false
+
     private let calendar = Calendar.current
     private let minDate = Calendar.current.date(from: DateComponents(year: 2015, month: 1, day: 1))!
     private let today = Date()
@@ -22,8 +24,23 @@ struct CustomDatePickerView: View {
             HStack(alignment: .center) {
                 HStack(alignment: .center, spacing: 7.0) {
                     formattedYearMonthText(currentMonth)
-                    Button(action: { /* 다이얼 띄우기 */ }) {
+                    Button(action: {
+                        showYearMonthPicker = true
+                    }) {
                         Image("left-arrow")
+                    }
+                    .sheet(isPresented: $showYearMonthPicker) {
+                        YearMonthDialPicker(
+                            selectedDate: Binding(
+                                get: { currentMonth },
+                                set: { newDate in
+                                    currentMonth = newDate
+                                }
+                            ),
+                            isPresented: $showYearMonthPicker
+                        )
+                        .presentationDetents([.fraction(0.35)])
+                        .presentationDragIndicator(.hidden)
                     }
                 }
                 .foregroundStyle(Color("gray_80"))

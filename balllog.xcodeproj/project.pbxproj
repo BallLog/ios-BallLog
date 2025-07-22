@@ -14,9 +14,6 @@
 		01C8FBD62D8CFA6900C544A3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBB92D71D10D00C544A3 /* Color.swift */; };
 		01C8FBDB2D8CFB9000C544A3 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBDA2D8CFB9000C544A3 /* RoundedCorner.swift */; };
 		01C8FBDF2D8D0AF400C544A3 /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C8FBDE2D8D0AF400C544A3 /* DetailHeaderView.swift */; };
-		B832ACC52DD9BEB6006D2E68 /* CustomDatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B832ACC42DD9BEB1006D2E68 /* CustomDatePickerView.swift */; };
-		B832ACC72DD9BEDC006D2E68 /* CalendarGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B832ACC62DD9BED9006D2E68 /* CalendarGridView.swift */; };
-		B832ACC92DD9C626006D2E68 /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B832ACC82DD9C624006D2E68 /* DatePickerView.swift */; };
 		B85AE71F2CC142F90011BDB1 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE71E2CC142F90011BDB1 /* KakaoSDKAuth */; };
 		B85AE7212CC142F90011BDB1 /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7202CC142F90011BDB1 /* KakaoSDKCommon */; };
 		B85AE7232CC142F90011BDB1 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = B85AE7222CC142F90011BDB1 /* KakaoSDKUser */; };
@@ -54,9 +51,6 @@
 		01C8FBBF2D772AA500C544A3 /* ChangeTeamSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTeamSelectView.swift; sourceTree = "<group>"; };
 		01C8FBDA2D8CFB9000C544A3 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		01C8FBDE2D8D0AF400C544A3 /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
-		B832ACC42DD9BEB1006D2E68 /* CustomDatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDatePickerView.swift; sourceTree = "<group>"; };
-		B832ACC62DD9BED9006D2E68 /* CalendarGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarGridView.swift; sourceTree = "<group>"; };
-		B832ACC82DD9C624006D2E68 /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		B85AE71A2CC140360011BDB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8955BAA2D1059140006350D /* balllog.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = balllog.entitlements; sourceTree = "<group>"; };
 		B8CB50E82CC13BAC0045481A /* balllog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = balllog.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,16 +121,6 @@
 				01C8FBBF2D772AA500C544A3 /* ChangeTeamSelectView.swift */,
 			);
 			path = TeamSelect;
-			sourceTree = "<group>";
-		};
-		B832ACC32DD9B2E9006D2E68 /* DatePicker */ = {
-			isa = PBXGroup;
-			children = (
-				B832ACC82DD9C624006D2E68 /* DatePickerView.swift */,
-				B832ACC62DD9BED9006D2E68 /* CalendarGridView.swift */,
-				B832ACC42DD9BEB1006D2E68 /* CustomDatePickerView.swift */,
-			);
-			path = DatePicker;
 			sourceTree = "<group>";
 		};
 		B8CB50DF2CC13BAC0045481A = {
@@ -214,7 +198,6 @@
 				01B46D002D33B9270007CBFF /* CustomInputView.swift */,
 				01C8FBDA2D8CFB9000C544A3 /* RoundedCorner.swift */,
 				01C8FBDE2D8D0AF400C544A3 /* DetailHeaderView.swift */,
-				B832ACC32DD9B2E9006D2E68 /* DatePicker */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -371,15 +354,12 @@
 			files = (
 				01C8FBD22D8CFA6900C544A3 /* CustomButtonStyle.swift in Sources */,
 				01C8FBD42D8CFA6900C544A3 /* SplashView.swift in Sources */,
-				B832ACC72DD9BEDC006D2E68 /* CalendarGridView.swift in Sources */,
 				01C8FBD52D8CFA6900C544A3 /* CustomInputView.swift in Sources */,
 				01C8FBD62D8CFA6900C544A3 /* Color.swift in Sources */,
 				01C8FBDF2D8D0AF400C544A3 /* DetailHeaderView.swift in Sources */,
 				01C8FBC02D772AAB00C544A3 /* ChangeTeamSelectView.swift in Sources */,
 				01C8FBDB2D8CFB9000C544A3 /* RoundedCorner.swift in Sources */,
-				B832ACC52DD9BEB6006D2E68 /* CustomDatePickerView.swift in Sources */,
 				B8CB50EC2CC13BAC0045481A /* balllogApp.swift in Sources */,
-				B832ACC92DD9C626006D2E68 /* DatePickerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,6 +528,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = balllog/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "이 앱은 볼로그에서 생성된 이미지를 사진 라이브러리에 저장하기 위해 접근합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "이 앱은 볼로그 작성 시 사진을 첨부하기 위해 사진 라이브러리에 접근합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -579,6 +561,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = balllog/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "이 앱은 볼로그에서 생성된 이미지를 사진 라이브러리에 저장하기 위해 접근합니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "이 앱은 볼로그 작성 시 사진을 첨부하기 위해 사진 라이브러리에 접근합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

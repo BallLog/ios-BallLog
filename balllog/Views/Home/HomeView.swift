@@ -25,12 +25,12 @@ struct HomeView: View {
                     handleFilterChange(newFilter)
                 }
             }
+            .navigationBarBackButtonHidden(true)
+            .navigationDestination(item: $selectedCard) { card in
+                BallLogDetailView()
+            }
         }
         .padding(.bottom, 76.0)
-        .navigationBarBackButtonHidden(true)
-        .navigationDestination(item: $selectedCard) { card in
-            BallLogDetailView()
-        }
         .fullScreenCover(isPresented: $showLogAdd) {
             LogAddView()
         }

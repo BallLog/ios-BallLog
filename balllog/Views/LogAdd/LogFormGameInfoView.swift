@@ -20,9 +20,9 @@ struct LogFormGameInfoView: View {
                 DatePickerView(selectedDate: $gameDate)
                 Spacer()
                 HStack(spacing: 4) {
-                    CustomDialView(placeholder: "0", selectedValue: $myTeamScore)
+                    CustomDialView(placeholder: "0", suffix: "응원팀 점수", selectedValue: $myTeamScore)
                     Text(":").bold().font(.system(size: 16))
-                    CustomDialView(placeholder: "0", selectedValue: $opposingTeamScore)
+                    CustomDialView(placeholder: "0", suffix: "상대팀 점수", selectedValue: $opposingTeamScore)
                     Image("under_triangle")
                         .foregroundColor(Color("gray_60"))
                 }

@@ -76,7 +76,7 @@ struct KeyboardResponsiveScrollView<Content: View>: View {
                             .id("bottomPadding")
                     }
                 }
-                .onChange(of: keyboardObserver.isKeyboardVisible) { isVisible in
+                .onChange(of: keyboardObserver.isKeyboardVisible) { _, isVisible in
                     if isVisible {
                         // 키보드가 나타나면 맨 아래로 스크롤
                         withAnimation(.easeInOut(duration: 0.3)) {

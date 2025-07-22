@@ -34,22 +34,22 @@
 		<string>kakaokompassauth</string>
 		<string>kakaolink</string>
 	</array>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>43.200.90.194</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
 	<key>UIAppFonts</key>
 	<array>
 		<string>OwnglyphEuiyeonChae.ttf</string>
 		<string>PretendardVariable.ttf</string>
 		<string>PlaypenSans-VariableFont_wght.ttf</string>
 	</array>
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSExceptionDomains</key>
-        <dict>
-            <key>43.200.90.194</key>
-            <dict>
-                <key>NSExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-            </dict>
-        </dict>
-    </dict>
 </dict>
 </plist>
