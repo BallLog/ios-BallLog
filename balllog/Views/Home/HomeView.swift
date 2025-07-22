@@ -26,6 +26,7 @@ struct HomeView: View {
                 }
             }
         }
+        .padding(.bottom, 76.0)
         .navigationBarBackButtonHidden(true)
         .navigationDestination(item: $selectedCard) { card in
             BallLogDetailView()

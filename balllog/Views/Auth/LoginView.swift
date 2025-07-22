@@ -28,7 +28,3 @@ struct LoginView: View {
         .padding(.horizontal, 40)
     }
 }
-
-#Preview {
-    LoginView()
-}

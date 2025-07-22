@@ -23,16 +23,17 @@ struct ServiceView: View {
                 Group {
                     HomeView()
                         .tag(ServiceViewModel.Tab.home)
-                    MyPageView(authViewModel: authViewModel)
+                    MyPageView(authViewModel: authViewModel, serviceVM: serviceVM)
                         .tag(ServiceViewModel.Tab.mypage)
                 }
                 .toolbar(.hidden, for: .tabBar)
             }
-            .padding(.bottom, 76.0)
-            
-            VStack{
-                Spacer()
-                tabBar
+
+            if serviceVM.showTabBar {
+                VStack{
+                    Spacer()
+                    tabBar
+                }
             }
         }
         .ignoresSafeArea(.container, edges: .bottom) // 하단 안전 영역 무시
@@ -40,6 +41,7 @@ struct ServiceView: View {
         .fullScreenCover(isPresented: $serviceVM.shouldPresentLogView) {
             LogAddView() // 로그 추가 페이지
         }
+        .animation(.easeInOut(duration: 0.3), value: serviceVM.showTabBar) // 탭바 표시/숨김 애니메이션
     }
     
     var tabBar: some View {

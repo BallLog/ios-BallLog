@@ -17,8 +17,30 @@ struct KakaoLoginBtnView: View {
         Button {
             authViewModel.handleKakaoLogin()
         } label: {
-            Image("kakao_login_medium_narrow")
+            HStack {
+                Image("KakaoLogo")
+                Spacer()
+                Text("카카오 로그인")
+                    .fontWeight(.semibold)
+                    .font(.system(size: 14))
+                Spacer()
+            }
+            .padding(.vertical, 16.0)
+            .padding(.horizontal, 25.0)
+            .foregroundColor(Color("gray_90"))
+            .background(Color.kakaoYellow)
+            .cornerRadius(6) // 라운드 6 적용
         }
         .disabled(authViewModel.isLoading)
     }
+}
+
+extension Color {
+    static let kakaoYellow = Color(red: 254/255, green: 229/255, blue: 0/255, opacity: 1)
+}
+
+
+#Preview {
+    KakaoLoginBtnView()
+        .environmentObject(AuthViewModel())
 }

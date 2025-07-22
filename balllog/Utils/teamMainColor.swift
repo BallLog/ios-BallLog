@@ -105,6 +105,34 @@ func teamFontColor(for team: String?) -> Color {
     }
 }
 
+// MARK: 마이페이지 컬러
+func teamMyColor(for team: String?) -> Color {
+    switch team {
+    case "삼성 라이온즈":
+        return Color("Lions_COL_01")
+    case "KIA 타이거즈":
+        return Color("Tigers_COL_02")
+    case "롯데 자이언츠":
+        return Color("Giants_COL_02")
+    case "LG 트윈스":
+        return Color("Twins_COL_02")
+    case "한화 이글스":
+        return Color("Eagles_COL_01")
+    case "두산 베어스":
+        return Color("Bears_COL_01")
+    case "KT 위즈":
+        return Color("Wizs_COL_01")
+    case "NC 다이노스":
+        return Color("Dinos_COL_01")
+    case "SSG 랜더스":
+        return Color("Landers_COL_02")
+    case "키움 히어로즈":
+        return Color("Heros_COL_01")
+    default:
+        return Color.gray
+    }
+}
+
 
 enum TeamColorType {
     case solid(Color)

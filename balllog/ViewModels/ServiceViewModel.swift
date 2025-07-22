@@ -21,4 +21,13 @@ class ServiceViewModel: ObservableObject {
         }
     }
     @Published var shouldPresentLogView: Bool = false
+    @Published var showTabBar: Bool = true // 탭바 표시 상태 추가
+
+    func hideTabBar() {
+        showTabBar = false
+    }
+    
+    func showTabBarAgain() {
+        showTabBar = true
+    }
 }
