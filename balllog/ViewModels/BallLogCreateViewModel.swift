@@ -57,15 +57,15 @@ class BallLogCreateViewModel: ObservableObject {
     
     // MARK: - Static Data
     private let teamInfoList: [TeamInfo] = [
-        TeamInfo(id: 1, name: "기아 타이거즈"),
-        TeamInfo(id: 2, name: "삼성 라이온즈"),
-        TeamInfo(id: 3, name: "LG 트윈스"),
-        TeamInfo(id: 4, name: "두산 베어스"),
-        TeamInfo(id: 5, name: "KT 위즈"),
-        TeamInfo(id: 6, name: "SSG 랜더스"),
-        TeamInfo(id: 7, name: "롯데 자이언츠"),
-        TeamInfo(id: 8, name: "한화 이글스"),
-        TeamInfo(id: 9, name: "NC 다이노스"),
+        TeamInfo(id: 1, name: "삼성 라이온즈"),
+        TeamInfo(id: 2, name: "기아 타이거즈"),
+        TeamInfo(id: 3, name: "롯데 자이언츠"),
+        TeamInfo(id: 4, name: "LG 트윈스"),
+        TeamInfo(id: 5, name: "한화 이글스"),
+        TeamInfo(id: 6, name: "두산 베어스"),
+        TeamInfo(id: 7, name: "KT 위즈"),
+        TeamInfo(id: 8, name: "NC 다이노스"),
+        TeamInfo(id: 9, name: "SSG 랜더스"),
         TeamInfo(id: 10, name: "키움 히어로즈")
     ]
     

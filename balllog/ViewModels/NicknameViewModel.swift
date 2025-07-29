@@ -60,31 +60,32 @@ class NicknameViewModel: ObservableObject {
         errorMessage = nil
         
         do {
-            let response = try await nicknameService.checkNicknameAvailability(nickname.trimmingCharacters(in: .whitespaces))
-            
+//            let response = try await nicknameService.checkNicknameAvailability(nickname.trimmingCharacters(in: .whitespaces))
+//            
             nicknameChecked = true
             
-            if response.code == "OK" && response.data.isAvailable {
+//            if response.code == "OK" && response.data.isAvailable {
                 nicknameValid = true
                 validationMessage = "사용가능한 닉네임입니다."
                 print("✅ 닉네임 사용 가능")
-            } else {
-                nicknameValid = false
-                validationMessage = response.data.message
-                print("❌ 닉네임 사용 불가: \(response.data.message)")
-            }
+//            } else {
+//                nicknameValid = false
+//                validationMessage = response.data.message
+//                print("❌ 닉네임 사용 불가: \(response.data.message)")
+//            }
             
-        } catch {
-            print("❌ 닉네임 확인 오류: \(error)")
-            nicknameChecked = true
-            nicknameValid = false
-            
-            if let nicknameError = error as? NicknameError {
-                validationMessage = nicknameError.localizedDescription
-            } else {
-                validationMessage = "닉네임 확인 중 오류가 발생했습니다."
-            }
         }
+//        catch {
+//            print("❌ 닉네임 확인 오류: \(error)")
+//            nicknameChecked = true
+//            nicknameValid = false
+//            
+//            if let nicknameError = error as? NicknameError {
+//                validationMessage = nicknameError.localizedDescription
+//            } else {
+//                validationMessage = "닉네임 확인 중 오류가 발생했습니다."
+//            }
+//        }
         
         isLoading = false
     }

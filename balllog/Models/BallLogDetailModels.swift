@@ -14,7 +14,7 @@ struct BallLogDetailResponse: Codable {
 }
 
 struct BallLogDetailData: Codable {
-    let id: String
+    let id: Int
     let title: String
     let content: String
     let matchDate: String
@@ -53,7 +53,9 @@ private func formatDate(_ dateString: String) -> String {
 
 // MARK: - Display Data Model
 struct BallLogDisplayData {
-    let id: String
+    let id: Int
+
+
     let title: String
     let content: String
     let formattedDate: String

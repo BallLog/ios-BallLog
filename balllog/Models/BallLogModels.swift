@@ -21,15 +21,16 @@ struct BallLogData: Codable {
 }
 
 struct BallLogSimpleResponse: Codable, Identifiable {
-    var id = UUID()
+    let id: Int
     let cheeringTeamName: String
     let opposingTeamName: String
     let scoreCheering: Int
     let scoreOpposing: Int
+    let stadiumId: Int
     let title: String
     let content: String
     let matchDate: String
-    let thumbnailUrl: String
+    let thumbnailUrl: String?
     
     // 계산된 속성들
     var isWin: Bool {
@@ -37,15 +38,21 @@ struct BallLogSimpleResponse: Codable, Identifiable {
     }
     
     var formattedDate: String {
-        let formatter = ISO8601DateFormatter()
-        if let date = formatter.date(from: matchDate) {
-            let displayFormatter = DateFormatter()
-            displayFormatter.dateFormat = "M/d (E) HH:mm"
-            displayFormatter.locale = Locale(identifier: "ko_KR")
-            return displayFormatter.string(from: date)
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        inputFormatter.locale = Locale(identifier: "en_US_POSIX")
+
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = "yyyy/MM/dd"
+        outputFormatter.locale = Locale(identifier: "ko_KR")
+
+        if let date = inputFormatter.date(from: matchDate) {
+            return outputFormatter.string(from: date)
+        } else {
+            return "날짜 변환 실패"
         }
-        return matchDate
     }
+
 }
 
 // MARK: - UI Models

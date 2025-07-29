@@ -59,7 +59,7 @@ struct MyPageView: View {
                 VStack {
                     HStack {
                         VStack(alignment: .leading, spacing: 7.0) {
-                            Text(viewModel.myPageProfile?.nickname ?? "사용자")
+                            Text(viewModel.myPageProfile?.name ?? "사용자")
                                 .font(.system(size: 24))
                                 .fontWeight(.bold)
                             Text(preferences.getTeamName())

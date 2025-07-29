@@ -10,7 +10,6 @@ import SwiftUI
 struct TextAreaView: View {
     @Binding var text: String
     var placeholder: String = ""
-    @FocusState private var isFocused: Bool
     
     private let maxLength = 150 // API 스펙에 맞춘 최대 길이
     
@@ -22,17 +21,10 @@ struct TextAreaView: View {
                 TextEditor(text: $text)
                     .font(.custom("OwnglyphEuiyeonChae", size: 20))
                     .scrollContentBackground(.hidden)
-                    .focused($isFocused)
                     .onChange(of: text) { _, newValue in
                         // 최대 길이 제한
                         if newValue.count > maxLength {
                             text = String(newValue.prefix(maxLength))
-                        }
-                    }
-                    .onTapGesture {
-                        // TextEditor 내부 탭 시 포커스 보장
-                        if !isFocused {
-                            isFocused = true
                         }
                     }
                 
@@ -42,18 +34,9 @@ struct TextAreaView: View {
                         .font(.custom("OwnglyphEuiyeonChae", size: 20))
                         .foregroundColor(Color("gray_60"))
                     .padding(8)
-                    .allowsHitTesting(false) // 플레이스홀더 탭 방지
-                    .onTapGesture {
-                        isFocused = true
-                    }
                 }
             }
             .frame(height: 173)
-            .background(
-                // 포커스 상태를 시각적으로 표시 (선택사항)
-                RoundedRectangle(cornerRadius: 0)
-                    .stroke(isFocused ? Color.blue.opacity(0.3) : Color.clear, lineWidth: 2)
-            )
         }
     }
 }

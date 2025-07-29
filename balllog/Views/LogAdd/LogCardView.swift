@@ -12,7 +12,7 @@ struct LogCardView: View {
     @FocusState var isFocused: Bool
     
     var body: some View {
-        GeometryReader { geometry in
+        HStack(spacing: 0) {
             LogFormContentView(
                 title: $viewModel.title,
                 gameDate: $viewModel.gameDate,
@@ -30,7 +30,13 @@ struct LogCardView: View {
                     .stroke(Color("gray_40"), lineWidth: 1.0)
             )
             .padding(.leading, 18)
-            .frame(width: geometry.size.width - 18)
+            
+            Spacer()
+                .frame(width: 18)
         }
     }
+}
+
+#Preview {
+    LogAddView()
 }

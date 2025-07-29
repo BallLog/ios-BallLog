@@ -44,7 +44,7 @@ class NicknameService: NicknameServiceProtocol {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         
-        let requestBody = NicknameCheckRequest(nickname: nickname)
+        let requestBody = NicknameCheckRequest(name: nickname)
         
         do {
             let jsonData = try JSONEncoder().encode(requestBody)
@@ -99,11 +99,11 @@ class NicknameService: NicknameServiceProtocol {
         }
         
         var request = URLRequest(url: url)
-        request.httpMethod = "PUT"
+        request.httpMethod = "PATCH"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         
-        let requestBody = NicknameUpdateRequest(nickname: nickname)
+        let requestBody = NicknameUpdateRequest(name: nickname)
         
         do {
             let jsonData = try JSONEncoder().encode(requestBody)
@@ -148,13 +148,13 @@ class NicknameService: NicknameServiceProtocol {
         }
     }
     
-    func saveNicknameLocally(_ nickname: String) {
-        UserDefaults.standard.set(nickname, forKey: "user_nickname")
-        print("💾 닉네임 로컬 저장: \(nickname)")
+    func saveNicknameLocally(_ name: String) {
+        UserDefaults.standard.set(name, forKey: "user_name")
+        print("💾 닉네임 로컬 저장: \(name)")
     }
     
     func getSavedNickname() -> String? {
-        return UserDefaults.standard.string(forKey: "user_nickname")
+        return UserDefaults.standard.string(forKey: "user_name")
     }
 }
 

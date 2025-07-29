@@ -26,17 +26,20 @@ struct NicknameValidation {
         }
         
         // 영어, 한글, 숫자, 공백만 허용
-        let allowedCharacterSet = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789가-힣 ")
+        let allowedCharacterSet = CharacterSet.letters
+            .union(.decimalDigits)
+            .union(CharacterSet(charactersIn: " "))
+
         guard trimmed.unicodeScalars.allSatisfy({ allowedCharacterSet.contains($0) }) else {
             return NicknameValidation(nickname: nickname, isValid: false, message: "영어, 한글, 숫자만 사용할 수 있습니다.")
         }
-        
+
         return NicknameValidation(nickname: nickname, isValid: true, message: "사용 가능한 닉네임입니다.")
     }
 }
 
 struct NicknameCheckRequest: Codable {
-    let nickname: String
+    let name: String
 }
 
 struct NicknameCheckResponse: Codable {
@@ -51,7 +54,7 @@ struct NicknameCheckData: Codable {
 }
 
 struct NicknameUpdateRequest: Codable {
-    let nickname: String
+    let name: String
 }
 
 struct NicknameUpdateResponse: Codable {
@@ -61,5 +64,5 @@ struct NicknameUpdateResponse: Codable {
 }
 
 struct NicknameUpdateData: Codable {
-    let nickname: String
+    let name: String
 }

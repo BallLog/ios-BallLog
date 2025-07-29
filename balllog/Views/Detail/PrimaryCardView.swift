@@ -62,12 +62,12 @@ struct PrimaryCardView: View {
                     HStack(alignment: .center) {
                         VStack(alignment: .leading, spacing: 4.0) {
                             VStack(alignment: .leading, spacing: 2.0) {
-                                Text(ballLog.formattedDate.components(separatedBy: " ").first ?? "")
+                                Text(ballLog.formattedDate)
                                     .font(.system(size: 12))
                                 Text(ballLog.title)
                                     .font(.system(size: 20, weight: .bold))
                             }
-                            Text("KT wiz 파크")
+                            Text(StadiumMapper.name(for: ballLog.stadiumId))
                                 .font(.system(size: 14))
                         }
                         .padding(.leading, 5.0)

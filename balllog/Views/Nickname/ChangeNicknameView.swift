@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ChangeNicknameView: View {
+    @Environment(\.dismiss) var dismiss
     @StateObject private var viewModel = NicknameViewModel(isUpdateMode: true)
     @FocusState private var isFocused: Bool
     
@@ -36,6 +37,11 @@ struct ChangeNicknameView: View {
                 }
             } message: {
                 Text(viewModel.errorMessage ?? "")
+            }
+            .onChange(of: viewModel.shouldNavigate) { _, shouldNavigate in
+                if shouldNavigate {
+                    dismiss()
+                }
             }
         }
     }

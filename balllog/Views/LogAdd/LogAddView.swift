@@ -16,8 +16,10 @@ struct LogAddView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject private var viewModel = BallLogCreateViewModel()
     @State private var selection: LogAddNavigationDestination? = nil
-    @FocusState private var isFocused: Bool
+    
     @StateObject private var keyboardResponder = KeyboardResponder()
+    
+    @FocusState private var isFocused: Bool
 
     var body: some View {
         NavigationStack {
@@ -25,9 +27,6 @@ struct LogAddView: View {
                 ZStack(alignment: .top) {
                     Color.white
                         .ignoresSafeArea()
-                        .onTapGesture {
-                            hideKeyboard()
-                        }
                     
                     // 메인 콘텐츠
                     ScrollViewReader { proxy in
@@ -38,22 +37,16 @@ struct LogAddView: View {
                                     .fill(Color.clear)
                                     .frame(height: 70)
                                     .id("header")
-                                    .allowsHitTesting(false) // 터치 무시
                                 
                                 // 로그 카드
                                 LogCardView(viewModel: viewModel, isFocused: _isFocused)
                                     .id("logCard")
-                                    .allowsHitTesting(true)
-                                    .onTapGesture {
-                                        hideKeyboard()
-                                    }
                                 
                                 // 키보드 높이만큼 여백 추가
                                 Rectangle()
                                     .fill(Color.clear)
-                                    .frame(height: keyboardResponder.currentHeight + 20)
+                                    .frame(height: keyboardResponder.currentHeight)
                                     .id("keyboardSpacer")
-                                    .allowsHitTesting(false)
                                 
                                 // 저장 버튼 공간 (키보드가 없을 때만)
                                 if !keyboardResponder.isKeyboardVisible {
@@ -61,7 +54,6 @@ struct LogAddView: View {
                                         .fill(Color.clear)
                                         .frame(height: 100)
                                         .id("buttonSpacer")
-                                        .allowsHitTesting(false)
                                 }
                             }
                         }
@@ -71,16 +63,6 @@ struct LogAddView: View {
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                     withAnimation(.easeInOut(duration: 0.5)) {
                                         proxy.scrollTo("logCard", anchor: .center)
-                                    }
-                                }
-                            }
-                        }
-                        .onChange(of: keyboardResponder.isKeyboardVisible) { _, isVisible in
-                            if isVisible {
-                                // 키보드가 나타나면 스크롤
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                    withAnimation(.easeInOut(duration: 0.3)) {
-                                        proxy.scrollTo("keyboardSpacer", anchor: .bottom)
                                     }
                                 }
                             }
@@ -95,10 +77,6 @@ struct LogAddView: View {
                             showExitConfirmation: $viewModel.showExitConfirmation,
                             dismiss: dismiss
                         )
-                        .onTapGesture {
-                            hideKeyboard()
-                        }
-                        .allowsHitTesting(true)
                         Spacer()
                     }
                     
@@ -109,16 +87,16 @@ struct LogAddView: View {
                             LogSaveButtonView(
                                 isFormValid: viewModel.isFormValid,
                                 onSave: {
-                                    isFocused = false // 키보드 숨기기
+                                    hideKeyboard()// 키보드 숨기기
                                     Task {
                                         await viewModel.createBallLog()
                                         if viewModel.isSuccessful {
                                             selection = .detail
+                                            dismiss()
                                         }
                                     }
                                 }
                             )
-                            .allowsHitTesting(true)
                         }
                     }
                     
@@ -127,7 +105,6 @@ struct LogAddView: View {
                         ProgressView("저장 중...")
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                             .background(Color.black.opacity(0.3))
-                            .allowsHitTesting(false)
                     }
                     
                     // 커스텀 모달
@@ -142,7 +119,6 @@ struct LogAddView: View {
                             }
                         )
                         .animation(.easeInOut(duration: 0.3), value: viewModel.showExitConfirmation)
-                        .allowsHitTesting(true)
                     }
                 }
             }

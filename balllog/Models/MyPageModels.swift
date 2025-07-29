@@ -8,9 +8,12 @@
 import Foundation
 
 struct MyPageProfile {
-    let nickname: String
+    let id: Int
+    let cheeringTeamId: Int
     let teamName: String
-    let winRate: Double
+    let name: String
+    let winRate: Int
+    
     let winGames: Int
     let totalGames: Int
 }

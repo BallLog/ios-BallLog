@@ -7,6 +7,20 @@
 
 import Foundation
 
+struct MyPageResponse: Codable {
+    let code: String
+    let message: String
+    let data: MyPageData
+}
+
+struct MyPageData: Codable {
+    let id: Int
+    let cheeringTeamId: Int
+    let name: String
+    let winRate: Int
+}
+
+
 protocol MyPageServiceProtocol {
     func getMyPageProfile() async throws -> MyPageProfile
     func logout() async throws
@@ -28,20 +42,65 @@ class MyPageService: MyPageServiceProtocol {
     func getMyPageProfile() async throws -> MyPageProfile {
         print("👤 마이페이지 프로필 조회 시작")
         
-        // 로컬 데이터에서 프로필 생성
-        let preferences = UserPreferences.shared
-        let teamName = preferences.getTeamName()
+        guard let url = URL(string: "\(baseURL)/user/mypage-info") else {
+            print("❌ 마이페이지 프로필 조회 URL 생성 실패")
+            throw URLError(.badURL)
+        }
         
-        let profile = MyPageProfile(
-            nickname: "홈런왕 구자욱", // TODO: 실제 닉네임 API 연동
-            teamName: teamName,
-            winRate: preferences.localWinRate,
-            winGames: preferences.winGames,
-            totalGames: preferences.totalGames
-        )
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
         
-        print("✅ 마이페이지 프로필 조회 완료: \(profile.nickname), \(profile.teamName)")
-        return profile
+        // Bearer 토큰 추가
+        if let token = tokenManager.getAccessToken() {
+            request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+        
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw URLError(.badServerResponse)
+            }
+            
+            print("📊 마이페이지 조회 응답 상태: \(httpResponse.statusCode)")
+            
+            if let responseString = String(data: data, encoding: .utf8) {
+                print("📄 마이페이지 조회 응답: \(responseString)")
+            }
+            
+            guard 200...299 ~= httpResponse.statusCode else {
+                throw URLError(.badServerResponse)
+            }
+            
+            let detailResponse = try JSONDecoder().decode(MyPageResponse.self, from: data)
+            print("✅ 볼로그 상세 조회 파싱 성공")
+            
+            // 로컬 데이터에서 프로필 생성
+            let preferences = UserPreferences.shared
+            
+            let teamName = TeamSelectViewModel.findTeamById(detailResponse.data.cheeringTeamId)?.name ?? ""
+            
+            preferences.setTeamName(teamName)
+            
+            let profile = MyPageProfile(
+                id: detailResponse.data.id,
+                cheeringTeamId: detailResponse.data.cheeringTeamId,
+                teamName: teamName,
+                name: detailResponse.data.name,
+                winRate: detailResponse.data.winRate,
+                winGames: preferences.winGames,
+                totalGames: preferences.totalGames
+            )
+            
+            print("✅ 마이페이지 프로필 조회 완료: \(profile.name), \(profile.teamName)")
+            
+            return profile
+            
+        } catch {
+            print("❌ 마이페이지 조회 API 오류: \(error)")
+            throw error
+        }
+        
     }
     
     func logout() async throws {

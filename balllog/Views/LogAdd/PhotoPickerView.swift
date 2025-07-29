@@ -24,23 +24,25 @@ struct PhotoPickerView: View {
                     matching: .images,
                     photoLibrary: .shared()
                 ) {
-                    VStack(alignment: .center, spacing: 6.0) {
-                        Image("add")
-                            .frame(width: 26, height: 26)
-                        Text("이미지 업로드")
-                            .font(.system(size: 12))
-                            .fontWeight(.semibold)
-                        
-                        // 로딩 표시 추가
-                        if isLoading {
-                            ProgressView()
-                                .scaleEffect(0.8)
+                    ZStack {
+                        Color("gray_20") // 배경 색
+                        VStack(alignment: .center, spacing: 6.0) {
+                            Image("upload_picture")
+                                .frame(width: 26, height: 26)
+                            Text("이미지 업로드")
+                                .font(.system(size: 12))
+                                .fontWeight(.semibold)
+                            
+                            // 로딩 표시 추가
+                            if isLoading {
+                                ProgressView()
+                                    .scaleEffect(0.8)
+                            }
                         }
+                        .foregroundColor(Color("gray_50"))
                     }
                     .frame(height: 219)
                     .frame(maxWidth: .infinity)
-                    .foregroundColor(Color("gray_50"))
-                    .background(Color("gray_20"))
                 }
                 .onChange(of: selectedItems) { _, newItems in
                     print("📸 선택된 아이템 변경: \(newItems.count)개")
@@ -173,8 +175,8 @@ struct PhotoPickerView: View {
 //            return
 //        }
 //        
-//        print("🗑 이미지 \(selectedIndex) 삭제")
-//        
+        print("🗑 이미지 \(selectedIndex) 삭제")
+//
 //        selectedImagesData.remove(at: selectedIndex)
 //        selectedItems.remove(at: selectedIndex)
 //        
@@ -184,13 +186,14 @@ struct PhotoPickerView: View {
 //        } else if selectedImagesData.isEmpty {
 //            selectedIndex = 0
 //        }
-//        
-//        print("📸 삭제 후 이미지: \(selectedImagesData.count)개, 현재 인덱스: \(selectedIndex)")
-        
+//
         if selectedImagesData.indices.contains(selectedIndex) {
             selectedImagesData.remove(at: selectedIndex)
             selectedItems.remove(at: selectedIndex)
             selectedIndex = max(0, selectedIndex - 1)
+            
+            print("📸 삭제 후 이미지: \(selectedImagesData.count)개, 현재 인덱스: \(selectedIndex)")
+            
         }
     }
     
