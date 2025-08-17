@@ -73,22 +73,15 @@ struct ChangeNicknameView: View {
                     text: $viewModel.nickname,
                     placeholder: "닉네임을 입력해주세요",
                     hasValidation: true,
-                    isError: !viewModel.nicknameValid && viewModel.nicknameChecked,
+                    isError: !viewModel.nicknameValid && !viewModel.validationMessage.isEmpty,
                     isCorrect: viewModel.nicknameValid,
                     maxLength: 10
                 )
                 .focused($isFocused)
-                
-                Button(viewModel.isLoading ? "확인 중..." : "중복확인") {
-                    Task {
-                        await viewModel.checkNickname()
-                    }
-                }
-                .disabled(!viewModel.canCheckNickname)
-                .padding([.top, .trailing], 22.0)
+                .onAppear(perform : UIApplication.shared.hideKeyboard)
             }
             
-            if viewModel.nicknameChecked && !viewModel.validationMessage.isEmpty {
+            if !viewModel.validationMessage.isEmpty {
                 Text(viewModel.validationMessage)
                     .padding(.top, 10.0)
                     .foregroundStyle(viewModel.nicknameValid ? Color("bc_01_60") : Color("error_50"))
@@ -109,7 +102,7 @@ struct ChangeNicknameView: View {
                         await viewModel.updateNickname()
                     }
                 }
-                .disabled(!viewModel.canProceed)
+                .disabled(viewModel.nickname.trimmingCharacters(in: .whitespaces).isEmpty || viewModel.isCurrentNickname)
                 .buttonStyle(CustomButtonStyle())
                 .modifier(DefaultButtonWidth())
             }

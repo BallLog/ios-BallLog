@@ -131,6 +131,17 @@ class NicknameService: NicknameServiceProtocol {
             }
             
             guard 200...299 ~= httpResponse.statusCode else {
+                // 400 오류인 경우 응답 body에서 에러 정보 추출
+                if httpResponse.statusCode == 400 {
+                    do {
+                        let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: data)
+                        if errorResponse.code == "USER_NICKNAME_CAN_NOT_DUPLICATE" {
+                            throw NicknameError.duplicateNickname(errorResponse.message)
+                        }
+                    } catch is DecodingError {
+                        // JSON 디코딩 실패시 기본 서버 오류로 처리
+                    }
+                }
                 throw NicknameError.serverError(httpResponse.statusCode)
             }
             
@@ -165,6 +176,7 @@ enum NicknameError: Error, LocalizedError {
     case encodingError
     case noAccessToken
     case validationFailed(String)
+    case duplicateNickname(String)
     
     var errorDescription: String? {
         switch self {
@@ -180,6 +192,14 @@ enum NicknameError: Error, LocalizedError {
             return "액세스 토큰이 없습니다."
         case .validationFailed(let message):
             return message
+        case .duplicateNickname(let message):
+            return message
         }
     }
+}
+
+// 에러 응답 모델
+struct ErrorResponse: Codable {
+    let code: String
+    let message: String
 }
