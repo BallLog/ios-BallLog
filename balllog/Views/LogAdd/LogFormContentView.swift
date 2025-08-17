@@ -22,6 +22,7 @@ struct LogFormContentView: View {
     @FocusState var isFocused: Bool
 
     @FocusState private var titleFocused: Bool
+    @FocusState private var textAreaFocused: Bool
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
@@ -29,6 +30,7 @@ struct LogFormContentView: View {
                 TextInputView(text: $title, placeholder: "제목을 입력해 주세요", fontWeight: .bold)
                     .focused($titleFocused)
             }
+            .onAppear(perform : UIApplication.shared.hideKeyboard)
             
             VStack (alignment: .leading, spacing: 0){
                 LogFormGameInfoView(
@@ -41,17 +43,11 @@ struct LogFormContentView: View {
                 LogFormDiaryView(
                     selectedItems: $photoList,
                     diaryContent: $logContent,
-                    isFocused: _isFocused
+                    isFocused: _isFocused,
+                    textAreaFocused: _textAreaFocused
                 )
                 LogFormBottomView(stadium: $stadium)
             }
-            .simultaneousGesture(
-                TapGesture()
-                    .onEnded { _ in
-                        // 다른 영역을 탭하면 포커스 해제
-                        titleFocused = false
-                    }
-            )
             .background(
                 Rectangle()
                     .stroke(Color("gray_40"), lineWidth: 1.0)
@@ -59,6 +55,9 @@ struct LogFormContentView: View {
         }
         .padding(14)
         .onChange(of: titleFocused) { _, focused in
+            isFocused = focused
+        }
+        .onChange(of: textAreaFocused) { _, focused in
             isFocused = focused
         }
     }

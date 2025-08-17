@@ -20,13 +20,17 @@ struct DeleteConfirmationModal: View {
                 
                 VStack(spacing: 10) {
                     VStack {
-                        Text("볼로그를 삭제하시겠습니까?")
-                        Text("삭제된 볼로그는 복구할 수 없습니다.")
+                        Text("삭제하기")
                     }
                     .font(.system(size: 20))
                     .bold()
-                    .foregroundStyle(Color("gray_90"))
+                    VStack {
+                        Text("해당 볼로그를 삭제 하시겠습니까?")
+                    }
+                    .font(.system(size: 14))
+                    .fontWeight(.light)
                 }
+                .foregroundStyle(Color("gray_90"))
                 
                 Spacer()
                 
@@ -42,7 +46,7 @@ struct DeleteConfirmationModal: View {
                         .foregroundStyle(Color("gray_70"))
                         .background(Color("gray_20"))
                         
-                        Button("삭제") {
+                        Button("삭제하기") {
                             Task {
                                 await viewModel.deleteBallLog()
                             }

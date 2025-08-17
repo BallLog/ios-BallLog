@@ -159,11 +159,12 @@ struct BallLogCardContentView: View {
                 .font(.custom("OwnglyphEuiyeonChae", size: 20))
                 .fontWeight(.medium)
                 .lineLimit(nil)
+                .frame(maxWidth: .infinity, alignment: .topLeading)
             Spacer(minLength: 0)
         }
         .foregroundStyle(teamFontColor)
-        .frame(minHeight: 173)
-        .frame(maxWidth: .infinity)
+        .frame(minHeight: 173, alignment: .topLeading)
+        .frame(maxWidth: .infinity, alignment: .topLeading)
         .padding(.horizontal, 14.0)
         .padding(.vertical, 10.0)
         .background(Color.white)
@@ -190,9 +191,10 @@ struct BallLogCardContentView: View {
     
     private var winRateSection: some View {
         VStack(alignment: .leading, spacing: 6.0) {
-            Text("직관 승률 \(Int(displayData.winRate * 100))%")
+            // TODO: 승률 데이터 입력
+            Text("직관 승률 \(Int(0.1 * 100))%")
                 .font(.custom("Pretendard Variable", size: 12))
-                .fontWeight(.medium)
+                .fontWeight(.bold)
             
             GeometryReader { geometry in
                 ZStack(alignment: .leading) {
@@ -201,7 +203,8 @@ struct BallLogCardContentView: View {
                         .frame(height: 6)
                     Rectangle()
                         .fill(teamFontColor)
-                        .frame(width: geometry.size.width * displayData.winRate, height: 6)
+                    // TODO: 승률 데이터 입력
+                        .frame(width: geometry.size.width * 0.1, height: 6)
                         .clipShape(RoundedCorner(radius: 4, corners: [.topLeft, .bottomLeft]))
                 }
             }

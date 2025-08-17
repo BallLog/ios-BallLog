@@ -24,9 +24,7 @@ struct BallLogDetailData: Codable {
     let scoreCheering: Int
     let scoreOpposing: Int
     let photos: [PhotoDetailResponse]
-    let winRate: Double
-    let createdAt: String
-    let updatedAt: String
+    let matchResult: String
 }
 
 struct PhotoDetailResponse: Codable {
@@ -41,14 +39,19 @@ struct BallLogDeleteResponse: Codable {
 }
 
 private func formatDate(_ dateString: String) -> String {
-    let inputFormatter = ISO8601DateFormatter()
+    let inputFormatter = DateFormatter()
+    inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+    inputFormatter.locale = Locale(identifier: "en_US_POSIX")
+
     let outputFormatter = DateFormatter()
     outputFormatter.dateFormat = "yyyy/MM/dd"
-    
+    outputFormatter.locale = Locale(identifier: "ko_KR")
+
     if let date = inputFormatter.date(from: dateString) {
         return outputFormatter.string(from: date)
+    } else {
+        return "날짜 변환 실패"
     }
-    return dateString
 }
 
 // MARK: - Display Data Model
@@ -65,7 +68,6 @@ struct BallLogDisplayData {
     let scoreCheering: Int
     let scoreOpposing: Int
     let photos: [PhotoDetailResponse]
-    let winRate: Double
     let isWin: Bool
     
     init(from data: BallLogDetailData) {
@@ -79,8 +81,7 @@ struct BallLogDisplayData {
         self.scoreCheering = data.scoreCheering
         self.scoreOpposing = data.scoreOpposing
         self.photos = data.photos
-        self.winRate = data.winRate
-        self.isWin = data.scoreCheering > data.scoreOpposing
+        self.isWin = (data.matchResult == "WIN") ? true : false
     }
     
 }

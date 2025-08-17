@@ -12,8 +12,7 @@ struct LogFormDiaryView: View {
     @Binding var selectedItems: [PhotosPickerItem]  // 부모 뷰에서 전달된 선택된 이미지 아이템들
     @Binding var diaryContent: String
     @FocusState var isFocused: Bool
-    
-    @FocusState private var textAreaFocused: Bool
+    @FocusState var textAreaFocused: Bool
     
     var body: some View {
         VStack(spacing: 0) {
@@ -24,13 +23,6 @@ struct LogFormDiaryView: View {
                 
                 DotLineInputView()
             }
-            .simultaneousGesture(
-                TapGesture()
-                    .onEnded { _ in
-                        // 다른 영역을 탭하면 포커스 해제
-                        textAreaFocused = false
-                    }
-            )
             
             VStack {
                 TextAreaView(text: $diaryContent, placeholder: "직관 소감을 작성해 주세요.")
@@ -39,6 +31,7 @@ struct LogFormDiaryView: View {
             }
             .padding(.horizontal, 14.0)
             .padding(.vertical, 10.0)
+            .onAppear(perform : UIApplication.shared.hideKeyboard)
             .onChange(of: textAreaFocused) { _, focused in
                 isFocused = focused
             }

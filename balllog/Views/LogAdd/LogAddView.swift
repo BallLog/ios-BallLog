@@ -20,6 +20,12 @@ struct LogAddView: View {
     @StateObject private var keyboardResponder = KeyboardResponder()
     
     @FocusState private var isFocused: Bool
+    
+    let onSave: (() -> Void)?
+    
+    init(onSave: (() -> Void)? = nil) {
+        self.onSave = onSave
+    }
 
     var body: some View {
         NavigationStack {
@@ -91,6 +97,7 @@ struct LogAddView: View {
                                     Task {
                                         await viewModel.createBallLog()
                                         if viewModel.isSuccessful {
+                                            onSave?()
                                             selection = .detail
                                             dismiss()
                                         }

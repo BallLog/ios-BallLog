@@ -12,9 +12,13 @@ struct BallLogDetailView: View {
     let ballLogId: String
     @StateObject private var viewModel: BallLogDetailViewModel
     @Environment(\.dismiss) var dismiss
+    let serviceVM: ServiceViewModel?
+    let onDelete: (() -> Void)?
     
-    init(ballLogId: String = "sample_id") {
+    init(ballLogId: String = "0", serviceVM: ServiceViewModel? = nil, onDelete: (() -> Void)? = nil) {
         self.ballLogId = ballLogId
+        self.serviceVM = serviceVM
+        self.onDelete = onDelete
         self._viewModel = StateObject(wrappedValue: BallLogDetailViewModel(ballLogId: ballLogId))
     }
     
@@ -31,7 +35,13 @@ struct BallLogDetailView: View {
                 
                 // 고정 헤더
                 VStack {
-                    DetailHeaderView(title: "볼로그")
+                    DetailHeaderView(
+                        title: "볼로그",
+                        customDismissAction: {
+                            serviceVM?.showTabBarAgain()
+                            dismiss()
+                        }
+                    )
                     Spacer()
                 }
                 
@@ -55,6 +65,7 @@ struct BallLogDetailView: View {
         }
         .onChange(of: viewModel.isDeleted) { _, isDeleted in
             if isDeleted {
+                onDelete?()
                 dismiss()
             }
         }

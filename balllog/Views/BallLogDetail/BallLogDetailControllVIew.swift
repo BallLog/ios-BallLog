@@ -66,7 +66,7 @@ struct BallLogDetailControlView: View {
         }
         .frame(width: 45, height: 45)
         .onTapGesture {
-            viewModel.showDeleteConfirmation
+            viewModel.showDeleteConfirmation = true
         }
     }
     

@@ -10,6 +10,7 @@ import SwiftUI
 struct DetailHeaderView: View {
     var title: String
     var shouldAllowDismiss: Bool?  // 옵셔널 바인딩
+    var customDismissAction: (() -> Void)?  // 커스텀 dismiss 액션
     @State private var showModal = false
     
     @Environment(\.presentationMode) var presentationMode
@@ -19,7 +20,11 @@ struct DetailHeaderView: View {
             Button(action: {
                 // shouldAllowDismiss가 nil이면 true로 간주
                 if shouldAllowDismiss ?? true {
-                    presentationMode.wrappedValue.dismiss()
+                    if let customAction = customDismissAction {
+                        customAction()
+                    } else {
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 } else {
                     showModal = true
                 }

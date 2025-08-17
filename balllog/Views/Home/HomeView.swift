@@ -13,26 +13,45 @@ struct HomeView: View {
     @StateObject private var viewModel = BallLogViewModel()
     @State private var currentFilter: FilterOption = .all
     
+    let serviceVM: ServiceViewModel
+    
     var body: some View {
         NavigationStack {
             ZStack {
                 BallLogListView(
                     selectedCard: $selectedCard,
                     showLogAdd: $showLogAdd,
-                    viewModel: viewModel
+                    viewModel: viewModel,
+                    currentFilter: $currentFilter
                 )
                 HeaderView { newFilter in
                     handleFilterChange(newFilter)
                 }
             }
+            .padding(.bottom, 76.0)
             .navigationBarBackButtonHidden(true)
             .navigationDestination(item: $selectedCard) { card in
-                BallLogDetailView()
+                BallLogDetailView(
+                    ballLogId: String(card.ballLogId),
+                    serviceVM: serviceVM,
+                    onDelete: {
+                        Task {
+                            await loadData(filter: currentFilter)
+                        }
+                    }
+                )
+                .onAppear {
+                    print("🔴 볼로그 상세 화면 - 탭바 숨김")
+                    serviceVM.hideTabBar()
+                }
             }
         }
-        .padding(.bottom, 76.0)
         .fullScreenCover(isPresented: $showLogAdd) {
-            LogAddView()
+            LogAddView(onSave: {
+                Task {
+                    await loadData(filter: currentFilter)
+                }
+            })
         }
         .onAppear {
             Task {
@@ -59,5 +78,5 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeView(serviceVM: ServiceViewModel())
 }

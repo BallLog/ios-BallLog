@@ -21,7 +21,7 @@ struct ServiceView: View {
         ZStack {
             TabView(selection: $serviceVM.selectedTab) {
                 Group {
-                    HomeView()
+                    HomeView(serviceVM: serviceVM)
                         .tag(ServiceViewModel.Tab.home)
                     MyPageView(authViewModel: authViewModel, serviceVM: serviceVM)
                         .tag(ServiceViewModel.Tab.mypage)

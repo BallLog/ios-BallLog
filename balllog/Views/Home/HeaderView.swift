@@ -9,7 +9,7 @@ import SwiftUI
 
 enum FilterOption: String, CaseIterable {
     case all = "전체"
-    case winOnly = "승리한 경기만"
+    case winOnly = "승리한 직관만"
     
     var displayName: String {
         return self.rawValue
@@ -74,10 +74,12 @@ struct CustomDropdown: View {
                     }
                     .frame(width: 16, height: 16)
                 }
+                .padding(.vertical, 8.0)
+                .padding(.horizontal, 4.0)
                 .foregroundColor(Color("gray_50"))
 
             }
-            .frame(width: 94)
+            .frame(width: 124)
             .background(Color.white)
             
             // 드롭다운 메뉴
@@ -127,5 +129,5 @@ struct CustomDropdown: View {
 
 
 #Preview {
-    HomeView()
+    HomeView(serviceVM: ServiceViewModel())
 }

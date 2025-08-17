@@ -34,6 +34,9 @@ class BallLogService: BallLogServiceProtocol {
             urlComponents.queryItems?.append(URLQueryItem(name: "onlyWin", value: "\(onlyWin)"))
         }
         
+        print("📤 서버 요청 파라미터 - page: \(page), size: \(size), onlyWin: \(onlyWin?.description ?? "nil")")
+        print("🌐 요청 URL: \(urlComponents.url?.absoluteString ?? "invalid URL")")
+        
         guard let url = urlComponents.url else {
             throw URLError(.badURL)
         }

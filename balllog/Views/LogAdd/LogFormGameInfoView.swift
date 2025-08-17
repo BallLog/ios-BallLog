@@ -13,6 +13,8 @@ struct LogFormGameInfoView: View {
     @Binding var myTeamScore: String
     @Binding var opposingTeam: String
     @Binding var opposingTeamScore: String
+    
+    @State private var isOpposingTeamScoreDialPresented = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14.0) {
@@ -20,9 +22,13 @@ struct LogFormGameInfoView: View {
                 DatePickerView(selectedDate: $gameDate)
                 Spacer()
                 HStack(spacing: 4) {
-                    CustomDialView(placeholder: "0", suffix: "응원팀 점수", selectedValue: $myTeamScore)
+                    CustomDialView(placeholder: "0", suffix: "응원팀 점수", selectedValue: $myTeamScore, onScoreSelected: {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            isOpposingTeamScoreDialPresented = true
+                        }
+                    })
                     Text(":").bold().font(.system(size: 16))
-                    CustomDialView(placeholder: "0", suffix: "상대팀 점수", selectedValue: $opposingTeamScore)
+                    CustomDialView(placeholder: "0", suffix: "상대팀 점수", selectedValue: $opposingTeamScore, isSheetPresented: $isOpposingTeamScoreDialPresented)
                     Image("under_triangle")
                         .foregroundColor(Color("gray_60"))
                 }

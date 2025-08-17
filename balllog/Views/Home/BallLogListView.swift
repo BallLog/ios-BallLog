@@ -11,6 +11,7 @@ struct BallLogListView: View {
     @Binding var selectedCard: CardItem?
     @Binding var showLogAdd: Bool
     @ObservedObject var viewModel: BallLogViewModel
+    @Binding var currentFilter: FilterOption
     
     var body: some View {
         VStack(alignment: .center) {
@@ -56,7 +57,7 @@ struct BallLogListView: View {
                             handleCardTap(for: ballLog)
                         }
                         .onAppear {
-                            handleCardAppear(for: ballLog)
+                            handleCardAppear(for: ballLog, filter: currentFilter)
                         }
                 }
                 
@@ -67,7 +68,7 @@ struct BallLogListView: View {
             .padding(.horizontal, 20)
         }
         .refreshable {
-            await refreshData()
+            await refreshData(filter: currentFilter)
         }
     }
     
@@ -102,22 +103,26 @@ struct BallLogListView: View {
     }
     
     private func handleCardTap(for ballLog: BallLogSimpleResponse) {
+        print("TAP \(ballLog.id)!")
         selectedCard = CardItem(
+            ballLogId: ballLog.id,
             title: ballLog.title,
             content: ballLog.content,
             isPrimary: isFirstCard(ballLog)
         )
     }
     
-    private func handleCardAppear(for ballLog: BallLogSimpleResponse) {
+    private func handleCardAppear(for ballLog: BallLogSimpleResponse, filter: FilterOption) {
         if ballLog.id == viewModel.ballLogs.last?.id {
             Task {
-                await viewModel.loadMoreBallLogs()
+                await viewModel.loadMoreBallLogs(filter: filter)
             }
         }
     }
     
-    private func refreshData() async {
-        await viewModel.refreshBallLogs()
+    private func refreshData(filter: FilterOption) async {
+        print("🔄 BallLogListView refreshData 시작 - filter: \(filter)")
+        await viewModel.refreshBallLogs(filter: filter)
+        print("🔄 BallLogListView refreshData 완료")
     }
 }

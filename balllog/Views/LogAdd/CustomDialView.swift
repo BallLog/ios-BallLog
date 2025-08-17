@@ -11,21 +11,35 @@ struct CustomDialView: View {
     let placeholder: String
     let suffix: String
     @Binding var selectedValue: String
+    var onScoreSelected: (() -> Void)? = nil
+    var externalSheetBinding: Binding<Bool>?
     
     @State private var focusedValue: String = ""
-    @State private var isSheetPresented: Bool = false
+    @State private var internalSheetPresented: Bool = false
+    
+    private var isSheetPresented: Binding<Bool> {
+        externalSheetBinding ?? $internalSheetPresented
+    }
+    
+    init(placeholder: String, suffix: String, selectedValue: Binding<String>, onScoreSelected: (() -> Void)? = nil, isSheetPresented: Binding<Bool>? = nil) {
+        self.placeholder = placeholder
+        self.suffix = suffix
+        self._selectedValue = selectedValue
+        self.onScoreSelected = onScoreSelected
+        self.externalSheetBinding = isSheetPresented
+    }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10.0) {
             Button(action: {
-                isSheetPresented = true
+                isSheetPresented.wrappedValue = true
             }) {
                 Text(selectedValue.isEmpty ? placeholder : selectedValue)
                     .foregroundColor(Color("gray_60"))
                     .font(.system(size: 16))
                     .bold()
             }
-            .sheet(isPresented: $isSheetPresented) {
+            .sheet(isPresented: isSheetPresented) {
                 VStack(spacing: 5.0) {
                     HStack(spacing: 12.0) {
                         Text(suffix)
@@ -45,7 +59,8 @@ struct CustomDialView: View {
                     }
                     Button("선택") {
                         selectedValue = focusedValue
-                        isSheetPresented = false
+                        isSheetPresented.wrappedValue = false
+                        onScoreSelected?()
                     }
                     .buttonStyle(CustomButtonStyle())
                     .modifier(DefaultButtonWidth())

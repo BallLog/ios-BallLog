@@ -58,6 +58,7 @@ struct BallLogSimpleResponse: Codable, Identifiable {
 // MARK: - UI Models
 struct CardItem: Identifiable, Hashable {
     let id = UUID()
+    let ballLogId: Int
     let title: String
     let content: String
     let isPrimary: Bool
