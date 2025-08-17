@@ -73,7 +73,7 @@ class BallLogDetailViewModel: ObservableObject {
         }
         
         shareContent = generateShareContent(from: displayData)
-        // 실제 공유 로직은 View에서 처리
+        // TODO: 실제 공유 로직은 View에서 처리
     }
     
     func confirmDelete() {

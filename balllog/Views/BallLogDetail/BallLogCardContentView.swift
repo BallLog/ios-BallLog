@@ -11,6 +11,7 @@ import SwiftUI
 struct BallLogCardContentView: View {
     let displayData: BallLogDisplayData
     let teamName = UserPreferences.shared.getTeamName()
+    let theme: Int?
     
     var body: some View {
         VStack {
@@ -25,16 +26,19 @@ struct BallLogCardContentView: View {
                         bottomInfoSection
                     }
                     .padding(1)
-                    .foregroundStyle(teamFontColor)
+                    .foregroundStyle(theme == 2 ? Color.white : teamFontColor)
                 }
                 .background(
                     Rectangle()
                         .foregroundStyle(teamThemeBgColor(for: teamName).shapeStyle)
                 )
+                .overlay(
+                    theme == 2 ? Rectangle().stroke(Color.white, lineWidth: 1) : nil
+                )
             }
             .padding(14)
         }
-        .background(Color.white)
+        .background(theme == 0 ? Color.white : Color.clear)
         .padding(1)
     }
     
@@ -42,7 +46,7 @@ struct BallLogCardContentView: View {
     private var titleSection: some View {
         Text(displayData.title)
             .font(.system(size: 14))
-            .foregroundStyle(teamFontColor)
+            .foregroundStyle(theme == 0 ? teamFontColor : Color.white)
             .bold()
     }
     
@@ -55,7 +59,7 @@ struct BallLogCardContentView: View {
             }
             .padding(.horizontal, 14.0)
             .padding(.vertical, 14.0)
-            .background(Color.white)
+            .background(theme == 2 ? Color.clear : Color.white)
             
             DotLineView(myTeam: teamName, theme: 0)
             
@@ -65,7 +69,7 @@ struct BallLogCardContentView: View {
             }
             .padding(.horizontal, 14.0)
             .padding(.vertical, 14.0)
-            .background(Color.white)
+            .background(theme == 2 ? Color.clear : Color.white)
         }
     }
     
@@ -74,9 +78,8 @@ struct BallLogCardContentView: View {
             Text(displayData.formattedDate)
                 .font(.system(size: 14))
                 .bold()
-            Image("under_triangle")
         }
-        .foregroundStyle(teamFontColor)
+        .foregroundStyle(theme == 2 ? Color.white : teamFontColor)
     }
     
     private var scoreView: some View {
@@ -87,9 +90,8 @@ struct BallLogCardContentView: View {
                 .bold()
             Text("\(displayData.scoreOpposing)")
                 .bold()
-            Image("under_triangle")
         }
-        .foregroundStyle(teamFontColor)
+        .foregroundStyle(theme == 2 ? Color.white : teamFontColor)
     }
     
     private var teamsView: some View {
@@ -97,16 +99,14 @@ struct BallLogCardContentView: View {
             HStack(spacing: 4) {
                 Text(displayData.cheeringTeamName)
                     .bold()
-                Image("under_triangle")
             }
             Text("vs")
             HStack(spacing: 4) {
                 Text(displayData.opposingTeamName)
                     .bold()
-                Image("under_triangle")
             }
         }
-        .foregroundStyle(teamFontColor)
+        .foregroundStyle(theme == 2 ? Color.white : teamFontColor)
         .font(.system(size: 14))
     }
     
@@ -118,11 +118,11 @@ struct BallLogCardContentView: View {
                 // 기본 로고 이미지
                 VStack {
                     Image("logo_title")
-                        .foregroundStyle(teamThemeBgColor(for: teamName).shapeStyle)
+                        .foregroundStyle(theme == 2 ? AnyShapeStyle(Color.white) : teamThemeBgColor(for: teamName).shapeStyle)
                 }
                 .frame(height: 175)
                 .frame(maxWidth: .infinity)
-                .background(Color.white)
+                .background(theme == 2 ? Color.clear : Color.white)
             } else {
                 // 실제 사진들
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -162,26 +162,26 @@ struct BallLogCardContentView: View {
                 .frame(maxWidth: .infinity, alignment: .topLeading)
             Spacer(minLength: 0)
         }
-        .foregroundStyle(teamFontColor)
+        .foregroundStyle(theme == 2 ? Color.white : teamFontColor)
         .frame(minHeight: 173, alignment: .topLeading)
         .frame(maxWidth: .infinity, alignment: .topLeading)
         .padding(.horizontal, 14.0)
         .padding(.vertical, 10.0)
-        .background(Color.white)
+        .background(theme == 2 ? Color.clear : Color.white)
     }
     
     private var bottomInfoSection: some View {
         VStack(spacing: 0) {
             Rectangle()
                 .frame(height: 1)
-                .foregroundStyle(Color.clear)
+                .foregroundStyle(theme == 2 ? Color.white : Color.clear)
 
             HStack(spacing: 0) {
                 winRateSection
                 
                 Rectangle()
                     .frame(width: 1, height: 51)
-                    .foregroundStyle(Color.clear)
+                    .foregroundStyle(theme == 2 ? Color.white : Color.clear)
                 
                 stadiumSection
             }
@@ -199,10 +199,10 @@ struct BallLogCardContentView: View {
             GeometryReader { geometry in
                 ZStack(alignment: .leading) {
                     RoundedRectangle(cornerRadius: 4)
-                        .strokeBorder(teamFontColor, lineWidth: 1)
+                        .strokeBorder(theme == 2 ? Color.white : teamFontColor, lineWidth: 1)
                         .frame(height: 6)
                     Rectangle()
-                        .fill(teamFontColor)
+                        .fill(theme == 2 ? Color.white : teamFontColor)
                     // TODO: 승률 데이터 입력
                         .frame(width: geometry.size.width * 0.1, height: 6)
                         .clipShape(RoundedCorner(radius: 4, corners: [.topLeft, .bottomLeft]))
@@ -213,7 +213,7 @@ struct BallLogCardContentView: View {
         .padding(.horizontal, 14)
         .padding(.vertical, 12)
         .frame(maxWidth: .infinity)
-        .background(Color.white)
+        .background(theme == 2 ? Color.clear : Color.white)
     }
     
     private var stadiumSection: some View {
@@ -221,12 +221,11 @@ struct BallLogCardContentView: View {
             Text(displayData.stadiumName)
                 .font(.system(size: 12))
                 .bold()
-            Image("under_triangle")
         }
         .padding(.horizontal, 14.0)
         .padding(.vertical, 18.0)
         .frame(maxWidth: .infinity)
-        .background(Color.white)
+        .background(theme == 2 ? Color.clear : Color.white)
     }
     
     // MARK: - 계산된 속성

@@ -5,7 +5,6 @@
 //  Created by 전은혜 on 7/8/25.
 //
 
-
 import SwiftUI
 
 struct BallLogCardView: View {
@@ -14,13 +13,9 @@ struct BallLogCardView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            BallLogCardContentView(displayData: displayData)
-                .background(
-                    Rectangle()
-                        .foregroundStyle(teamThemeBgColor(for: teamName).shapeStyle)
-                )
+            BallLogCardOnlyView(displayData: displayData, theme: 0)
                 .padding(.leading, 18)
-                .frame(width: geometry.size.width - 18)
+                .frame(width: max(0, geometry.size.width - 18))
         }
     }
 }

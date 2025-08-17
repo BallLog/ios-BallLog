@@ -27,7 +27,7 @@ struct BallLogDetailData: Codable {
     let matchResult: String
 }
 
-struct PhotoDetailResponse: Codable {
+struct PhotoDetailResponse: Codable, Equatable {
     let id: String
     let imgUrl: String
     let sequence: Int
@@ -55,7 +55,7 @@ private func formatDate(_ dateString: String) -> String {
 }
 
 // MARK: - Display Data Model
-struct BallLogDisplayData {
+struct BallLogDisplayData: Equatable {
     let id: Int
 
 

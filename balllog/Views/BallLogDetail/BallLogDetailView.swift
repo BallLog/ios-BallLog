@@ -5,7 +5,6 @@
 //  Created by 전은혜 on 7/8/25.
 //
 
-
 import SwiftUI
 
 struct BallLogDetailView: View {
@@ -14,6 +13,7 @@ struct BallLogDetailView: View {
     @Environment(\.dismiss) var dismiss
     let serviceVM: ServiceViewModel?
     let onDelete: (() -> Void)?
+    @State private var showShareView = false
     
     init(ballLogId: String = "0", serviceVM: ServiceViewModel? = nil, onDelete: (() -> Void)? = nil) {
         self.ballLogId = ballLogId
@@ -48,7 +48,7 @@ struct BallLogDetailView: View {
                 // 고정 컨트롤 버튼
                 VStack {
                     Spacer()
-                    BallLogDetailControlView(viewModel: viewModel)
+                    BallLogDetailControlView(viewModel: viewModel, showShareView: $showShareView)
                 }
                 
                 // 삭제 확인 모달
@@ -75,6 +75,9 @@ struct BallLogDetailView: View {
             }
         } message: {
             Text(viewModel.errorMessage ?? "")
+        }
+        .fullScreenCover(isPresented: $showShareView) {
+            ShareLogView(viewModel: viewModel)
         }
     }
     

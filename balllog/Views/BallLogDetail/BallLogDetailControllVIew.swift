@@ -10,6 +10,7 @@ import SwiftUI
 
 struct BallLogDetailControlView: View {
     @ObservedObject var viewModel: BallLogDetailViewModel
+    @Binding var showShareView: Bool
     
     var body: some View {
         VStack {
@@ -32,12 +33,6 @@ struct BallLogDetailControlView: View {
                 .foregroundColor(Color("gray_30")),
             alignment: .top
         )
-        .sheet(isPresented: .constant(!viewModel.shareContent.isEmpty)) {
-            ShareSheet(activityItems: [viewModel.shareContent])
-                .onDisappear {
-                    viewModel.shareContent = ""
-                }
-        }
     }
     
     private var shareButton: some View {
@@ -51,7 +46,7 @@ struct BallLogDetailControlView: View {
         }
         .frame(width: 45, height: 45)
         .onTapGesture {
-            viewModel.shareBallLog()
+            showShareView = true
         }
     }
     
