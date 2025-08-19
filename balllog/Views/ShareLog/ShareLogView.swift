@@ -174,7 +174,7 @@ struct ShareLogView: View {
     private func createThemedCardView(displayData: BallLogDisplayData, theme: Int) -> some View {
         // 현재는 기본 카드뷰만 반환, 추후 테마별로 다른 뷰 반환 예정
         return BallLogCardOnlyView(displayData: displayData, theme: theme)
-            .frame(width: 340, height: 590)
+            .frame(width: 341, height: 590)
             .background(Color.white)
     }
 }

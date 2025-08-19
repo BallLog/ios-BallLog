@@ -43,6 +43,7 @@ struct BallLogCreateData: Codable {
     let stadiumId: Int
     let matchDate: String
     let photos: [PhotoResponse]
+    let winRate: Double?  // 승률 추가
 }
 
 struct PhotoResponse: Codable {

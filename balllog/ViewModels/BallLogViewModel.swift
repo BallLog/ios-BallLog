@@ -69,15 +69,29 @@ class BallLogViewModel: ObservableObject {
                 
                 await MainActor.run {
                     if reset {
+                        let oldCount = ballLogs.count
                         ballLogs = response.data.content
+                        print("📊 데이터 리셋됨: \(oldCount)개 → \(ballLogs.count)개")
+                        
+                        // 첫 번째 볼로그 ID 출력 (디버깅용)
+                        if let firstLog = ballLogs.first {
+                            print("🔍 첫 번째 볼로그 ID: \(firstLog.id), 제목: \(firstLog.title)")
+                        }
                     } else {
+                        let oldCount = ballLogs.count
                         ballLogs.append(contentsOf: response.data.content)
+                        print("📊 데이터 추가됨: \(oldCount)개 → \(ballLogs.count)개")
                     }
                     
                     hasMorePages = !response.data.last
                     currentPage += 1
                     
                     print("📊 현재 상태 - 총 데이터: \(ballLogs.count)개, hasMorePages: \(hasMorePages)")
+                    print("🔄 ballLogs 배열이 @Published로 업데이트됨")
+                    
+                    // 강제로 UI 업데이트 트리거
+                    objectWillChange.send()
+                    print("🔔 objectWillChange.send() 호출됨")
                 }
                 
             } catch {

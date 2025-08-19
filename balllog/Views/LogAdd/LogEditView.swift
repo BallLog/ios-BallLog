@@ -46,7 +46,7 @@ struct LogEditView: View {
                                     .id("header")
                                 
                                 // 로그 카드
-                                LogCardView(viewModel: viewModel, isFocused: _isFocused)
+                                LogEditCardView(viewModel: viewModel, isFocused: _isFocused)
                                     .id("logCard")
                                 
                                 // 키보드 높이만큼 여백 추가

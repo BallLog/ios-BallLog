@@ -146,7 +146,7 @@ class BallLogEditViewModel: ObservableObject {
             let request = try await buildUpdateRequest()
             
             print("🌐 API 호출 시작...")
-            let response = try await updateService.updateBallLog(id: ballLogId, request: request)
+            let response = try await updateService.updateBallLog(ballLogId: String(ballLogId), request: request)
             
             print("📨 API 응답 받음:")
             print("  - 응답 코드: \(response.code)")
@@ -332,15 +332,15 @@ class BallLogEditViewModel: ObservableObject {
         )
         
         print("=== 최종 API 요청 데이터 ===")
-        print("cheeringTeamId: \(request.cheeringTeamId)")
-        print("opposingTeamId: \(request.opposingTeamId)")
-        print("scoreCheering: \(request.scoreCheering)")
-        print("scoreOpposing: \(request.scoreOpposing)")
-        print("title: '\(request.title)'")
-        print("content: '\(request.content)'")
-        print("stadiumId: \(request.stadiumId)")
+        print("cheeringTeamId: \(String(describing: request.cheeringTeamId))")
+        print("opposingTeamId: \(String(describing: request.opposingTeamId))")
+        print("scoreCheering: \(String(describing: request.scoreCheering))")
+        print("scoreOpposing: \(String(describing: request.scoreOpposing))")
+        print("title: '\(String(describing: request.title))'")
+        print("content: '\(String(describing: request.content))'")
+        print("stadiumId: \(String(describing: request.stadiumId))")
         print("matchDate: \(request.matchDate ?? "nil")")
-        print("photos: \(request.photos.count)장")
+        print("photos: \(String(describing: request.photos?.count))장")
         
         return request
     }
@@ -425,26 +425,3 @@ class BallLogEditViewModel: ObservableObject {
     }
 }
 
-// MARK: - Supporting Models
-struct BallLogUpdateRequest: Codable {
-    let cheeringTeamId: Int
-    let opposingTeamId: Int
-    let scoreCheering: Int
-    let scoreOpposing: Int
-    let title: String
-    let content: String
-    let stadiumId: Int
-    let matchDate: String?
-    let photos: [PhotoRequest]
-}
-
-// MARK: - Update Service Protocol
-protocol BallLogUpdateServiceProtocol {
-    func updateBallLog(id: Int, request: BallLogUpdateRequest) async throws -> BallLogUpdateResponse
-}
-
-// MARK: - Update Response Model
-struct BallLogUpdateResponse: Codable {
-    let code: String
-    let message: String
-}

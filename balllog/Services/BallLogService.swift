@@ -59,9 +59,9 @@ class BallLogService: BallLogServiceProtocol {
             throw URLError(.badServerResponse)
         }
         
-        if let jsonString = String(data: data, encoding: .utf8) {
-            print("👉 JSON 데이터:\n\(jsonString)")
-        }
+//        if let jsonString = String(data: data, encoding: .utf8) {
+//            print("👉 JSON 데이터:\n\(jsonString)")
+//        }
         return try JSONDecoder().decode(BallLogResponse.self, from: data)
     }
 }

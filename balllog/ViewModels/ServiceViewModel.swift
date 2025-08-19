@@ -14,6 +14,7 @@ class ServiceViewModel: ObservableObject {
     
     @Published var selectedTab: Tab = .home {
         didSet {
+            print("🔄 ServiceViewModel: selectedTab 변경됨 - \(selectedTab)")
             if selectedTab == .add {
                 shouldPresentLogView = true
                 selectedTab = .home // 초기화
@@ -22,6 +23,7 @@ class ServiceViewModel: ObservableObject {
     }
     @Published var shouldPresentLogView: Bool = false
     @Published var showTabBar: Bool = true // 탭바 표시 상태 추가
+    @Published var shouldRefreshHomeData: Bool = false // 홈뷰 데이터 리프레시 플래그
 
     func hideTabBar() {
         showTabBar = false

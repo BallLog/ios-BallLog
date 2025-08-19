@@ -34,22 +34,40 @@ struct ServiceView: View {
                     Spacer()
                     tabBar
                 }
+                .background(Color.clear)
             }
         }
         .ignoresSafeArea(.container, edges: .bottom) // 하단 안전 영역 무시
         .interactiveDismissDisabled(true)
         .fullScreenCover(isPresented: $serviceVM.shouldPresentLogView) {
-            LogAddView() // 로그 추가 페이지
+            LogAddView(onSave: {
+                // 볼로그 저장 후 홈뷰 데이터 리프레시 필요
+                print("🔄 ServiceView: 볼로그 저장 완료, NotificationCenter로 알림 전송")
+                NotificationCenter.default.post(name: NSNotification.Name("BallLogSaved"), object: nil)
+            }) // 로그 추가 페이지
         }
         .animation(.easeInOut(duration: 0.3), value: serviceVM.showTabBar) // 탭바 표시/숨김 애니메이션
     }
     
     var tabBar: some View {
         ZStack(alignment: .top) {
-            Image("TabBar")
-                .resizable()
-                .frame(maxWidth: .infinity)
-                .aspectRatio(contentMode: .fit) // 비율 유지
+            ZStack(alignment: .bottom) {
+                // 하얀색 박스
+                Rectangle()
+                    .fill(Color.white)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 93)
+                // 중앙 원형 버튼 배경
+                VStack {
+                    Circle()
+                        .fill(Color.white)
+                        .frame(width: 50, height: 50)
+                        .offset(y: 5)
+                    Spacer()
+                }
+                .frame(height: 110)
+            }
+            .background(Color.clear)
 
             HStack(alignment: .bottom) {
                 Spacer()
@@ -104,10 +122,17 @@ struct ServiceView: View {
                 Spacer()
             }
             .padding(.top, 8.0)
+            .background(Color.clear)
             .frame(maxWidth: .infinity)
         }
-        .background(.clear)
         .compositingGroup()
+        .shadow(
+            color: Color(red: 98/255, green: 98/255, blue: 98/255, opacity: 0.25),
+            radius: 2,
+            x: 0,
+            y: -2
+        )
+        .clipped()
         .navigationBarBackButtonHidden(true)
     }
 }

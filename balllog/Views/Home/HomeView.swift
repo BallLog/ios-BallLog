@@ -28,7 +28,7 @@ struct HomeView: View {
                     handleFilterChange(newFilter)
                 }
             }
-            .padding(.bottom, 76.0)
+            .padding(.bottom, 60.0)
             .navigationBarBackButtonHidden(true)
             .navigationDestination(item: $selectedCard) { card in
                 BallLogDetailView(
@@ -54,8 +54,48 @@ struct HomeView: View {
             })
         }
         .onAppear {
+            print("🏠 HomeView: onAppear 호출됨")
+            print("🏠 HomeView: viewModel 인스턴스 주소 - \(Unmanaged.passUnretained(viewModel).toOpaque())")
+            print("🏠 HomeView: 현재 ballLogs 개수 - \(viewModel.ballLogs.count)")
             Task {
+                // 리프레시 플래그가 설정되어 있으면 리프레시
+                if serviceVM.shouldRefreshHomeData {
+                    print("🔄 HomeView: onAppear에서 리프레시 플래그 감지, 데이터 리프레시")
+                    await loadData(filter: currentFilter)
+                    serviceVM.shouldRefreshHomeData = false
+                } else {
+                    await loadData(filter: currentFilter)
+                }
+            }
+        }
+        .onChange(of: serviceVM.shouldRefreshHomeData) { _, shouldRefresh in
+            print("🏠 HomeView: shouldRefreshHomeData 변경됨 - \(shouldRefresh)")
+            if shouldRefresh {
+                print("🔄 HomeView: 데이터 리프레시 시작")
+                Task {
+                    await loadData(filter: currentFilter)
+                    print("✅ HomeView: 데이터 리프레시 완료, 플래그 리셋")
+                    serviceVM.shouldRefreshHomeData = false // 플래그 리셋
+                }
+            }
+        }
+        .onChange(of: serviceVM.selectedTab) { _, newTab in
+            print("🏠 HomeView: selectedTab 변경됨 - \(newTab)")
+            if newTab == .home && serviceVM.shouldRefreshHomeData {
+                print("🔄 HomeView: 홈탭으로 돌아왔고 리프레시 플래그 감지, 데이터 리프레시")
+                Task {
+                    await loadData(filter: currentFilter)
+                    print("✅ HomeView: 데이터 리프레시 완료, 플래그 리셋")
+                    serviceVM.shouldRefreshHomeData = false // 플래그 리셋
+                }
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: NSNotification.Name("BallLogSaved"))) { _ in
+            print("🏠 HomeView: NotificationCenter에서 BallLogSaved 알림 수신")
+            Task {
+                print("🔄 HomeView: 데이터 리프레시 시작")
                 await loadData(filter: currentFilter)
+                print("✅ HomeView: 데이터 리프레시 완료")
             }
         }
     }
@@ -77,6 +117,10 @@ struct HomeView: View {
     }
 }
 
+//#Preview {
+//    HomeView(serviceVM: ServiceViewModel())
+//}
+
 #Preview {
-    HomeView(serviceVM: ServiceViewModel())
+    ServiceViewPreview()
 }

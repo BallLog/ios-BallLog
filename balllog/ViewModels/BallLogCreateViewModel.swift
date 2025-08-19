@@ -90,20 +90,48 @@ class BallLogCreateViewModel: ObservableObject {
     }
     
     // 볼로그 생성 성공 시 승률 업데이트
-    private func updateWinRateAfterLogCreation() {
-        guard let cheeringScore = Int(myTeamScore),
-              let opposingScore = Int(opposingTeamScore) else {
-            return
-        }
+    private func updateWinRateAfterLogCreation(response: BallLogCreateResponse) {
+        print("🔄 승률 업데이트 시작")
         
-        let isWin = cheeringScore > opposingScore
-        
-        // 1. 로컬 승률 즉시 업데이트 (빠른 UI 반응)
-        UserPreferences.shared.updateLocalWinRate(isWin: isWin)
-        
-        // 2. 백그라운드에서 서버 동기화 (나중에 구현)
-        Task {
-            await syncWinRateWithServer()
+        if let winRate = response.data.winRate {
+            print("📊 서버에서 받은 승률: \(winRate)")
+            
+            // 경기 결과에 따른 승수와 총 경기 수 계산
+            let isWin = response.data.matchResult == "WIN"
+            let currentWinCount = UserPreferences.shared.winGames
+            let currentTotalGames = UserPreferences.shared.totalGames
+            
+            // 새로운 경기 추가
+            let newTotalGames = currentTotalGames + 1
+            let newWinCount = isWin ? currentWinCount + 1 : currentWinCount
+            
+            print("📈 경기 결과: \(response.data.matchResult)")
+            print("📊 업데이트 전: 승 \(currentWinCount), 총 \(currentTotalGames)")
+            print("📊 업데이트 후: 승 \(newWinCount), 총 \(newTotalGames)")
+            
+            // UserPreferences 승률 업데이트 (서버 winRate는 퍼센트가 아닌 비율이므로 * 100)
+            UserPreferences.shared.syncWinRateFromServer(
+                serverWinRate: winRate * 100, 
+                serverTotalGames: newTotalGames, 
+                serverWinGames: newWinCount
+            )
+            
+            print("✅ 승률 업데이트 완료")
+        } else {
+            print("⚠️ 서버 응답에 winRate가 포함되지 않음, 로컬 계산 사용")
+            
+            // 서버에서 winRate를 제공하지 않는 경우 기존 로직 사용
+            guard let cheeringScore = Int(myTeamScore),
+                  let opposingScore = Int(opposingTeamScore) else {
+                return
+            }
+            
+            let isWin = cheeringScore > opposingScore
+            
+            // 로컬 승률 업데이트
+            UserPreferences.shared.updateLocalWinRate(isWin: isWin)
+            
+            print("✅ 로컬 승률 업데이트 완료")
         }
     }
     
@@ -155,7 +183,7 @@ class BallLogCreateViewModel: ObservableObject {
                 isSuccessful = true
                 
                 // 승률 업데이트
-                updateWinRateAfterLogCreation()
+                updateWinRateAfterLogCreation(response: response)
             } else {
                 print("❌ 서버 오류: \(response.message)")
                 errorMessage = response.message

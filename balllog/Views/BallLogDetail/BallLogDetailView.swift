@@ -112,14 +112,33 @@ struct BallLogDetailView: View {
     }
     
     private func mainContentView(displayData: BallLogDisplayData) -> some View {
-        ScrollView {
-            VStack {
-                Spacer().frame(minHeight: 10)
-                BallLogCardView(displayData: displayData)
-                Spacer().frame(minHeight: 22)
+        GeometryReader { geometry in
+            let cardHeight: CGFloat = 590
+            let totalPadding: CGFloat = 60 + 73 + 10 + 22 // top + bottom + spacers
+            let requiredHeight = cardHeight + totalPadding
+            let availableHeight = geometry.size.height
+            
+            if availableHeight >= requiredHeight {
+                // 충분한 공간이 있을 때: 스크롤 없이 중앙 정렬
+                VStack {
+                    Spacer()
+                    BallLogCardView(displayData: displayData)
+                    Spacer()
+                }
+                .padding(.top, 60)
+                .padding(.bottom, 73)
+            } else {
+                // 공간이 부족할 때: 스크롤 가능
+                ScrollView {
+                    VStack {
+                        Spacer().frame(minHeight: 10)
+                        BallLogCardView(displayData: displayData)
+                        Spacer().frame(minHeight: 22)
+                    }
+                    .padding(.top, 60)
+                    .padding(.bottom, 73)
+                }
             }
-            .padding(.top, 60)
-            .padding(.bottom, 73)
         }
     }
 }
