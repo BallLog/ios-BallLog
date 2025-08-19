@@ -14,6 +14,7 @@ struct BallLogDetailView: View {
     let serviceVM: ServiceViewModel?
     let onDelete: (() -> Void)?
     @State private var showShareView = false
+    @State private var showEditView = false
     
     init(ballLogId: String = "0", serviceVM: ServiceViewModel? = nil, onDelete: (() -> Void)? = nil) {
         self.ballLogId = ballLogId
@@ -48,7 +49,7 @@ struct BallLogDetailView: View {
                 // 고정 컨트롤 버튼
                 VStack {
                     Spacer()
-                    BallLogDetailControlView(viewModel: viewModel, showShareView: $showShareView)
+                    BallLogDetailControlView(viewModel: viewModel, showShareView: $showShareView, showEditView: $showEditView)
                 }
                 
                 // 삭제 확인 모달
@@ -78,6 +79,19 @@ struct BallLogDetailView: View {
         }
         .fullScreenCover(isPresented: $showShareView) {
             ShareLogView(viewModel: viewModel)
+        }
+        .fullScreenCover(isPresented: $showEditView) {
+            if let displayData = viewModel.displayData {
+                LogEditView(
+                    displayData: displayData,
+                    onSave: {
+                        // 수정 완료 후 데이터 새로고침
+                        Task {
+                            await viewModel.loadBallLogDetail()
+                        }
+                    }
+                )
+            }
         }
     }
     

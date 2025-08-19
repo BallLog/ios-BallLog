@@ -11,6 +11,7 @@ import SwiftUI
 struct BallLogDetailControlView: View {
     @ObservedObject var viewModel: BallLogDetailViewModel
     @Binding var showShareView: Bool
+    @Binding var showEditView: Bool
     
     var body: some View {
         VStack {
@@ -68,8 +69,7 @@ struct BallLogDetailControlView: View {
     private var editButton: some View {
         VStack {
             Button("수정하기") {
-                // TODO: 수정 화면으로 네비게이션
-                print("수정하기 버튼 클릭")
+                showEditView = true
             }
             .buttonStyle(RoundedButtonStyle())
             .modifier(DefaultButtonWidth(width: .infinity))
